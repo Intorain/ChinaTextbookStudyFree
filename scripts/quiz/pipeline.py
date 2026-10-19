@@ -29,6 +29,7 @@ import requests
 from pathlib import Path
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from openai import OpenAI
+from editions import load_edition
 
 # 项目根目录
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
@@ -63,14 +64,9 @@ from subjects import (
 # 配置
 # ============================================================
 OPENROUTER_API_KEY = os.environ.get("OPENROUTER_API_KEY", "")
-if not OPENROUTER_API_KEY:
-    print("错误: 请设置环境变量 OPENROUTER_API_KEY")
-    print("  export OPENROUTER_API_KEY='sk-or-...'")
-    sys.exit(1)
-
 client = OpenAI(
     base_url="https://openrouter.ai/api/v1",
-    api_key=OPENROUTER_API_KEY,
+    api_key=OPENROUTER_API_KEY or "dry-run",
 )
 
 EXTRACT_MODEL = "google/gemini-3.1-flash-lite-preview"
@@ -183,6 +179,13 @@ def migrate_legacy_math_data_if_needed() -> None:
 # ============================================================
 def download_pdf(filename: str, subject_cfg: SubjectConfig, dirs: dict[str, Path]) -> Path:
     out_path = dirs["pdf"] / filename
+    if subject_cfg.get("local_pdf_dir"):
+        source = Path(subject_cfg["local_pdf_dir"]) / filename
+        if out_path.exists() and out_path.read_bytes() != source.read_bytes():
+            raise ValueError("PDF changed: use a new edition id to avoid stale generated content")
+        if not out_path.exists():
+            shutil.copyfile(source, out_path)
+        return out_path
     if out_path.exists():
         print(f"  [跳过] {filename} 已存在")
         return out_path
@@ -627,7 +630,9 @@ def run_subject(subject_id: str, only: str | None, batch_size: int):
 # CLI 入口
 # ============================================================
 def main():
+    global OUTPUT_DIR
     parser = argparse.ArgumentParser(description="小学多学科教材 AI 题库生成 Pipeline v3")
+    parser.add_argument("--edition-config", type=Path, help="Explicit local-PDF edition manifest")
     parser.add_argument(
         "--subject", type=str, default="math",
         choices=["math", "chinese", "english", "science", "all"],
@@ -651,6 +656,25 @@ def main():
     )
     args = parser.parse_args()
 
+    if args.edition_config:
+        if args.subject == "all":
+            parser.error("--edition-config requires one --subject")
+        try:
+            cfg = load_edition(args.edition_config.resolve(), args.subject, SUBJECTS[args.subject])
+        except (ValueError, OSError, TypeError) as error:
+            parser.error(str(error))
+        SUBJECTS[args.subject] = cfg
+        OUTPUT_DIR = OUTPUT_DIR / "editions" / cfg["edition"]["id"]
+        if not args.dry_run and not args.list_subjects:
+            if not OPENROUTER_API_KEY:
+                parser.error("Set OPENROUTER_API_KEY before generating content")
+            OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
+            metadata = OUTPUT_DIR / "edition.json"
+            payload = json.dumps(cfg["edition"], ensure_ascii=False, indent=2)
+            if metadata.exists() and metadata.read_text(encoding="utf-8") != payload:
+                parser.error("Edition metadata changed: choose a new edition id")
+            metadata.write_text(payload, encoding="utf-8")
+
     if args.list_subjects:
         for sid in ALL_SUBJECT_IDS:
             cfg = SUBJECTS[sid]
@@ -665,7 +689,9 @@ def main():
         return
 
     # 数学旧数据兜底迁移
-    if args.subject in ("math", "all"):
+    if not args.dry_run and not args.list_subjects and not OPENROUTER_API_KEY:
+        parser.error("Set OPENROUTER_API_KEY before generating content")
+    if not args.edition_config and not args.dry_run and args.subject in ("math", "all"):
         migrate_legacy_math_data_if_needed()
 
     print("=" * 60)
