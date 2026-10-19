@@ -55,6 +55,10 @@ python scripts/checks/local-web.py --origin http://127.0.0.1:18824 --narration-r
 
 归档 SHA256：`62b0a8e829b091d50fe9621481bdd5fcf02b2651acb1eda87ad56e7ee1db51a7`。
 
-同目录含 `manifest.json` 和 `SHA256SUMS`。这是基于 v1.4.0-content 的音频补充包：先恢复该版本资源，再将补充包解到仓库根目录，使用更新后的 PR #24 源码执行完整构建。它不是独立网站包，未上传 GitHub Release。旧发布包的 144,208 文件核验结果仍保留在 `deploy-output/release-integrity.json`。
+已发布为 [v1.4.1-narration-supplement](https://github.com/wuwangzhang1216/ChinaTextbookStudyFree/releases/tag/v1.4.1-narration-supplement) 预发布，固定配套源码为 `5a3408a90c87050aa54e1d12af4f446d880221d0`，不替换最新稳定完整包。附件包括归档、`manifest.json`、`SHA256SUMS`、`INSTALL.md` 和只读验证脚本 `verify-narration.py`。
+
+这是基于 v1.4.0-content 的音频补充包：先恢复该版本资源，再将补充包解到仓库根目录，使用指定源码执行完整构建。它不是独立网站包。旧发布包的 144,208 文件核验结果仍保留在 `deploy-output/release-integrity.json`。
+
+发布前另在独立目录依次安装两个基础音频归档和补充包：8,131 个补充文件 SHA256 全部匹配，目录索引核对 76,987 条源朗读全部存在且非空，24 个 Opus/MP3 实际解码样本通过，校验和不符与安装文件损坏两类反例均被拒绝。上传到草稿后重新下载五个附件，与本地逐一比较 SHA256，并再次验证归档内全部 8,131 个文件后才发布。证据位于 `deploy-output/narration-release-install-test.json` 和 `deploy-output/narration-release-remote-verification.json`。
 
 全程不跑 GitHub CI。音频技术校验不代替逐条人工听审；新版教材与五四制范围仍遵循此前记录。
