@@ -29,7 +29,7 @@ import requests
 from pathlib import Path
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from openai import OpenAI
-from editions import load_edition
+from editions import load_edition, record_edition, pdf_digest
 
 # 项目根目录
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
@@ -181,10 +181,15 @@ def download_pdf(filename: str, subject_cfg: SubjectConfig, dirs: dict[str, Path
     out_path = dirs["pdf"] / filename
     if subject_cfg.get("local_pdf_dir"):
         source = Path(subject_cfg["local_pdf_dir"]) / filename
+        expected = subject_cfg["edition"]["pdf_sha256"][filename]
+        if pdf_digest(source) != expected:
+            raise ValueError("Source PDF changed after edition validation")
         if out_path.exists() and out_path.read_bytes() != source.read_bytes():
             raise ValueError("PDF changed: use a new edition id to avoid stale generated content")
         if not out_path.exists():
             shutil.copyfile(source, out_path)
+        if pdf_digest(out_path) != expected:
+            raise ValueError("Cached PDF does not match edition fingerprint")
         return out_path
     if out_path.exists():
         print(f"  [跳过] {filename} 已存在")
@@ -557,8 +562,7 @@ def process_textbook(filename: str, subject_id: str, batch_size: int = 10):
     units = outline.get("units", [])
 
     if not units:
-        print(f"  [跳过] 没有解析到单元信息")
-        return
+        raise ValueError("No units found in textbook outline")
 
     todo_units = []
     for unit in units:
@@ -586,6 +590,7 @@ def process_textbook(filename: str, subject_id: str, batch_size: int = 10):
         knowledge_file.write_text(generate_knowledge_markdown(quiz_data), encoding="utf-8")
         return unit, issues
 
+    failures = []
     with ThreadPoolExecutor(max_workers=MAX_WORKERS) as ex:
         futures = {ex.submit(_do_unit, u): u for u in todo_units}
         for fut in as_completed(futures):
@@ -596,6 +601,9 @@ def process_textbook(filename: str, subject_id: str, batch_size: int = 10):
                 print(f"    [完成] 第{u['unit_number']}单元 {u['title']}{tag}")
             except Exception as e:
                 print(f"    [错误] 第{unit['unit_number']}单元: {e}")
+                failures.append(unit['unit_number'])
+    if failures:
+        raise RuntimeError(f"Failed units: {failures}")
 
 
 # ============================================================
@@ -608,14 +616,14 @@ def run_subject(subject_id: str, only: str | None, batch_size: int):
     if only:
         textbooks = [t for t in textbooks if only in t]
         if not textbooks:
-            print(f"[{subject_id}] 未找到包含 '{only}' 的教材")
-            return
+            raise ValueError(f"[{subject_id}] 未找到包含 '{only}' 的教材")
 
     print(f"\n{'#' * 60}")
     print(f"# 学科: {subject_cfg['display_name']} ({subject_id})")
     print(f"# 教材数量: {len(textbooks)}")
     print(f"{'#' * 60}")
 
+    failures = []
     for filename in textbooks:
         try:
             process_textbook(filename, subject_id, batch_size)
@@ -623,7 +631,9 @@ def run_subject(subject_id: str, only: str | None, batch_size: int):
             print(f"  [错误] {filename}: {e}")
             import traceback
             traceback.print_exc()
-            continue
+            failures.append(filename)
+    if failures:
+        raise RuntimeError(f"Failed textbooks: {failures}")
 
 
 # ============================================================
@@ -668,12 +678,10 @@ def main():
         if not args.dry_run and not args.list_subjects:
             if not OPENROUTER_API_KEY:
                 parser.error("Set OPENROUTER_API_KEY before generating content")
-            OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
-            metadata = OUTPUT_DIR / "edition.json"
-            payload = json.dumps(cfg["edition"], ensure_ascii=False, indent=2)
-            if metadata.exists() and metadata.read_text(encoding="utf-8") != payload:
-                parser.error("Edition metadata changed: choose a new edition id")
-            metadata.write_text(payload, encoding="utf-8")
+            try:
+                record_edition(OUTPUT_DIR, cfg["edition"])
+            except (ValueError, OSError) as error:
+                parser.error(str(error))
 
     if args.list_subjects:
         for sid in ALL_SUBJECT_IDS:
