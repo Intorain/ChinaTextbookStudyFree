@@ -17,6 +17,7 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--origin", default="http://127.0.0.1:8080")
     parser.add_argument("--output", type=Path, default=ROOT / "deploy-output/local-smoke")
+    parser.add_argument("--narration-receipts", type=Path, help="Also play three newly generated question recordings from real lesson pages")
     args = parser.parse_args()
     args.output.mkdir(parents=True, exist_ok=True)
     origin = args.origin.rstrip("/")
@@ -35,6 +36,29 @@ def main():
         assert response.headers.get_content_type() == "audio/mpeg"
         assert len(response.read()) == 32
     report = {"origin": origin, "range_request": "passed", "viewports": [], "errors": []}
+    new_questions = []
+    if args.narration_receipts:
+        generated = set()
+        for receipt in args.narration_receipts.glob("receipts-*.jsonl"):
+            for line in receipt.read_text(encoding="utf-8").splitlines():
+                item = json.loads(line)
+                if item["status"] == "generated":
+                    generated.add(item["hash"])
+        for file in sorted((ROOT / "apps/web/out/data/books").glob("*/lessons/*.json")):
+            lesson = json.loads(file.read_text(encoding="utf-8"))
+            if not lesson.get("bookId", "").startswith("g") or lesson.get("knowledge") is not None or not lesson.get("questions"):
+                continue
+            source = lesson["questions"][0].get("audio", {}).get("question", "")
+            if Path(source).stem in generated and source not in [x[1] for x in new_questions]:
+                new_questions.append((f"/lesson/{lesson['bookId']}/{lesson['id']}/", source))
+                if len(new_questions) == 3:
+                    break
+        assert len(new_questions) == 3, "Need three built lessons referencing new question audio"
+        for _, source in new_questions:
+            request = urllib.request.Request(origin + source, headers={"Range": "bytes=0-31"})
+            with urllib.request.urlopen(request, timeout=30) as response:
+                assert response.status == 206 and response.headers.get_content_type() == "audio/mpeg"
+                assert len(response.read()) == 32
     with sync_playwright() as p:
         browser = p.chromium.launch(channel="chrome", headless=True)
         for width, height in [(390, 844), (1280, 800)]:
@@ -75,7 +99,14 @@ def main():
                     assert image.evaluate("image => image.complete && image.naturalWidth > 0")
                     page.screenshot(path=str(args.output / f"story-{width}.png"))
                 checked.append(route)
-            report["viewports"].append({"width": width, "height": height, "onboarding": "passed", "sentence_playback": "passed", "routes": checked})
+            for index, (route, source) in enumerate(new_questions):
+                response = page.goto(origin + route, wait_until="networkidle")
+                assert response.status == 200
+                page.get_by_role("button", name="朗读题目", exact=True).click()
+                page.wait_for_function("src => window.__smokeAudio.some(a => a.src.endsWith(src) && a.currentTime > 0 && !a.error)", arg=source, timeout=20000)
+                page.screenshot(path=str(args.output / f"new-narration-{index}-{width}.png"))
+                checked.append(route)
+            report["viewports"].append({"width": width, "height": height, "onboarding": "passed", "sentence_playback": "passed", "new_question_playback": [source for _, source in new_questions], "routes": checked})
             context.close()
         browser.close()
     report["status"] = "failed" if report["errors"] else "passed"

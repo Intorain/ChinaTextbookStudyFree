@@ -4,8 +4,27 @@ import fs from "node:fs";
 import path from "node:path";
 import { mathSpeech } from "../../packages/core/src/mathSpeech";
 import { splitMath } from "../../apps/web/src/lib/math-segments";
+import narrationEntries from "../../packages/core/src/mathNarrationOverrides.json";
+import katex from "katex";
 
 const cases = [
+  [String.raw`$90^{\circ}$`, "90度"],
+  [String.raw`$\Box+\triangle$`, "方框加三角形"],
+  [String.raw`$\angle A=90^\circ$`, "角 A等于90度"],
+  [String.raw`$\sqrt{9}$`, "根号9"],
+  [String.raw`$84 \text{ } / \text{ } 7 = 12$`, "7分之84 等于 12"],
+  ["$2\times3=6$", "2乘以3等于6"],
+  ["$\frac{1}{2}$", "2分之1"],
+  ["$16 \bdiv 2=8$", "16 除以 2等于8"],
+  ["$16 \x00 2=8$", "16 除以 2等于8"],
+  ["$2 \x07 3=6$", "2 乘以 3等于6"],
+  ["$\bigcirc + \triangle$", "圆圈 加 三角形"],
+  ["$6\blacksquare4$", "6方框4"],
+  ["$2\bdot3$", "2乘以3"],
+  ["$\text{元}$", "元"],
+  ["$203\rightarrow200$", "203变为200"],
+  ["$1\neq2$", "1不等于2"],
+  ["$\frac{1+2}{3}$", String.raw`$\frac{1+2}{3}$`],
   [String.raw`$2\frac{1}{3}$`, "2又3分之1"],
   ["$1.5/2.5$", "2.5分之1.5"],
   ["$1/2/3$", "$1/2/3$"],
@@ -24,6 +43,18 @@ const cases = [
   ["普通课文 Hello world", "普通课文 Hello world"],
 ];
 for (const [input, expected] of cases) assert.equal(mathSpeech(input), expected);
+for (const [input] of cases) {
+  for (const part of splitMath(input)) {
+    if (part.type !== "text") assert.doesNotThrow(() => katex.renderToString(part.value, { throwOnError: true }));
+  }
+}
+assert.equal(new Set(narrationEntries.map(entry => entry.input)).size, narrationEntries.length);
+for (const entry of narrationEntries) {
+  assert.equal(mathSpeech(entry.input), entry.spoken);
+  assert.ok(!/[\\\x00-\x1f]/.test(entry.spoken));
+}
+assert.notEqual(mathSpeech(String.raw`$0.\dot{4}\dot{8}\dot{1}$`), mathSpeech(String.raw`$0.4\dot{8}\dot{1}$`),
+  "Distinct dotted-decimal answer choices must remain distinct when narrated");
 const python = spawnSync("python", ["-X", "utf8", "-c", "import sys,json; sys.path.insert(0,'scripts/tts'); from math_speech import math_speech; print(json.dumps([math_speech(x) for x in json.load(sys.stdin)]))"],
   { input: JSON.stringify(cases.map(([input]) => input)), encoding: "utf8" });
 assert.equal(python.status, 0, python.stderr);
@@ -35,6 +66,9 @@ assert.deepEqual(splitMath(String.raw`算 \(\frac{1}{2}\)，\[x^2\]，$3$，$$4$
   { type: "text", value: "，" }, { type: "block", value: "4" },
 ]);
 assert.deepEqual(splitMath("未配对 $3"), [{ type: "text", value: "未配对 $3" }]);
+assert.deepEqual(splitMath("算 $2\times3$"), [{ type: "text", value: "算 " }, { type: "inline", value: String.raw`2\times3` }]);
+assert.deepEqual(splitMath("$25%≤50%$"), [{ type: "inline", value: String.raw`25\%≤50\%` }]);
+assert.deepEqual(splitMath("普通\text文字"), [{ type: "text", value: "普通\text文字" }]);
 assert.deepEqual(splitMath("未配对 $$1+2$"), [{ type: "text", value: "未配对 $$1+2$" }]);
 assert.deepEqual(splitMath(String.raw`价格 \$2 与 \$3`), [{ type: "text", value: String.raw`价格 \$2 与 \$3` }]);
 assert.deepEqual(splitMath(String.raw`$\text{\$2}+3$`), [{ type: "inline", value: String.raw`\text{\$2}+3` }]);

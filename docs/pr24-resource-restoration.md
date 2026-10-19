@@ -2,6 +2,8 @@
 
 日期：2026-10-19。使用当前 PR 的代码和 `output/` 题库构建，不覆盖源码、不合并发布快照中的题库。按用户要求跳过 GitHub CI。
 
+后续更新：本文保留资源恢复阶段的历史验收记录。下文的 4,495 条缺口和 RealRouter 超时已在后续补生成中解决；当前清单 76,987 条全部存在，新生成且仍被引用的 4,490 条源音频 SHA256 核验通过。最新构建与测试结果见 [朗读补齐记录](pr24-narration-completion.md)。
+
 ## 已恢复资源
 
 来源：[v1.4.0-content](https://github.com/wuwangzhang1216/ChinaTextbookStudyFree/releases/tag/v1.4.0-content)。六个运行资源包合计 4,329,611,811 字节。下载包的大小与 SHA256 匹配 manifest；发布的 SHA256SUMS 与 manifest 的全部八个条目一致。安装后另逐文件比较源归档与磁盘内容的 SHA256：
@@ -50,7 +52,7 @@ npx --yes http-server apps/web/out -a 127.0.0.1 -p 18824 -c-1 --no-dotfiles
 python scripts/checks/local-web.py --origin http://127.0.0.1:18824
 ```
 
-## 新增朗读与资源完整性的区别
+## 恢复阶段的新增朗读缺口（历史记录）
 
 当前 TTS 清单有 77,003 条去重文本，其中 4,495 条没有对应源音频，主要是 PR 公式修正后产生的新地址：数学 4,477、语文 9、英语 8、科学 1。这不代表上述发布包缺文件。缺失字段不会注入旧的错误音频地址，也不将无声播放记作听读完成。
 
