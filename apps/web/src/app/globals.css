@@ -121,7 +121,7 @@ body {
   height: 100%;
   -webkit-font-smoothing: antialiased;
   color: #4b4b4b;
-  /* 背景由 layout.tsx 的 body className="bg-bg-soft" 统一提供，
+  /* 背景由 layout.tsx 的 body className="bg-bg" 统一提供，
      这里不再硬编码以免覆盖 Tailwind utility。 */
 }
 
@@ -307,8 +307,10 @@ button:focus-visible,
   background-color: var(--app-bg) !important;
   color: var(--app-ink);
 }
-.theme-dark .bg-white,
-.theme-dark .bg-bg {
+/* Keep the page canvas out of card recoloring. :where preserves specificity
+   so responsive transparent backgrounds still override these surface rules. */
+.theme-dark .bg-white:where(:not(body)),
+.theme-dark .bg-bg:where(:not(body)) {
   background-color: var(--app-card) !important;
 }
 .theme-dark .bg-white\/90 {
