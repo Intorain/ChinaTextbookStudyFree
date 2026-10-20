@@ -68,7 +68,7 @@ export function parseReviewSession(
           typeof item.lessonTitle !== "string" ||
           typeof item.scheduled !== "boolean" ||
           !Number.isInteger(item.question?.id) ||
-          !/^(?:(?:chinese|english|science)-)?g[1-6](?:up|down)-u\d+-(?:kp\d+|exam)$/.test(
+          !/^(?:(?:chinese|english|science)-)?g[1-6](?:up|down)(?:-\d{4})?-u\d+-(?:kp\d+|exam)$/.test(
             item.lessonId,
           ) ||
           item.key !== `${item.lessonId}:${item.question.id}`,
