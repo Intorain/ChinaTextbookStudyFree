@@ -48,7 +48,7 @@ export function HomeClient({ bookReplacements = {} }: HomeClientProps) {
 
   // 跳转前渲染空底色占位，避免闪 GradePicker
   if (!hydrated || selectedGrade != null) {
-    return <div className="min-h-screen bg-bg" />;
+    return <main className="min-h-screen bg-bg" aria-busy="true" />;
   }
 
   return <GradePicker />;
