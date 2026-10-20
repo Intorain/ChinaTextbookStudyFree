@@ -1,3 +1,4 @@
+import { learnerSessionStorage } from "@/lib/learnerProfiles";
 import { lessonContentKey } from "@cstf/core/content";
 import type { ReviewItem } from "./prepareReview";
 export interface ReviewStats {
@@ -150,15 +151,15 @@ export function restoreReviewSession(
 }
 export function readReviewSession(context: string): ReviewSession | null {
   try {
-    return parseReviewSession(sessionStorage.getItem(STORAGE_KEY), context);
+    return parseReviewSession(learnerSessionStorage.getItem(STORAGE_KEY), context);
   } catch {
     return null;
   }
 }
 export function saveReviewSession(session: ReviewSession | null) {
   try {
-    if (session) sessionStorage.setItem(STORAGE_KEY, JSON.stringify(session));
-    else sessionStorage.removeItem(STORAGE_KEY);
+    if (session) learnerSessionStorage.setItem(STORAGE_KEY, JSON.stringify(session));
+    else learnerSessionStorage.removeItem(STORAGE_KEY);
   } catch {
     /* Private/storage-disabled browsers still allow the current round. */
   }
