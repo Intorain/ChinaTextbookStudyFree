@@ -1,4 +1,4 @@
-import { learnerSessionStorage } from "@/lib/learnerProfiles";
+import { learnerSessionStorage } from "./learnerProfiles";
 import { lessonContentKey } from "@cstf/core/content";
 import type { ReviewItem } from "./prepareReview";
 export interface ReviewStats {
