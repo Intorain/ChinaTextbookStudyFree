@@ -5,9 +5,9 @@
 <details>
 <summary>版本与资源说明</summary>
 
-> **版本说明（2026-10-05）**：当前线上 Web 已部署 [`main`](https://github.com/wuwangzhang1216/ChinaTextbookStudyFree/tree/main) 的判分与音频兼容更新，并保留首次听完讲解才解锁的边框光环体验。下文本地启动步骤使用 `main`。
+> **版本说明（2026-10-21）**：当前线上已部署中文 Edge TTS 补齐与旧 GPT 音频替换，配套页面、数据和音频地址已同步。本地启动使用 `main`；复现本次发布可使用对应 Release 的源码包或版本标签。
 >
-> **完整资源包：[v1.2.0-assets](https://github.com/wuwangzhang1216/ChinaTextbookStudyFree/releases/tag/v1.2.0-assets)**。包含新版 188 篇语文阅读、936 道配套题及既有四科资源；无需先安装旧版本。Release 中的 `web-source.zip` 是资源包发布时的源码快照，早于当前线上语音兼容和界面修复。详见 [安装与升级说明](https://github.com/wuwangzhang1216/ChinaTextbookStudyFree/blob/codex/publish-tested-web/docs/release-install.md)。
+> **完整材料包：[v1.4.2-edge-audio](https://github.com/wuwangzhang1216/ChinaTextbookStudyFree/releases/tag/v1.4.2-edge-audio)**：包含当前线上页面、数据、全部音频分包、图片、匹配源码与校验清单，无需先安装旧版本。43,418 条中文 Edge 音频已补齐或更新，全部已知旧 GPT 音频已替换。详见 [安装与升级说明](docs/release-install.md)。
 
 </details>
 
@@ -128,7 +128,7 @@
 | **课文听读** | 语文/英语课文逐句朗读，支持跟读练习，展示课本原页 |
 | **跟读录音** | 浏览器内录音与回放，不上传录音；需要 HTTPS 和麦克风授权，暂无语音识别评分 |
 | **课外故事** | 每单元 2 篇 AI 分级故事 + 阅读理解题 + 儿童插画配图 |
-| **全站 TTS** | 题目、选项、讲解、故事文本均可朗读；Web 使用 65,694 个兼容 MP3 音频，保留原 Opus 资源 |
+| **全站 TTS** | 题目、选项、讲解、故事文本均可朗读；完整包提供 116,758 个 MP3 文件；中文 Edge 音频本轮补齐或更新 43,418 条，保留原路径兼容资源 |
 | **首次讲解** | 进入课程自动尝试播放，听完才解锁下一步；按钮边框光环跟随真实播放进度，不显示秒数 |
 | **学习进度** | 当前浏览器保存完成情况、正确率与阅读星级；暂无云端账号和跨设备同步 |
 | **连击系统** | 连续答对触发连击动画与语音激励 |
@@ -145,7 +145,7 @@
 | 英语 | 人教版 PEP | 三至六年级 | 96 篇 |
 | 科学 | 教科版 | 一至六年级 | — |
 
-**当前资源规模**：44 册教材、2,166 个课节、6,545 道单元练习、779 篇课文、284 篇故事和 1,226 道故事阅读题（语文 936 道、英语 290 道）。这是资源覆盖统计，不代表所有题目已通过教师逐题审核。
+**当前资源规模**：45 册教材（44 册当前版本、1 册旧版兼容）、2,194 个常规课节、285 个单元挑战，常规题 7,004 道、挑战题 4,275 道，另有 779 篇课文和 284 篇故事。这是资源覆盖统计，不代表所有题目已通过教师逐题审核。
 
 ---
 
@@ -164,42 +164,37 @@ git clone --branch main https://github.com/wuwangzhang1216/ChinaTextbookStudyFre
 cd ChinaTextbookStudyFree
 ```
 
-### 2. 下载资源文件
+### 2. 下载或升级完整资源
 
-音频、配图、课本原页和题库数据体积较大，通过 GitHub Release 分发，不包含在 Git 仓库中。
+音频、图片和配套数据通过 [v1.4.2-edge-audio Release](https://github.com/wuwangzhang1216/ChinaTextbookStudyFree/releases/tag/v1.4.2-edge-audio) 分发。音频按体积分为多个独立 ZIP，每个不超过 1.4 GB；新版安装器会下载全部所需分包，先校验，再解压和逐文件核验，已有目录也会正常更新。
 
 ```bash
 # macOS / Linux：在仓库根目录执行
-python3 scripts/install-release.py --tag v1.2.0-assets
+python3 scripts/install-release.py --tag v1.4.2-edge-audio
 
 # Windows PowerShell
-py -3 scripts/install-release.py --tag v1.2.0-assets
+py -3 scripts/install-release.py --tag v1.4.2-edge-audio
 ```
 
-安装器下载并校验以下 5 个包的 SHA-256，再解压到对应目录；升级时会更新已有文件。下载总量约 2.06 GB，解压、依赖和 Web MP3 转码还需要额外磁盘空间。已有自定义数据时，请先备份；旧版 `download-assets.sh` / `.ps1` 会跳过已存在的目录，不适合资源升级。
-
-| 文件 | 内容 | 大小 | 解压到 |
-|------|------|------|--------|
-| `audio.tar.gz` | 81,017 个原音频文件，以 Opus 为主 | 1.29 GB | `apps/web/public/audio/` |
-| `story-images.zip` | 472 张图，含 284 张原图与 188 张新版图 | 550.7 MB | `apps/web/public/story-images/` |
-| `textbook-pages.zip` | 1,562 张课本页图 + 20 个页码映射 JSON | 211.6 MB | `apps/web/public/textbook-pages/` |
-| `data.zip` | 前端构建数据 (JSON) | 4.9 MB | `apps/web/public/data/` |
-| `data-source.zip` | passages + stories 源 JSON | 833 KB | `data/` |
-
-以上为 Release 压缩包大小，按十进制计。`manifest.json` 和 `SHA256SUMS` 提供精确大小及校验值。另附 `web-source.zip`（约 2.1 MB），供复现资源发布时的历史 Web 版本。
+完整包包含 MP3、原路径音频、数据、配图和课本原页，以及可选的匹配源码与现成网站。`manifest.json`、`files.jsonl` 和 `SHA256SUMS` 提供附件及逐文件校验。建议预留至少 40 GB 用于下载、暂存、安装和备份；有本地修改时先备份。离线安装、旧版升级及验证命令见 [安装与升级说明](docs/release-install.md)。
 
 ### 3. 运行 Web 端
-
-在仓库根目录执行：
 
 ```bash
 npm ci
 npm run dev
 ```
 
-访问 [http://localhost:3000](http://localhost:3000) 即可。首次启动会构建数据，并从 Release 的原音频生成 65,694 个 Web 兼容 MP3；这一步可能较慢，后续启动复用校验缓存，无需调用付费语音模型。Release 中尚未单独提供这些 Web MP3。
+访问 [http://localhost:3000](http://localhost:3000)。构建复用包内音频和已验证的转换缓存，无需调用在线 TTS。生产构建执行 `npm run build`，输出到 `apps/web/out/`；类型检查使用 `npm run type-check`。
 
-生产构建执行 `npm run build`，静态站点输出到 `apps/web/out/`；部署静态文件即可，不需要 Node.js 业务后端。类型检查使用 `npm run type-check`。
+**直接使用现成网站**：无需 Git、Node.js 或 FFmpeg。从 Release 下载新版 `install-release.py`，执行：
+
+```bash
+python3 install-release.py --tag v1.4.2-edge-audio --mode static --root ChinaStudyFree-site
+python3 -m http.server 8080 --directory ChinaStudyFree-site
+```
+
+打开 [http://localhost:8080](http://localhost:8080)。升级现有静态站点时，将 `--root` 指向原站点目录；页面、数据和音频一起更新。正式托管使用支持 HTTP Range 的静态服务器，并在发布后刷新 CDN 缓存。
 
 ### 电脑、手机与部署
 
