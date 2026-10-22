@@ -124,7 +124,7 @@
 | 功能 | 说明 |
 |------|------|
 | **单元小测** | 跟着课本章节走，学完一课就能练 |
-| **知识讲解** | 已有资料支持概念、公式和易错点讲解；部分课程仍需补齐 |
+| **知识讲解** | 720 节常规课包含讲解数据，另 1,474 节待补齐；见 [当前审计与逐课缺口](docs/content-audit-2026-10-21.md) |
 | **课文听读** | 语文/英语课文逐句朗读，支持跟读练习，展示课本原页 |
 | **跟读录音** | 浏览器内录音与回放，不上传录音；需要 HTTPS 和麦克风授权，暂无语音识别评分 |
 | **课外故事** | 每单元 2 篇 AI 分级故事 + 阅读理解题 + 儿童插画配图 |
@@ -146,6 +146,8 @@
 | 科学 | 教科版 | 一至六年级 | — |
 
 **当前资源规模**：45 册教材（44 册当前版本、1 册旧版兼容）、2,194 个常规课节、285 个单元挑战，常规题 7,004 道、挑战题 4,275 道，另有 779 篇课文和 284 篇故事。这是资源覆盖统计，不代表所有题目已通过教师逐题审核。
+
+**当前审计状态（2026-10-21）**：材料包、音频完整性及 Docker 全新部署/升级验证通过；教学内容仍有 1,474 课缺知识讲解、1,174 课仅一题（口径含旧版兼容教材）。教师签审尚未完成。详见 [当前审计](docs/content-audit-2026-10-21.md)、[逐课缺口清单](docs/content-coverage-2026-10-21.json) 和 [机器检查结果](docs/content-integrity-2026-10-21.json)。
 
 ---
 
@@ -298,9 +300,9 @@ open ChinaTextbookStudy.xcodeproj
 
 ### 5. （可选）运行数据生成 Pipeline
 
-语文课外阅读的课文难度校准、题库审计，以及 GPT-6 Luna / Muse / Gemini TTS
-修订流程见 [内容质量审计与升级说明](https://github.com/wuwangzhang1216/ChinaTextbookStudyFree/blob/codex/publish-tested-web/docs/content-quality-review.md)。
-新版流程先生成各年级样例，审核、配图和配音完成后再替换，并保留原数据备份。
+当前材料的覆盖统计、教师复核状态和逐课缺口见 [当前内容与资源审计](docs/content-audit-2026-10-21.md)。语文课外阅读的历史难度校准与修订流程见 [内容质量审计与升级说明](https://github.com/wuwangzhang1216/ChinaTextbookStudyFree/blob/codex/publish-tested-web/docs/content-quality-review.md)。
+
+中文补音当前使用 Edge TTS，默认并发 4、每秒最多启动 2 次合成（含重试），失败按指数退避。下面的生成命令只用于修改内容后的重新生成；安装和构建现成 Release 不需要调用在线 TTS。改写内容应先完成样例审阅，再同步文本、配图、音频，并保留原数据备份。
 
 如需从教材 PDF 重新生成题库数据：
 
@@ -320,9 +322,10 @@ python scripts/stories/pipeline.py --subject all
 # 生成故事配图
 python scripts/stories/images.py --subject all
 
-# 生成 TTS 音频
+# 为修改后的中文内容补音（需联网；安装 Release 时无需执行）
+pip install 'edge-tts>=7.0'
 python scripts/tts/collect_texts.py
-python scripts/tts/api_tts.py
+python scripts/tts/edge_tts_batch.py --language Chinese --workers 4 --requests-per-second 2
 
 # 构建前端数据
 npm run build:data --workspace=china-study-free
@@ -445,13 +448,21 @@ ChinaStudyFree/
 - [x] iOS 统一设计系统与游戏化学习体验（浅色为主 + 可选深色）
 - [x] 装扮系统闭环（皮肤 / 主题 / 课程背景购买后全局生效）
 - [x] 留存机制（每日任务 / 本周报告 / 连胜提醒推送）
+- [x] 语文扩展阅读升级；当前全库结构、资源与覆盖审计已公开，见 [审计报告](docs/content-audit-2026-10-21.md)
+- [x] 中文 Edge TTS 补齐与全部已知旧 GPT 音频替换，完整性及实际播放验证通过
+- [x] [完整材料包 v1.4.2-edge-audio](https://github.com/wuwangzhang1216/ChinaTextbookStudyFree/releases/tag/v1.4.2-edge-audio)：音频按体积分包，配套数据、页面、校验清单与离线安装说明
+- [x] [Docker 家庭 / 校园内网部署](docs/docker.md)：新版全新构建、旧版升级及中文音频播放验证通过（ARM64）
+- [x] 二年级上册数学 2026 秋版（28 课、168 题），保留旧版路由与进度
+- [x] 同一浏览器多孩子学习档案，以及学习记录手动备份导出 / 导入
+- [x] Android WebView 工程与 CI APK 构建，见 [安卓工程说明](docs/android.md)
+- [ ] 补齐知识讲解与有效题组：当前完整包 1,474 课缺讲解、1,174 课仅 1 题；见 [逐课缺口与后续工作](docs/content-audit-2026-10-21.md#当前教学内容缺口)
+- [ ] 全库教师签审、逐题语义复核与人工听审；现有模型审读和技术检查不代表教师签审完成
 - [ ] 道德与法治内容
-- [x] 语文扩展阅读升级与题库质量审计
-- [ ] 持续教师复核、补齐知识讲解与题量：审计发现 1,498 课缺讲解、1,183 课仅 1 题，见 [待修记录](https://github.com/wuwangzhang1216/ChinaTextbookStudyFree/blob/codex/publish-tested-web/docs/content-review-followups.md)
-- [ ] 离线版 / 校园内网部署包
-- [ ] 云端学习记录与跨设备同步
+- [ ] 云端学习记录与自动跨设备同步（当前支持手动备份迁移）
 - [ ] 老师端与班级学习报告
-- [ ] 多端 App
+- [ ] iOS / Android 真机完整验收与正式签名、应用商店发布
+
+路线图更新于 2026-10-21。完整材料包支持下载后离线安装；Docker 首次构建需联网下载资源。校园内网的跟读录音需要 HTTPS；全库 PWA 离线预缓存及实体手机 / iPad 验收仍需补充。
 
 ---
 
