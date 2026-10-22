@@ -68,6 +68,8 @@
       "pending": 137
     }
   },
+  "interpretation": "Snapshot of v1.4.2 regression: v1.4.0-content already has 2356 lessons / 15117 questions with no missing knowledge or sub-six-question lessons; restore existing completion instead of treating this as unfinished generation.",
+  "reconciliation_report": "content-release-reconciliation-2026-10-21.md",
   "lessons": [
     {"book_id":"g1up","subject":"math","legacy_book":false,"lesson_id":"g1up-u1-kp1","title":"数一数，认一认","question_count":6,"missing_knowledge":false,"one_question":false,"below_six_questions":false,"source_path":"data/books/g1up/lessons/g1up-u1-kp1.json","source_sha256":"49534303d082451acbfd141a463cfb7aa241a42f5fafec44dce3b075973e8e6a","historical_review_record":{"path":"docs/lesson-reviews/g1up-u1-kp1.json","teacher_status":"pending"}},
     {"book_id":"g1up","subject":"math","legacy_book":false,"lesson_id":"g1up-u1-kp2","title":"配一配，比多少","question_count":6,"missing_knowledge":false,"one_question":false,"below_six_questions":false,"source_path":"data/books/g1up/lessons/g1up-u1-kp2.json","source_sha256":"0374d3872edf8928eb41c38b2bb5353cff9d6d9e6f1d8df514db8d5b98f64f89","historical_review_record":{"path":"docs/lesson-reviews/g1up-u1-kp2.json","teacher_status":"pending"}},
