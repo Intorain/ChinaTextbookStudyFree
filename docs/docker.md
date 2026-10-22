@@ -2,6 +2,8 @@
 
 安装 Docker Desktop（Windows/macOS）或 Docker Engine + Compose（Linux）。无需安装 Node.js、Python、FFmpeg，无需 AI API Key。
 
+**已确认题库版本衔接问题**：此前已发布的 `v1.4.0-content` 有 15,117 道常规题，本次主线构建仅有 7,004 道，未带入已补齐内容。下面的命令通过了容器和音频验证，但没有保留旧版完整题库；已有完整题库的部署在修复前应保留原材料和备份。详见 [版本对照与恢复依据](content-release-reconciliation-2026-10-21.md)。
+
 ## 全新部署
 
 需要 Git。在终端（Windows 可使用 PowerShell）执行：
