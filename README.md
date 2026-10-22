@@ -151,7 +151,42 @@
 
 ## 🚀 快速开始
 
-**Docker 家庭部署**：包含 Dockerfile 的当前代码版本支持 `docker compose up -d --build`，会自动下载完整资源并构建，无需自行安装 Node.js、Python 或 FFmpeg；见 [Docker 安装说明](docs/docker.md)。本节以下命令用于启动当前 `main` 版本。
+### Docker 全新部署与旧版升级
+
+只需 Git 和 Docker Desktop（Windows/macOS）或 Docker Engine + Compose（Linux），无需在本机安装 Node.js、Python、FFmpeg，也无需 AI API Key。建议预留至少 40 GB 磁盘空间。
+
+**全新部署**：
+
+```sh
+git clone --branch main https://github.com/wuwangzhang1216/ChinaTextbookStudyFree.git
+cd ChinaTextbookStudyFree
+docker compose build --build-arg ASSETS_RELEASE=v1.4.2-edge-audio
+docker compose up -d --no-build --wait --wait-timeout 120
+```
+
+打开 [http://localhost:8080](http://localhost:8080)。首次构建自动下载、校验 `v1.4.2-edge-audio` 全部资源，复用已验证的 MP3 与转换缓存，再构建网站。
+
+**从旧版升级**：升级前备份自定义代码，在原项目根目录执行以下命令，并保留原来的 `.env`、Compose 项目名和访问协议、域名/IP、端口；如原先使用 `-p`、`-f` 等参数，以下每条 `docker compose` 命令都沿用这些参数。构建完成后再替换容器，浏览器学习记录继续保存在同一地址下。
+
+```sh
+git switch main
+git pull --ff-only origin main
+docker compose build --build-arg ASSETS_RELEASE=v1.4.2-edge-audio
+docker compose up -d --no-build --force-recreate --wait --wait-timeout 120
+```
+
+**确认服务健康**：以下命令应显示容器 `healthy`，并输出 `ok`；`wget` 在容器内运行。
+
+```sh
+docker compose ps
+docker compose exec -T web wget -q -O - http://127.0.0.1:8080/healthz
+```
+
+重新加载原页面后，可打开[中文数学讲解](http://localhost:8080/lesson/g6up/g6up-u4-kp1/)点击“朗读讲解”，以及[中文课文](http://localhost:8080/reading/chinese-g5down/chinese-g5down-p20/)点击“朗读第 5 句”，确认播放正常。自定义端口时使用原地址。
+
+**Docker 验证（2026-10-21）已通过**：在 Apple Silicon/ARM64 上完成新版 Release 无缓存全新构建，以及从 `v1.4.0-content` 旧容器升级。两个容器分别通过 20 项 HTTP 检查；244,930 个音频文件的 SHA-256 全部匹配，67,595 个唯一音频引用无缺失；各抽取 12 段 MP3 完整解码和 Range 206 检查通过。浏览器实际播放中文数学讲解及课文，共 4 个新版页面均自然播完，讲解后“下一步”正常解锁，控制台无错误或警告；升级保留每日目标设置。未在本轮验证 x86 主机或实体手机/iPad。更多设置及验收细节见 [Docker 安装说明](docs/docker.md)。
+
+### 其他启动方式
 
 **安卓自行安装**：用 Android Studio 打开 `apps/android`，或从 GitHub Actions 下载构建成功的调试 APK。当前是加载 HTTPS 课堂的在线客户端；构建步骤、录音权限和已知限制见 [安卓工程说明](docs/android.md)。
 
