@@ -74,6 +74,26 @@ def install_plan(manifest, mode='source', with_source=False):
     return selected
 
 
+def verify_required_content(root, manifest, mode):
+    """An overlay must never masquerade as a complete installation."""
+    expected = manifest.get('requires_content', {}).get('json_without_audio_sha256', {})
+    public = root / 'apps/web/public' if mode == 'source' else root
+    def clean(value):
+        if isinstance(value, dict):
+            return {k: clean(v) for k, v in value.items() if k not in ('audio', 'generatedAt')}
+        if isinstance(value, list):
+            return [clean(v) for v in value]
+        return value
+    for relative, fingerprint in expected.items():
+        path = target_path(public, relative)
+        if not path.is_file():
+            raise ValueError(f'Overlay requires the existing complete resource installation: {relative}')
+        content = json.loads(path.read_text(encoding='utf-8'))
+        actual = hashlib.sha256(json.dumps(clean(content), ensure_ascii=False, sort_keys=True).encode()).hexdigest()
+        if actual != fingerprint:
+            raise ValueError(f'Overlay base content differs; preserve local changes before upgrading: {relative}')
+
+
 def read_inventory(cache, manifest, selected):
     if manifest['schema_version'] == 1:
         return None
@@ -169,6 +189,7 @@ def main():
         manifest = json.loads((cache / 'manifest.json').read_text(encoding='utf-8'))
         if manifest.get('tag') != args.tag:
             raise ValueError('Manifest tag mismatch')
+        verify_required_content(root, manifest, args.mode)
         selected = install_plan(manifest, args.mode, args.with_source)
         # Check every package before extracting or changing any installed file.
         for item, _ in selected:
