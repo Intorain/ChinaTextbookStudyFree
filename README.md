@@ -124,7 +124,7 @@
 | 功能 | 说明 |
 |------|------|
 | **单元小测** | 跟着课本章节走，学完一课就能练 |
-| **知识讲解** | 2,387 节常规课均有知识讲解数据，题组每课至少 6 题；见 [当前内容与资源审计](docs/content-audit-v1.4.3.md) |
+| **知识讲解** | 2,537 节常规课均有知识讲解数据，题组每课至少 6 题；见 [当前内容与资源审计](docs/content-audit-v1.4.3.md) |
 | **课文听读** | 语文/英语课文逐句朗读，支持跟读练习，展示课本原页 |
 | **跟读录音** | 浏览器内录音与回放，不上传录音；需要 HTTPS 和麦克风授权，暂无语音识别评分 |
 | **课外故事** | 每单元 2 篇 AI 分级故事 + 阅读理解题 + 儿童插画配图 |
@@ -203,7 +203,7 @@ cd ChinaTextbookStudyFree
 
 ### 2. 下载或升级完整资源
 
-音频、图片和配套数据通过 [v1.4.3-content-restored Release](https://github.com/wuwangzhang1216/ChinaTextbookStudyFree/releases/tag/v1.4.3-content-restored) 分发。音频按体积分为多个独立 ZIP，每个不超过 1.4 GB；新版安装器会下载全部所需分包，先校验，再解压和逐文件核验，已有目录也会正常更新。
+音频、图片和配套数据通过 [v1.5.0-five-textbooks Release](https://github.com/wuwangzhang1216/ChinaTextbookStudyFree/releases/tag/v1.5.0-five-textbooks) 分发。音频按体积分为多个独立 ZIP，每个不超过 1.4 GB；新版安装器会下载全部所需分包，先校验，再解压和逐文件核验，已有目录也会正常更新。
 
 ```bash
 # macOS / Linux：在仓库根目录执行

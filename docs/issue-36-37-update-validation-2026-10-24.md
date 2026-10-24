@@ -47,7 +47,7 @@ docker build --target prebuilt --build-context site=./apps/web/out \
   -t cstf:2026-five-textbooks .
 ```
 
-现有 Docker 默认源码构建只下载此前已发布的基础资源，不包含尚未发布的五册资源；当前分支应先在本机安装资源、构建，再使用上述 `prebuilt` 目标。iOS 五册数据和音频包保存在 `release-assets/2026-ios`。尚未发布 GitHub Release，也没有切换线上站点或 iOS 下载地址；发布时需把新版包与旧版完整资源一并保留，并更新 iOS 资源清单和下载地址。
+以上记录发布前的本地五册增量包验证。正式发布已改用可全新安装的完整 `v1.5.0-five-textbooks` 资源包，Docker 与源码默认资源版本、iOS 下载地址均已同步更新；全部 50 册 iOS 包配套提供，历史版本继续保留。线上已更新并完成成绩兼容验收，详见[发布报告](five-textbooks-release-2026-10-24.md)。
 
 ## 验证记录
 

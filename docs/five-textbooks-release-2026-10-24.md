@@ -20,3 +20,17 @@
 ## 回退
 
 不删除旧资源。重新上传上一完整部署快照，创建 CloudFront `/*` 缓存失效并等待完成。成绩存储结构及原 ID 未改变，回退不需要还原或清空学习存档。
+
+## 2026-10-24 线上验收结果
+
+代码经 [PR #38](https://github.com/wuwangzhang1216/ChinaTextbookStudyFree/pull/38) 合入主分支，三项 GitHub CI 全部通过。正式资源为 [v1.5.0-five-textbooks](https://github.com/wuwangzhang1216/ChinaTextbookStudyFree/releases/tag/v1.5.0-five-textbooks)。沿用原 CloudFront 域名，缓存清理已完成。
+
+- 当前部署 277,303 个文件，线上无缺失、无大小差异，329 个历史文件保留；51,274 项媒体类型检查无错误。私有 S3 仍返回 403，HTTP 正常跳转 HTTPS。
+- 71 项新版/旧版路由、数据、原页及 MP3 Range 检查通过；线上 2,757 个旧教材 JSON 的内容指纹与发布前一致。
+- 发布前导出的验证档案与上线后导出的整份学习数据完全一致。旧版首课 7/7、三星保留；新版首课 6/6、三星使用独立键保存，完成新版后旧成绩未变。原有档案已切回，完整导出内容与发布前一致；原始存档只保留在本地，未公开上传。
+- 新版英语官方原页加载成功、全文自然播放完成，阅读任务记录为 1/1；浏览器控制台无错误。
+- 完整 Web 包支持全新静态安装和原目录升级，两次均核验 277,303 个文件；包内源码与课文来源的全新安装通过完整 CI 对应的本地检查。
+- 全部 50 册 iOS 包共 100 个 ZIP，通过 SHA-256、CRC 和 115,586 个音频引用检查；387 个 M4A 样本完成解码。公开下载的 50 册清单、旧版/新版数据包及新版音频包均核对通过。
+- 已上传的 119 个 Web / iOS 资源文件与 GitHub 服务器 SHA-256 一致。完整校验清单包含最终的 manifest、iOS 文件与验收 JSON。
+
+[公开验收 JSON](https://github.com/wuwangzhang1216/ChinaTextbookStudyFree/releases/download/v1.5.0-five-textbooks/VALIDATION.json) 记录技术范围及历史告警。旧库的 9 条朗读控制字符告警、106 个控制字符字段及 57 个公式字段保持原样；本次未重新签审教师内容、未发布 App Store 二进制、未访问其他设备上的浏览器存储。

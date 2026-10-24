@@ -55,5 +55,9 @@
     "legacyControlCharacterFields": 106,
     "legacyFormulaFields": 57
   },
-  "publication": "local_only_not_deployed"
+  "publication": "published_and_verified",
+  "site": "https://d3nmsqi4n72idj.cloudfront.net/",
+  "release": "https://github.com/wuwangzhang1216/ChinaTextbookStudyFree/releases/tag/v1.5.0-five-textbooks",
+  "onlineLegacyFilesVerified": 2757,
+  "originalProfileUnchanged": true
 }
