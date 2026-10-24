@@ -12,7 +12,7 @@ import urllib.request
 import zipfile
 from pathlib import Path, PurePosixPath
 
-DEFAULT_TAG = 'v1.4.3-content-restored'
+DEFAULT_TAG = 'v1.5.0-five-textbooks'
 DESTINATIONS = {
     'audio.tar.gz': 'apps/web/public',
     'data.zip': 'apps/web/public/data',
@@ -167,6 +167,7 @@ def main():
     parser.add_argument('--with-source', action='store_true', help='Also replace source files; back up local edits first')
     parser.add_argument('--archives-dir', type=Path, help='Use already downloaded archives and manifest')
     parser.add_argument('--verify-only', action='store_true', help='Verify packages and installed files without writing')
+    parser.add_argument('--asset-kind', action='append', help='Install only selected resource kinds (for example source-data for CI)')
     args = parser.parse_args()
     safe_name(args.tag)
     if args.tag == 'latest':
@@ -191,6 +192,10 @@ def main():
             raise ValueError('Manifest tag mismatch')
         verify_required_content(root, manifest, args.mode)
         selected = install_plan(manifest, args.mode, args.with_source)
+        if args.asset_kind:
+            selected = [(asset, destination) for asset, destination in selected if asset.get('kind') in args.asset_kind]
+            if set(args.asset_kind) != {asset.get('kind') for asset, _ in selected}:
+                raise ValueError('Requested asset kind is absent or unavailable in this installation mode')
         # Check every package before extracting or changing any installed file.
         for item, _ in selected:
             name = item['name']
@@ -236,6 +241,8 @@ def main():
                 target.parent.mkdir(parents=True, exist_ok=True)
                 os.replace(path, target)
             receipt = dict(manifest, installed_mode=args.mode, installed_with_source=args.with_source)
+            if args.asset_kind:
+                receipt['installed_asset_kinds'] = args.asset_kind
             (root / 'ASSETS-VERSION.json').write_text(json.dumps(receipt, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
             print(f'Installed {args.tag}: {len(staged_files):,} files in {root}')
 
