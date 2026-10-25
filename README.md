@@ -7,7 +7,7 @@
 
 > **当前版本 v1.6.0**：新增五年级上册语文修订版，含 36 课时、264 道题、39 篇/组听读；新版使用独立 `chinese-g5up-2026` ID，旧版教材及原成绩保留。本册与上次五册的音频改用 Edge 神经音色。当前共 51 册版本（44 册当前教材、7 册保留旧版），2,573 个常规课时、16,419 道常规题。
 >
-> **完整材料包：[v1.6.0-chinese-g5up](https://github.com/wuwangzhang1216/ChinaTextbookStudyFree/releases/tag/v1.6.0-chinese-g5up)**：包含完整 Web 网站、全部资源与匹配源码，无需先装旧版；另提供全部 51 册的 iOS AAC/M4A 包。详见 [安装与升级](docs/release-install.md) 和 [五上语文核对及验证](docs/issue-22-textbook-review-2026-10-24.md)。旧版材料包继续保留。以下标有 v1.4.3 的审计数字为历史记录。
+> **完整材料包：[v1.6.0-chinese-g5up](https://github.com/wuwangzhang1216/ChinaTextbookStudyFree/releases/tag/v1.6.0-chinese-g5up)**：包含完整 Web 网站、全部资源与匹配源码，无需先装旧版；另提供全部 51 册的 iOS AAC/M4A 包。按用途选择[下载导航](docs/releases/v1.6.0-downloads.md)，无需下载全部附件。详见 [安装与升级](docs/release-install.md) 和 [五上语文核对及验证](docs/issue-22-textbook-review-2026-10-24.md)。旧版材料包继续保留。以下标有 v1.4.3 的审计数字为历史记录。
 
 </details>
 

@@ -1,6 +1,8 @@
-# v1.5.0 五册修订教材与完整材料包：安装与升级
+# v1.6.0 五上语文与六册 Edge 音频：安装与升级
 
-本版更新二上语文、三上数学/语文/英语/科学五册，使用独立 2026 版 ID，保留全部旧版及原有成绩。包含全部现有及新版音频、MP3、题库、页面、故事配图、课本原页和匹配源码。新增五册共 150 课时、1,110 道题、118 篇/组朗读；新增音频使用 Tingting/Samantha，既有音频保留。无需先安装任何旧版本，也不需要 AI API Key。音频分为多个独立 ZIP，每个不超过 1.4 GB（十进制）；所有分包都需要安装，不需要拼接文件。
+本版新增五年级上册语文修订版，含 36 个课时、264 道题、39 篇/组听读；本册与上一轮五册的音频共 10,055 个文本/音色任务全部采用 Edge。新版使用独立 ID，保留全部旧版和原有成绩。包含全部 51 册教材版本的完整网站及资源，无需先安装旧版本，也不需要 AI API Key。
+
+**不用下载 Assets 中的全部附件。** 在线学习直接[打开课堂](https://d3nmsqi4n72idj.cloudfront.net/)；Web 用户使用安装器自动选择资源；iOS 用户在 App 内按册下载。手动离线下载的分类清单及逐册链接见[下载导航](https://github.com/wuwangzhang1216/ChinaTextbookStudyFree/blob/main/docs/releases/v1.6.0-downloads.md)。Web 音频分为独立 ZIP，每个不超过 1.4 GB（十进制），按安装模式下载对应分包后直接解压，无需拼接。
 
 ## 最快使用：安装现成网站
 
@@ -52,7 +54,7 @@ python3 -m http.server 8080 --directory apps/web/out
 
 ## 离线安装与完整校验
 
-在 Release 页面下载全部附件至同一目录。安装器按模式选择所需包；`manifest.json` 和 `files.jsonl` 必不可少。
+在[下载导航](https://github.com/wuwangzhang1216/ChinaTextbookStudyFree/blob/main/docs/releases/v1.6.0-downloads.md)选择“现成静态网站”或“源码与完整资源”，只下载该模式列出的包至同一目录，另下载安装器、`manifest.json` 与 `files.jsonl`。Web 安装不需要 102 个 iOS 逐册包。
 
 ```sh
 python3 install-release.py --tag v1.6.0-chinese-g5up --mode static --root ChinaStudyFree-site --archives-dir /path/to/downloads
@@ -64,10 +66,10 @@ python3 install-release.py --tag v1.6.0-chinese-g5up --mode static --root ChinaS
 macOS/Linux 可额外验证所有下载附件：
 
 ```sh
-shasum -a 256 -c SHA256SUMS
+shasum -a 256 -c SHA256SUMS --ignore-missing
 ```
 
-`--verify-only` 只检查，不修改文件。任意分包缺失、校验和不符、归档内容不符、安装路径被符号链接指向外部时，安装器明确失败，不会跳过问题继续宣告成功。
+`SHA256SUMS` 覆盖所有平台，`--ignore-missing` 只核验已下载文件；所选模式应有的包是否完整由安装器检查。`--verify-only` 只检查，不修改文件。任意分包缺失、校验和不符、归档内容不符、安装路径被符号链接指向外部时，安装器明确失败，不会跳过问题继续宣告成功。
 
 ## 附件对应关系
 
@@ -88,11 +90,11 @@ shasum -a 256 -c SHA256SUMS
 
 手动安装静态站点时，将全部音频 ZIP 解压到站点根目录，再按表中位置解压数据、页面和图片。安装器可以自动完成这些步骤及全部校验。
 
-本包保留 6 册旧版教材路由以兼容既有进度：总计 50 册版本，当前展示 44 册。包含 2,537 个常规课节、320 个单元挑战，常规题 16,203 道、挑战题 4,485 道。技术完整性与播放验证不代表全部内容已经教师逐题听审。本次另提供全部 50 册的 iOS 专用 AAC/M4A 数据及音频包，配套 ios-manifest.json；旧版下载地址和学习记录继续保留。
+本包保留 7 册旧版教材路由以兼容既有进度：总计 51 册版本，当前展示 44 册。包含 2,573 个常规课时、328 个单元挑战，常规题 16,419 道、挑战题 4,533 道。另提供全部 51 册的 iOS AAC/M4A 数据及音频包，配套 `ios-manifest.json`；每本只需下载对应两包。旧版下载地址和学习记录继续保留。
 
 ## 题库保留与升级验收
 
-本版恢复原补齐版 2,356 课、15,117 题，保留新增 2026 秋版数学、视觉数感示范和多孩子档案。原数感题移至三节巩固练习，旧错题仍能复习。合计 2,537 节常规课、16,203 题；每课有讲解且至少六题。
+本版恢复原补齐版 2,356 课、15,117 题，保留新增 2026 秋版数学、视觉数感示范和多孩子档案。原数感题移至三节巩固练习，旧错题仍能复习。当前合计 2,573 节常规课、16,419 题；每课有讲解且至少六题。
 
 安装完整源码并构建后可运行以下只读检查；静态网站把 `--public` 改成站点根目录，同时提供材料包中的基线文件路径：
 
@@ -102,8 +104,8 @@ python3 scripts/checks/content-retention.py --public apps/web/out
 
 检查逐课比对已发布题库的课程 ID、题目 ID、内容指纹与讲解，不以总题数增加代替原题保留。构建、打包和部署都会运行该检查。教师签审仍待完成。Docker 全新部署和原项目升级命令见 [Docker 说明](https://github.com/wuwangzhang1216/ChinaTextbookStudyFree/blob/main/docs/docker.md)。
 
-## 五册修订版的成绩兼容
+## 修订版的成绩兼容
 
 旧版仍可从教材切换菜单进入，已选旧版时重新打开首页也保留该选择。新版课时、宝箱和朗读使用独立 ID，原成绩不会算入新版，也不会被清除。Web 更新只轮换页面及教材缓存，不访问或清空 localStorage/IndexedDB。
 
-材料与验证范围见 [五册教材验证](issue-36-37-update-validation-2026-10-24.md)。线上发布验收另见 [发布报告](five-textbooks-release-2026-10-24.md)。
+材料与验证范围见[五上语文核对](https://github.com/wuwangzhang1216/ChinaTextbookStudyFree/blob/main/docs/issue-22-textbook-review-2026-10-24.md)及[发布验收报告](https://github.com/wuwangzhang1216/ChinaTextbookStudyFree/blob/main/docs/issue-22-release-2026-10-25.md)。
