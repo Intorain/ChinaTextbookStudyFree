@@ -78,16 +78,30 @@ def main():
     stats = Counter()
     for book in selected:
         book_id = book["id"]
-        if book_id != book["legacyId"] + "-2026" or "2026秋版" not in book["stem"]:
+        edition = book["edition"]
+        label = book["editionLabel"]
+        if not re.fullmatch(r"[a-z0-9-]+", edition) or not label or book_id != book["legacyId"] + "-" + edition or not book["stem"].endswith("（" + label + "）"):
             raise ValueError("Refusing a legacy book or source path")
         subject = book["subject"]
-        outline = {"textbook": book["sourceTitle"] + "（2026秋版）", "edition": "2026",
+        outline = {"textbook": book["sourceTitle"] + "（" + label + "）", "edition": edition,
                    "editionLabel": book["editionLabel"], "supersedes": book["legacyId"], "units": []}
         for unit in book["units"]:
             stage = args.stage/"units"/f"{book_id}-u{unit['unit_number']}.json"
             candidate = read(stage)
             if candidate["bookId"] != book_id or candidate["unitNumber"] != unit["unit_number"] or not candidate["editorialReview"]["approved"]:
                 raise ValueError(f"Unreviewed or mismatched unit: {stage}")
+            if candidate["sourcePages"] != [unit["start"], unit["end"]]:
+                raise ValueError(f"Unit source range differs from the reviewed catalog: {stage}")
+            body_fingerprints = []
+            if book.get("requiresIndependentFinalScreen"):
+                if candidate["editorialReview"].get("independentFinalScreen", {}).get("status") != "verified":
+                    raise ValueError(f"Missing independent final semantic screen: {stage}")
+                for physical in range(unit["start"] + book["pageOffset"], unit["end"] + book["pageOffset"] + 1):
+                    evidence = pages.get((book["key"], physical))
+                    page = args.page_cache / f"{book['key']}-{physical}.jpg"
+                    if not evidence or not page.is_file() or digest(page) != evidence["sha256"]:
+                        raise ValueError(f"Missing or changed official unit page: {page}")
+                    body_fingerprints.append(evidence["sha256"])
             content = candidate["unit"]
             if [k["point"] for k in content["knowledge_summary"]] != unit["points"]:
                 raise ValueError(f"Knowledge list mismatch: {stage}")
@@ -110,7 +124,9 @@ def main():
                                     "knowledge_points": [{"name": p, "description": "结合新版教材学习"+p, "difficulty": 1,
                                                           "question_types": ["choice", "true_false"]} for p in unit["points"]]})
             sources.append({"bookId": book_id, "unit": n, "sourcePrintedPages": candidate["sourcePages"],
-                            "candidate_sha256": digest(stage), "editorialReview": candidate["editorialReview"]})
+                            "candidate_sha256": digest(stage), "editorialReview": candidate["editorialReview"],
+                            **({"body_page_fingerprints_sha256": hashlib.sha256(json.dumps(body_fingerprints).encode()).hexdigest()}
+                               if body_fingerprints else {})})
             stats["regular_questions"] += len(questions)
             stats["exam_questions"] += len(exam)
             stats["lessons"] += len(unit["points"])

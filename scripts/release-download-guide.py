@@ -14,6 +14,8 @@ spec.loader.exec_module(installer)
 def render(manifest, ios, index):
     tag = installer.safe_name(manifest['tag'])
     base = f'https://github.com/wuwangzhang1216/ChinaTextbookStudyFree/releases/download/{tag}'
+    resources = installer.resource_base(manifest, tag)
+    ios_base = f"{installer.RELEASE_ROOT}/{installer.safe_name(manifest.get('ios_resource_tag', tag))}"
     assets = {a['name']: a for a in manifest['assets']}
     books = {b['id']: b for b in index['books']}
 
@@ -21,7 +23,10 @@ def render(manifest, ios, index):
         installer.safe_name(name)
         if name not in assets and name not in {'manifest.json', 'files.jsonl', 'SHA256SUMS', 'VALIDATION.json', 'ios-manifest.json'}:
             raise ValueError(f'Unknown release asset: {name}')
-        return f'[{label or name}]({base}/{name})'
+        kind = assets.get(name, {}).get('kind', '')
+        location = ios_base if kind.startswith('ios-') else (
+            base if kind in {'installer', 'instructions'} or name in {'manifest.json', 'SHA256SUMS', 'VALIDATION.json', 'ios-manifest.json'} else resources)
+        return f'[{label or name}]({location}/{name})'
 
     lines = [f'# {tag} 下载导航', '', '**不需要下载 Assets 中的全部文件。** 按使用方式选择一个入口即可。', '',
              '| 用途 | 从这里开始 |', '| --- | --- |',
@@ -30,6 +35,7 @@ def render(manifest, ios, index):
              '| iOS 离线教材 | 在 App 内按册下载；手动下载时按下方学科选择对应数据和音频两包 |',
              f'| 开发或自行构建 | {link("web-source.zip")}，或克隆仓库；再按安装说明获取资源 |', '',
              f'安装步骤：{link("INSTALL.md")}。完整性检查：{link("SHA256SUMS")}、{link("VALIDATION.json")}。', '',
+             *([f'离线清单：{link("manifest.json")}、{link("files.jsonl")}。', ''] if manifest.get('resource_tag') else []),
              '## Web：在线安装', '',
              '下载安装器后运行，安装器不会下载 iOS 的逐册包：', '', '```sh',
              f'python3 install-release.py --tag {tag} --mode static --root ChinaStudyFree-site', '```', '',
@@ -63,7 +69,9 @@ def render(manifest, ios, index):
               f'- iOS：{len(entries)} 册 × 每册数据/音频两包，共 {len(entries)*2} 个附件，支持按需下载。',
               '- Web：音频受单文件体积限制分包；MP3、原路径兼容音频和 iOS AAC 面向不同用途。',
               '- 源码、构建输入和校验清单供开发、离线安装及完整性验证使用。GitHub 另自动提供两种源码压缩包，开发者选一种源码获取方式即可。',
-              '- 已发布的文件名和下载地址保持兼容。后续版本应将 Web 与 iOS 资源分开发布，配套下载器再实施资源去重；不能直接删除当前客户端引用的包。', '']
+              ('- 本版采用独立的 Web 与 iOS 资源发布页，主发布页保留下载导航、安装器和校验入口。安装器自动获取对应资源，无需逐个选择。'
+               if manifest.get('resource_tag') and manifest.get('ios_resource_tag') else
+               '- 已发布的文件名和下载地址保持兼容。后续版本应将 Web 与 iOS 资源分开发布，配套下载器再实施资源去重；不能直接删除当前客户端引用的包。'), '']
     return '\n'.join(lines)
 
 

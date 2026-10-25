@@ -19,6 +19,16 @@ final class CoreTypesTests: XCTestCase {
             XCTAssertEqual(legacy.supersededBy, revised.id)
             XCTAssertNil(revised.supersededBy)
         }
+        for legacyId in ["g1up", "g1down", "g2down", "g3down", "g4up", "g5up", "g6up"] {
+            let revised = try XCTUnwrap(index.books.first { $0.id == legacyId + "-2026" })
+            let legacy = try XCTUnwrap(index.books.first { $0.id == legacyId })
+            XCTAssertEqual(revised.supersedes, legacyId)
+            XCTAssertEqual(revised.editionLabel, "2022课标修订版")
+            XCTAssertEqual(legacy.supersededBy, revised.id)
+            XCTAssertNil(revised.supersededBy)
+            XCTAssertEqual(revised.semester, legacy.semester)
+        }
+        XCTAssertEqual(index.books.count, 58)
     }
 
     /// QuestionType.rawValue must stay aligned with packages/core/src/types.ts.

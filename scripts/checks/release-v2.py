@@ -20,6 +20,7 @@ def load(name, path):
 
 pack = load('packager', ROOT / 'scripts/package-release.py')
 alias = load('aliases', ROOT / 'scripts/tts/apply_audio_versions.py')
+guide = load('guide', ROOT / 'scripts/release-download-guide.py')
 with tempfile.TemporaryDirectory() as temporary:
     tmp = Path(temporary);cache = tmp / 'archives';cache.mkdir()
     assets, records = [], []
@@ -53,6 +54,25 @@ with tempfile.TemporaryDirectory() as temporary:
         (cache / 'manifest.json').write_text(json.dumps(value))
 
     manifest()
+
+    # A platform's download links must use its own release, while entry points
+    # stay on the primary release. Old single-release manifests remain valid.
+    bundle = lambda name: {'name': name, 'bytes': 1, 'sha256': 'fixture'}
+    ios_entry = {'bookId': 'g1up', 'data': bundle('data-g1up.zip'), 'audio': bundle('audio-ios-g1up.zip')}
+    guide_manifest = {'schema_version': 2, 'tag': 'v1.7.0', 'resource_tag': 'v1.7.0-web-resources',
+                      'ios_resource_tag': 'v1.7.0-ios-resources', 'assets': assets + [
+                          {'name': 'install-release.py', 'kind': 'installer'},
+                          {'name': 'INSTALL.md', 'kind': 'instructions'},
+                          dict(ios_entry['data'], kind='ios-data'), dict(ios_entry['audio'], kind='ios-audio')]}
+    book_index = {'books': [{'id': 'g1up', 'subject': 'math', 'grade': 1, 'semester': 'up', 'textbookName': '一年级上册'}]}
+    rendered = guide.render(guide_manifest, {'books': [ios_entry]}, book_index)
+    for path in ['/v1.7.0/install-release.py', '/v1.7.0/INSTALL.md', '/v1.7.0/SHA256SUMS',
+                 '/v1.7.0-web-resources/web-source.zip', '/v1.7.0-web-resources/data.zip',
+                 '/v1.7.0-ios-resources/data-g1up.zip', '/v1.7.0-ios-resources/audio-ios-g1up.zip']:
+        assert path in rendered, path
+    del guide_manifest['resource_tag'], guide_manifest['ios_resource_tag']
+    legacy_guide = guide.render(guide_manifest, {'books': [ios_entry]}, book_index)
+    assert '/v1.7.0/data-g1up.zip' in legacy_guide and '/v1.7.0/data.zip' in legacy_guide
 
     def run(target, mode='static', extra=(), success=True):
         result = subprocess.run([sys.executable, str(ROOT / 'scripts/install-release.py'), '--tag', 'fixture',

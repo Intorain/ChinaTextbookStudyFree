@@ -95,6 +95,13 @@
       "lesson_id": "g6down-u2-kp4",
       "question_id": 15,
       "approved_content_sha256": "7762e8b41b96ed15c18bafbed46fccb28611566626b86cef59f9f611c175f8f8"
+    },
+    {
+      "lesson_id": "g5up-u8-kp1",
+      "question_id": 22,
+      "previous_questions_sha256": "f4ac958fdb6f94f2653405518400a1efe6fb8fe4d2852ac4948a60a35ed3783d",
+      "approved_content_sha256": "01a9bb48e6b6819caba17c57de12991c511da42678e5c6fa50993edad75e4684",
+      "reason": "Correct inverse verification: 20 divided by 0.5 equals 40; multiplying by 0.5 does not."
     }
   ],
   "lessons": [
@@ -26147,7 +26154,7 @@
         19,
         22
       ],
-      "questions_sha256": "f4ac958fdb6f94f2653405518400a1efe6fb8fe4d2852ac4948a60a35ed3783d",
+      "questions_sha256": "729a087b32f1e2a6f67a6674bbf75593edaa9889ad48b1f24620d9730f943fb9",
       "knowledge_sha256": "f5626fcd17b1fc488c692683f015359ba6d140a1c556297f8959398df240691f"
     },
     {
@@ -26449,7 +26456,7 @@
         23
       ],
       "questions_sha256": "0b315aa06024823b8e405e64fcab73b22e6a0b304786e9fcb3f686f4fff0a8c6",
-      "knowledge_sha256": "077facbd33ba07bf0d9fd348586395aa87b3614168f709837029fc62cdbbf022"
+      "knowledge_sha256": "6ea9c43965bee0f63208a29cd5209eb8ba0c93584f56b80073cb7b1e65316773"
     },
     {
       "id": "g6down-u5-kp3",
@@ -26464,7 +26471,7 @@
         21
       ],
       "questions_sha256": "86c7eef9bb089543525597180c7f752528eca41851eec37e621703cad6eae7fd",
-      "knowledge_sha256": "13cddfd7ff950859364d5fa2ccb5cb6ad0c3f6d3b959449657e21a6185d7593d"
+      "knowledge_sha256": "9864949c6cee36d1c7cc9bd118db64da99a1767db3d60e3758045281a8380097"
     },
     {
       "id": "g6down-u6-kp1",
@@ -34062,6 +34069,28 @@
       ],
       "questions_sha256": "98d1adffc62e210f5e3600bde09cee1cfab2b57c999a0c4baabdfe69f01a9a8b",
       "knowledge_sha256": "5a7838bb248d0edca836a0a9e355b4bf6fae003c8c00c17629338df014435418"
+    }
+  ],
+  "explicit_knowledge_overrides": [
+    {
+      "lesson_id": "g6down-u5-kp3",
+      "source": "output/math/quizzes/义务教育教科书·数学六年级下册_unit5.json",
+      "field": "knowledge.key_formula",
+      "previous_content_sha256": "13cddfd7ff950859364d5fa2ccb5cb6ad0c3f6d3b959449657e21a6185d7593d",
+      "approved_content_sha256": "9864949c6cee36d1c7cc9bd118db64da99a1767db3d60e3758045281a8380097",
+      "before": "最䄀物䄓数 = 成倴数 \u0007 (脳刑数 - 1) + 1",
+      "after": "要保证某个抽屉至少有 n 个物体，物体总数至少为 $m \\times (n - 1) + 1$，其中 m 是抽屉数，m、n 都是正整数。",
+      "reason": "Replace corrupted characters with the generalized pigeonhole formula and define positive integer variables; m(n-1) objects can avoid n in one drawer, but one more object cannot."
+    },
+    {
+      "lesson_id": "g6down-u5-kp2",
+      "source": "output/math/quizzes/义务教育教科书·数学六年级下册_unit5.json",
+      "field": "knowledge.key_formula",
+      "previous_content_sha256": "077facbd33ba07bf0d9fd348586395aa87b3614168f709837029fc62cdbbf022",
+      "approved_content_sha256": "6ea9c43965bee0f63208a29cd5209eb8ba0c93584f56b80073cb7b1e65316773",
+      "before": "至少数 = 商 + 1 (有䅙数敂)",
+      "after": "有余数时，总有一个抽屉至少有（商 + 1）个物体；整除时，总有一个抽屉至少有商那么多个物体。",
+      "reason": "Replace corrupt Chinese characters in the division-based pigeonhole formula; distinguish nonzero-remainder and exact-division cases. Questions, answers and IDs unchanged."
     }
   ]
 }

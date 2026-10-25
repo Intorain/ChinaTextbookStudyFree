@@ -5,9 +5,7 @@
 <details>
 <summary>版本与资源说明</summary>
 
-> **当前版本 v1.6.0**：新增五年级上册语文修订版，含 36 课时、264 道题、39 篇/组听读；新版使用独立 `chinese-g5up-2026` ID，旧版教材及原成绩保留。本册与上次五册的音频改用 Edge 神经音色。当前共 51 册版本（44 册当前教材、7 册保留旧版），2,573 个常规课时、16,419 道常规题。
->
-> **完整材料包：[v1.6.0-chinese-g5up](https://github.com/wuwangzhang1216/ChinaTextbookStudyFree/releases/tag/v1.6.0-chinese-g5up)**：包含完整 Web 网站、全部资源与匹配源码，无需先装旧版；另提供全部 51 册的 iOS AAC/M4A 包。按用途选择[下载导航](docs/releases/v1.6.0-downloads.md)，无需下载全部附件。详见 [安装与升级](docs/release-install.md) 和 [五上语文核对及验证](docs/issue-22-textbook-review-2026-10-24.md)。旧版材料包继续保留。以下标有 v1.4.3 的审计数字为历史记录。
+> **当前版本 v1.7.0**：新增一上、一下、二下、三下、四上、五上、六上七册人教版数学修订版，配套 290 个课时和 2,082 道题，音频采用 Edge；新版使用独立 ID，旧版教材及原成绩保留。连同已更新的二上、三上，覆盖当前官方目录全部九册修订版数学。当前共 58 册版本（44 册当前教材、14 册保留旧版），2,863 个常规课时、18,159 道常规题。
 
 </details>
 
@@ -162,18 +160,18 @@
 ```sh
 git clone --branch main https://github.com/wuwangzhang1216/ChinaTextbookStudyFree.git
 cd ChinaTextbookStudyFree
-docker compose build --build-arg ASSETS_RELEASE=v1.6.0-chinese-g5up
+docker compose build --build-arg ASSETS_RELEASE=v1.7.0
 docker compose up -d --no-build --wait --wait-timeout 120
 ```
 
-打开 [http://localhost:8080](http://localhost:8080)。首次构建自动下载、校验 `v1.6.0-chinese-g5up` 全部资源，复用已验证的 MP3 与转换缓存，再构建网站。
+打开 [http://localhost:8080](http://localhost:8080)。首次构建自动下载、校验 `v1.7.0` 全部资源，复用已验证的 MP3 与转换缓存，再构建网站。
 
 **从旧版升级**：升级前备份自定义代码，在原项目根目录执行以下命令，并保留原来的 `.env`、Compose 项目名和访问协议、域名/IP、端口；如原先使用 `-p`、`-f` 等参数，以下每条 `docker compose` 命令都沿用这些参数。构建完成后再替换容器，浏览器学习记录继续保存在同一地址下。
 
 ```sh
 git switch main
 git pull --ff-only origin main
-docker compose build --build-arg ASSETS_RELEASE=v1.6.0-chinese-g5up
+docker compose build --build-arg ASSETS_RELEASE=v1.7.0
 docker compose up -d --no-build --force-recreate --wait --wait-timeout 120
 ```
 
@@ -203,14 +201,14 @@ cd ChinaTextbookStudyFree
 
 ### 2. 下载或升级完整资源
 
-音频、图片和配套数据通过 [v1.6.0-chinese-g5up Release](https://github.com/wuwangzhang1216/ChinaTextbookStudyFree/releases/tag/v1.6.0-chinese-g5up) 分发。音频按体积分为多个独立 ZIP，每个不超过 1.4 GB；新版安装器会下载全部所需分包，先校验，再解压和逐文件核验，已有目录也会正常更新。
+音频、图片和配套数据通过 [v1.7.0 Release](https://github.com/wuwangzhang1216/ChinaTextbookStudyFree/releases/tag/v1.7.0) 分发。音频按体积分为多个独立 ZIP，每个不超过 1.4 GB；新版安装器会下载全部所需分包，先校验，再解压和逐文件核验，已有目录也会正常更新。
 
 ```bash
 # macOS / Linux：在仓库根目录执行
-python3 scripts/install-release.py --tag v1.6.0-chinese-g5up
+python3 scripts/install-release.py --tag v1.7.0
 
 # Windows PowerShell
-py -3 scripts/install-release.py --tag v1.6.0-chinese-g5up
+py -3 scripts/install-release.py --tag v1.7.0
 ```
 
 完整包包含 MP3、原路径音频、数据、配图和课本原页，以及可选的匹配源码与现成网站。`manifest.json`、`files.jsonl` 和 `SHA256SUMS` 提供附件及逐文件校验。建议预留至少 40 GB 用于下载、暂存、安装和备份；有本地修改时先备份。离线安装、旧版升级及验证命令见 [安装与升级说明](docs/release-install.md)。
@@ -227,7 +225,7 @@ npm run dev
 **直接使用现成网站**：无需 Git、Node.js 或 FFmpeg。从 Release 下载新版 `install-release.py`，执行：
 
 ```bash
-python3 install-release.py --tag v1.6.0-chinese-g5up --mode static --root ChinaStudyFree-site
+python3 install-release.py --tag v1.7.0 --mode static --root ChinaStudyFree-site
 python3 -m http.server 8080 --directory ChinaStudyFree-site
 ```
 
