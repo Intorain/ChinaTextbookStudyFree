@@ -108,6 +108,9 @@ def main():
         destination = destinations[tag]/name
         if source.suffix == '.zip': os.link(source, destination)
         else: shutil.copy2(source, destination)
+    # Native clients fetch the index beside the per-book bundles. Keep the
+    # primary copy for the cross-platform download guide as well.
+    shutil.copy2(combined/'ios-manifest.json', destinations[tags[2]]/'ios-manifest.json')
     # The primary checksum list also supports an offline folder containing a
     # user-selected subset; the installer still checks that subset is complete.
     checksums = ''.join(f'{packager.digest(combined/name)}  {name}\n' for name in sorted(owned))
