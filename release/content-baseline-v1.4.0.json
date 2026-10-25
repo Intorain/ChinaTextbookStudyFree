@@ -102,6 +102,13 @@
       "previous_questions_sha256": "f4ac958fdb6f94f2653405518400a1efe6fb8fe4d2852ac4948a60a35ed3783d",
       "approved_content_sha256": "01a9bb48e6b6819caba17c57de12991c511da42678e5c6fa50993edad75e4684",
       "reason": "Correct inverse verification: 20 divided by 0.5 equals 40; multiplying by 0.5 does not."
+    },
+    {
+      "lesson_id": "g4up-u1-kp1",
+      "question_id": 15,
+      "previous_questions_sha256": "7ad5bdd232b17d6a2b02cbdd06dda7068869031603e24979e147bff30e4f4e33",
+      "approved_content_sha256": "8336956310c041601147414de8d0d9aa1b20bb15c3fa5e8ccfc6d148a8040094",
+      "reason": "Independent place-value check: in 560000 the digit 6 is fifth from the right (万位); 5 is sixth (十万位). Correct current grading and explanation without regrading historical completions."
     }
   ],
   "lessons": [
@@ -24722,7 +24729,7 @@
         19,
         24
       ],
-      "questions_sha256": "7ad5bdd232b17d6a2b02cbdd06dda7068869031603e24979e147bff30e4f4e33",
+      "questions_sha256": "d2ad79ace9e7f91641f1d17ff130a5170e43a170e2f05363d81bd0f56b38a40e",
       "knowledge_sha256": "0309d3d3083b84e5c3c7aa33cadb150077e528bc3762c0f92884b6f1ee792cb9"
     },
     {

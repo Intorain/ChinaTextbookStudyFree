@@ -1,0 +1,61 @@
+{
+  "status": "local_checks_passed_publication_pending",
+  "counts": {
+    "books": 58,
+    "activeBooks": 44,
+    "legacyBooks": 14,
+    "regularLessons": 2863,
+    "regularQuestions": 18159,
+    "runtimeGradedQuestions": 24260
+  },
+  "tests": {
+    "core": 231,
+    "iOSUnit": 211,
+    "iOSUI": 13,
+    "independentArithmetic": 95,
+    "independentDigitPosition": 1,
+    "reviewedPriorityLessons": 137,
+    "historicalCorrections": 12,
+    "newCorrection": 1
+  },
+  "browser": {
+    "mobilePageThemeStates": 24,
+    "desktopShopWidths": [
+      1024,
+      1152,
+      1279,
+      1280,
+      1440
+    ],
+    "onboardingWidths": [
+      320,
+      360,
+      390,
+      430
+    ],
+    "controlledFailures": "passed",
+    "realDevices": "pending"
+  },
+  "native": {
+    "status": "passed",
+    "books": 58,
+    "audio_refs": 128273,
+    "packages": 116,
+    "sha256": "passed",
+    "zip_crc": "passed",
+    "missing_refs": 0
+  },
+  "previousPreservation": {
+    "status": "passed",
+    "identicalBookJson": 3349,
+    "changedBookJson": [
+      "data/books/g4up/lessons/g4up-u1-kp1.json"
+    ],
+    "missingBookJson": [],
+    "previousMediaByteIdentical": 329214,
+    "completedGrades": "existing persistence/regrade policy unchanged; live profile verification separately"
+  },
+  "humanAcceptance": "pending;see docs/ux12-2026-10-25/human-checklist.md",
+  "automationResumed": false,
+  "learnerExportsPublished": false
+}
