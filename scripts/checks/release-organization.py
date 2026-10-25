@@ -61,6 +61,14 @@ with tempfile.TemporaryDirectory() as temporary:
     assert (web/'files.jsonl').read_bytes() == inv.read_bytes()
     assert (web/'web-app.zip').read_bytes() == (combined/'web-app.zip').read_bytes()
     assert (mobile/audio['name']).read_bytes() == sound_bytes
+    # The native downloader resolves both its index and bundles from the same
+    # release base URL; the central guide's index alone cannot serve the app.
+    native_index = json.loads((mobile/'ios-manifest.json').read_text())
+    assert native_index == json.loads((primary/'ios-manifest.json').read_text())
+    for book in native_index['books']:
+        for field in ['data', 'audio']:
+            bundle = book[field]
+            assert sha(mobile/bundle['name']) == bundle['sha256']
     assert not list(primary.glob('*.zip')) and not (web/data['name']).exists()
     merged = json.loads((primary/'manifest.json').read_text())
     assert len(merged['assets']) == 7
