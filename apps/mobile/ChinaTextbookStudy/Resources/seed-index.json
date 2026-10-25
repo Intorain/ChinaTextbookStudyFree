@@ -292,12 +292,29 @@
       "gradeName": "五年级",
       "semesterName": "上册",
       "subjectName": "语文",
-      "textbookName": "五年级上册",
-      "fullName": "统编版小学语文五年级上册",
+      "textbookName": "五年级上册（旧版）",
+      "fullName": "统编版小学语文五年级上册（旧版）",
       "unitsCount": 8,
       "lessonsCount": 51,
       "hasPassages": true,
-      "hasStories": true
+      "hasStories": true,
+      "supersededBy": "chinese-g5up-2026"
+    },
+    {
+      "id": "chinese-g5up-2026",
+      "grade": 5,
+      "semester": "up",
+      "subject": "chinese",
+      "gradeName": "五年级",
+      "semesterName": "上册",
+      "subjectName": "语文",
+      "textbookName": "五年级上册（2026秋版）",
+      "fullName": "统编版小学语文五年级上册（2026秋版）",
+      "editionLabel": "2026秋版",
+      "supersedes": "chinese-g5up",
+      "unitsCount": 8,
+      "lessonsCount": 36,
+      "hasPassages": true
     },
     {
       "id": "chinese-g6up",
@@ -714,7 +731,7 @@
       "lessonsCount": 36
     }
   ],
-  "generatedAt": "2026-10-24T17:03:34.588Z",
-  "totalLessons": 2537,
-  "totalQuestions": 16203
+  "generatedAt": "2026-10-25T03:58:52.980Z",
+  "totalLessons": 2573,
+  "totalQuestions": 16419
 }

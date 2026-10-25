@@ -69,6 +69,7 @@ DEFAULT_VOICE_EN = "en-US-AnaNeural"
 # The service returns an empty stream for these isolated notation glyphs.
 # Keep the original text hash/path and speak its sound or an explicit label.
 PHONETIC_SPEECH = {
+    ">": "大于", "<": "小于", "=": "等于", "……": "省略号",
     "ü": "迂", "ū": "乌", "ú": "无", "ǔ": "五", "ù": "物",
     "ˇ": "第三声，上声。", "ˋ": "第四声，去声。",
     "ˉ": "第一声，阴平。", "ˊ": "第二声，阳平。",

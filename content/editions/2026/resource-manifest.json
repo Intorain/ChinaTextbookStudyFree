@@ -1,11 +1,15 @@
 {
   "schemaVersion": 1,
   "sourceReview": "docs/issue-36-37-textbook-review-2026-10-23.json",
+  "sourceReviews": [
+    "docs/issue-22-textbook-review-2026-10-24.json",
+    "docs/issue-36-37-textbook-review-2026-10-23.json"
+  ],
   "stats": {
-    "regular_questions": 900,
-    "exam_questions": 210,
-    "lessons": 150,
-    "readings": 118
+    "lessons": 186,
+    "regular_questions": 1116,
+    "exam_questions": 258,
+    "readings": 157
   },
   "editorialSignoff": "model_screen_only_not_teacher_signoff",
   "sources": [
@@ -3682,6 +3686,1347 @@
           "来源依据为用户提供的完整正文；source_ref以对应印刷页标注。最终稿不存在待人工解决的问题。"
         ]
       }
+    },
+    {
+      "bookId": "chinese-g5up-2026",
+      "unit": 1,
+      "sourcePrintedPages": [
+        1,
+        12
+      ],
+      "candidate_sha256": "aa51645f3acc82dadf0ca602670834d0c68e60254f17649280c9d48783fbce8b",
+      "editorialReview": {
+        "kind": "model_screen_not_teacher_signoff",
+        "approved": true,
+        "model": "gpt-6.1-sol",
+        "notes": [
+          "已逐题审校并修正，最终稿共含5个知识点，每个知识点6题，另有6道不重复的综合题。",
+          "已纠正综合题中《桂花雨》题和“开辟”词义题的答案错误，以及习作判断题的答案错误。",
+          "已为涉及课文情节、人物言行的题目补足必要材料，避免依赖未展示的课文。",
+          "已调整重复考查内容、部分难度标记和解释，避免把香气描写直接等同于邻里温情，也避免把外表朴素等同于有实际贡献。",
+          "已避开OCR中的明显误字和乱码，不引用旧版已删除课文；source_ref保留原值，供程序另行验证。",
+          "已逐题复核并整理为五个知识点各六题、单元检测另六题，共三十六题；知识点键及顺序保持不变。",
+          "所有依赖课文事实的题目均在题干中保留必要原句或准确背景，并标明所属课文；解析中的“材料”均指本题已展示的文字，不要求学生另看资料。",
+          "将《落花生》讲解中的“不只讲体面”调整为“不做只讲体面而对别人没有好处的人”，避免与课文原意混淆；明确外表朴素不等于有用，外表整洁也不妨碍作贡献。",
+          "调整《桂花雨》第一题的节选标示，明确为两处原句；保留“浸”直接表现香气浓郁、弥漫范围广的解释，不据此直接推断邻里交往。",
+          "细化《珍珠鸟》有关动作、外形与信赖的讲解，明确小鸟先落上肩头、“我”停笔，过一会儿才发现它睡着的顺序。",
+          "为避免单元检测与练习重复，将检测第四题由重复考查“开辟”的既有例句，改为判断“新鲜”在新语境中的相同含义；将检测第六题改为比较两组对比描写的共同方法。",
+          "将班级公约选择题的提问限定为“内容具体、便于落实”的评价，避免把多种合理公约内容当作只有一种正确表达；习作题仅评价是否符合明确要求，不限定学生实际心爱之物的选择。",
+          "各选择题均为四个无字母前缀的选项，答案与正确选项逐字一致；判断题选项均为空数组，答案仅为“对”或“错”；未使用计算题。",
+          "source_ref已由笼统的original改为对应课文、栏目及页码，便于编辑追溯；题目本身不依赖这些来源信息作答。",
+          "本单元校正稿未混入《金字塔》及五下旧课文内容。依据所给图像与辅助正文完成核对，无尚待解决的真实疑点。"
+        ]
+      }
+    },
+    {
+      "bookId": "chinese-g5up-2026",
+      "unit": 2,
+      "sourcePrintedPages": [
+        13,
+        32
+      ],
+      "candidate_sha256": "5582233370f7dcfe204d50d9950a70a885d06e8a38429c90d624a70e8f8cb18a",
+      "editorialReview": {
+        "kind": "model_screen_not_teacher_signoff",
+        "approved": true,
+        "model": "gpt-6.1-sol",
+        "notes": [
+          "已逐题审校并修正：将缺少选项的开放题改为四选一，补齐必要材料，修正答案不属于选项及答案误填为题干的问题。",
+          "已核对最终稿各选择题均有4个互异且无字母前缀的选项，答案逐字对应唯一选项；判断题选项为空，答案仅为“对”或“错”。",
+          "已消除重复设问，调整综合考试的知识点覆盖与难度；各知识点恰好6题，考试另有6道不同题。",
+          "依据所给正文校正“子口”等OCR误读；速度数据均限定为题内材料信息，不将文学叙述或课文中的简化说法作为普遍科学结论。",
+          "已逐题复核并整理为五个知识点各六题、单元检测另六题的完整稿；知识点键及顺序保持不变。",
+          "保留原稿已有的必要引文和情节背景，统一将课文事实题的判断依据放入题干；解析中的“材料”均指本题已展示的文字，不依赖学生另开课本。",
+          "《冀中的地道战》第六题将笼统的“遇到危险还能转移”改为“必要时可转移到别村”，使表述与课文依据吻合；讲解区分首次快速默读与读后有目的核查。",
+          "《将相和》第一题将“将和氏璧完整送回赵国”明确为“设法让人将和氏璧完整送回赵国”，避免误解为蔺相如亲自携璧返回；第五题将“必然乘机”校为所供课文的“必然乘机来攻打我们”，统一引文。",
+          "速度阅读题保留“奔跑”“向下俯冲”“有的”“最大速度”等限定；统一提醒比较数据须注意单位，不把课文中的特定数据扩大为无条件的科学结论。",
+          "人物描写第三题由与地道战重复的生词处理判断题，改为语言描写辨析题，补足该知识点的考查内容。",
+          "习作第一、二题改用老师的具体事例，使练习更贴合“漫画”老师；讲解补充园地中的阅读方法梳理、概括语意和用具体情景表现特点。",
+          "单元检测六题重新设计，分别考查地道通信方式、连词成句、限定词理解、人物动作描写、事例取舍和惜时名句，避免与课内练习实质重复。",
+          "全部选择题均为无字母前缀的四选一，答案与选项逐字一致；全部判断题均使用空选项数组及“对”或“错”；未设置计算题或将开放表达题伪装成唯一答案。",
+          "本稿不涉及《金字塔》，未混入五下旧篇目、塔高数据或将斜坡建造说法写成定论。最终稿无待人工解决的疑点。"
+        ]
+      }
+    },
+    {
+      "bookId": "chinese-g5up-2026",
+      "unit": 3,
+      "sourcePrintedPages": [
+        33,
+        50
+      ],
+      "candidate_sha256": "455c374ff823f38a5c184c77e83a0797deaa362226cb7d39d35712d5eced26d0",
+      "editorialReview": {
+        "kind": "model_screen_not_teacher_signoff",
+        "approved": true,
+        "model": "gpt-6.1-sol",
+        "notes": [
+          "已逐题审查并修正，最终稿含4个知识点，每个知识点恰好6题，另有6道不同的综合题。",
+          "已将原综合题第6题由缺少选项的选择题改为规范四选一；所有选择题均有4个互异、无字母前缀的选项，答案逐字对应唯一选项。",
+          "已修正原海力布讲述顺序题：原正确项实际仍按事件先后讲述，不能体现变换顺序；现改为先呈现石头、再追述原因的安排。",
+          "已替换多道重复的桥板脱险题，并修正原题将绕路等同于安全过桥、部分干扰项也可能合理的问题。",
+          "已为涉及课文事实的题目补足必要信息，使题目不依赖未展示的课文；调整部分难度，修正解析中超出题干证据的推断。",
+          "已区分创造性复述与故事新编：前者保留故事主干，后者可以改变结局，但须相应调整情节并保持合理连贯。",
+          "依据所给正文纠正OCR影响，统一使用“龟兔赛跑”“尸骨”等规范表述；未引用旧版已删除课文，未联网核验source_ref路径。",
+          "已逐题复核24道知识点练习和6道单元检测题，按四个原知识点键整理；每个知识点恰好六题，检测另列六题。",
+          "全部依赖课文事实的题目均在题干中提供必要背景；将转述与原文引用明确区分，避免把改写内容作为课文原句。",
+          "《猎人海力布》第5题删除没有课文依据的“村外”地点限定；第6题明确限定为尚未说出秘密的劝说阶段，使第一人称、人物心情和情节进程一致。",
+          "《牛郎织女》第1题由题干直接给出姓名的辨认题改为人物关系辨析题；其余题目核准人物言行、事件顺序及神奇想象的依据。",
+          "故事新编题进一步明确比赛规则、人物行动和结局之间的关系；所有选择题均评价给定条件下的符合程度，不把自由创作限制为唯一写法。",
+          "修正“他听见这话，气急败坏”的不完整表达，改为两个结构完整的例句，并说明俗语与成语意思接近但不宜在所有语境中机械替换。",
+          "检测第3题改考新编故事中的天气变化及因果联系，避免与练习中的河流挡道、跑错岔路等情节重复；检测第6题改考鹊桥相会情节寄托的愿望，避免仅从题干照抄人物姓名。",
+          "补充讲解中民间故事的朴素愿望、创造性复述与故事新编的区别，以及俗语成语的适用语境；同步调整答案和解析。",
+          "全部选择题均为无字母前缀的四选一，答案与正确选项逐字一致；判断题答案仅为“对”或“错”，options为空数组；未设置计算题。",
+          "已依照所附原页核对本单元目标和习作、园地内容；未引入《金字塔》及旧版相关篇目，无需人工处理的遗留疑点。"
+        ]
+      }
+    },
+    {
+      "bookId": "chinese-g5up-2026",
+      "unit": 4,
+      "sourcePrintedPages": [
+        51,
+        64
+      ],
+      "candidate_sha256": "63683049367faf11100a213747bed0ab525bf649846f25954d5e3a020bf854f6",
+      "editorialReview": {
+        "kind": "model_screen_not_teacher_signoff",
+        "approved": true,
+        "model": "gpt-6.1-sol",
+        "notes": [
+          "已逐题审校并修正，最终稿含5个知识点、每个知识点6题及独立综合题6题。",
+          "已将《题临安邸》判断题的错误答案由“对”改为“错”；将梅兰芳“发高烧的假象”改为“实际发高烧”，避免误解事件。",
+          "已补充必要的诗句、注释或事件材料，使题目不依赖未展示的课文；替换重复或高度近似的考题，并补入园地词语辨析。",
+          "已调整部分虚高难度，修正《少年中国说》解析中“诗句”的不当称谓。诗歌用字保留所给正文中的“元”“人材”，不将其误改为OCR错误。",
+          "所有选择题均为四个互异选项且只有一个正确答案；判断题选项为空。最终稿不存在待人工解决的问题。",
+          "已逐题复核30道知识点练习和6道单元检测题，按五个原知识点键重组为完整校正稿；每个知识点恰好六题，exam另六题。",
+          "古诗第1题删除解析中题干未提供的“临终时间”说明；第2题补明“北定中原”和“家祭”的意思；第3、6题补足失地未复的背景，并将讽刺对象表述为苟且偷安的统治者；第4题补充“抖擞”“降人材”的释义；第5题明确比喻所指，避免停留于马匹安静的字面理解。",
+          "《少年中国说》第1题补入“本文借多种形象赞美少年中国”的背景，避免学生须凭未展示的全文判断；第2题由照抄注释改为理解形象的表达作用；第6题在题干中说明“少年中国”和“中国少年”的含义，确保独立呈现时可判断。",
+          "《圆明园的毁灭》第1题将“主次分明”收束为原句直接支持的“许多小园环绕圆明园”，避免过度推断；第2题明确考查景观类型；第5题保留辉煌与毁灭对照的分析，并补明表达的痛惜和愤慨。",
+          "《梅兰芳蓄须明志》第1题将“明志”释为“表明志向和决心”；第4题明确限定为课文叙述，保留实际发高烧而非伪装发烧的区别，不展开注射操作，并提示危险行为不可模仿；其余题核对拒演、经济困难、艺术追求与民族气节之间的证据关系。",
+          "习作第1、2题将问题限定为辨认切题内容和清楚的提纲安排，不将示例写法规定为唯一创作方式；第4题明确比较标准为具体呈现采摘动作；讲解补明环境、工作、生活并非必须全部写到。",
+          "调整部分选择题正确选项的位置；所有选择题均为四个无字母前缀的选项，answer与正确选项逐字一致；所有判断题options为空数组，answer仅为“对”或“错”。",
+          "单元检测保留六道独立题目，分别考查诗句定位、资料助读、文化损失、胜利后复出的意义、词语运用和习作要求，不与知识点练习重复设问。",
+          "将source_ref由笼统的original改为所提供教材的具体页码，便于编辑追溯；学生作答所需语句或背景仍完整写入题干，不依赖source_ref。",
+          "本单元校正稿未混入《金字塔夕照》《不可思议的金字塔》或其他《金字塔》内容；无须引入塔高或建造斜坡信息。最终稿不存在需人工裁定的真实疑点。"
+        ]
+      }
+    },
+    {
+      "bookId": "chinese-g5up-2026",
+      "unit": 5,
+      "sourcePrintedPages": [
+        65,
+        74
+      ],
+      "candidate_sha256": "172b82ed3f8ea31b0fd0fcb02a855f3d1ad2a6dc0ce9b18e8c4fbc29a9b98936",
+      "editorialReview": {
+        "kind": "model_screen_not_teacher_signoff",
+        "approved": true,
+        "model": "gpt-6.1-sol",
+        "notes": [
+          "已逐题核查并修正，最终稿包含4个知识点，每个知识点6题，另有6道不重复的单元检测题。",
+          "已将原稿中无选项却标为choice的开放题改为四选一题，补齐必要材料，并修正答案与选项不逐字一致的问题。",
+          "已消除依赖未展示课文或示意图的题面，调整说明方法判断的歧义，修正无人机题解析中误写为火箭模型的问题。",
+          "已替换重复检测题，适当调整难度；全部题目均为单一答案，不涉及数学计算题。",
+          "来源依据为用户提供的新版正文OCR；保留source_ref为original，不对路径作联网验证。未采用OCR中的出版社乱码等无关内容，也未引用旧版已删除课文。",
+          "已逐题复核24道分课练习和6道单元检测题，保留四个知识点键及其顺序；每个知识点恰好6题，检测另设6题。",
+          "将原knowledge_summary和questions按知识点整合为lessons中的knowledge和questions，完整保留校正后的讲解、题目、答案与解析。",
+          "所有依赖课文事实的题目均在题干内提供关键原句或必要背景；涉及示意图的题目用文字交代标注位置，不要求学生查看未展示的图片。",
+          "《太阳》第1题在正确项中同时明确列数字和作比较，使答案与解析一致；第5题将假设性步行、乘飞机的说明写清，避免理解为实际出行方案。",
+          "《金字塔》第3、6题明确区分原图标注和图注信息，不把原图未直接写出的“原高”“原边长”冒充图上的完整标签；第4题调整干扰项，避免把图注中的现高误作示意图尺寸标注。",
+          "《金字塔》讲解明确列出原高约146米、现高约137米，以及塔基原边长约230米、现边长约227米；未混入旧课文《金字塔夕照》《不可思议的金字塔》。",
+          "保留建造技术中的“有一种说法”限定，检测题明确斜坡说不能据此认定为唯一已证实的建造方法。",
+          "《鲸》相关题目补明说明对象和比较内容；制作例文题目保留材料工具、尺寸、操作和顺序词等必要信息，风向判断题明确风向是风吹来的方向。",
+          "习作题限定具体写作目标，以是否符合主要特点、分方面介绍、资料准确等要求作为判断依据，不将自由选材或开放表达设为唯一答案。",
+          "检测第6题将“根据观察结果”改为结合观察与可靠资料，并要求核对测试条件，避免暗示仅凭外观观察即可确定保温时间。",
+          "全部选择题均为无字母前缀的四选一，答案与对应选项逐字一致；判断题答案仅为“对”或“错”，options均为空数组；无计算题。",
+          "source_ref由笼统的original改为所依据的教材页码或明确的练习情境，便于追溯。最终稿无须人工处理的遗留疑点。"
+        ]
+      }
+    },
+    {
+      "bookId": "chinese-g5up-2026",
+      "unit": 6,
+      "sourcePrintedPages": [
+        75,
+        90
+      ],
+      "candidate_sha256": "8ec7439ed44d27b9f89f5e573264ea312592a6ae050812a52c393c038aec3bdc",
+      "editorialReview": {
+        "kind": "model_screen_not_teacher_signoff",
+        "approved": true,
+        "model": "gpt-6.1-sol",
+        "notes": [
+          "已逐题审校并实际修正，最终稿共含5组课内练习，每组6题，另含6道不重复的单元检测题。",
+          "修正了交际题中孩子回应爸爸时说话身份倒置的问题；删除了原稿无依据的“夜里缝补棉被”时间限定。",
+          "为课文理解题补足必要材料，避免依赖未展示的课文；将若干重复考查题改为不同任务，并重新评定难度。",
+          "调整正确选项的位置，逐题核对四个选项互异、答案与唯一正确选项逐字一致；判断题答案及选项格式符合要求。",
+          "依据所给正文校正涉及的OCR文字，如“立刻”“涟漪”“拥入”；未采用识别不清且无法据现有材料可靠确定的成语文字，未引用旧版删除课文。",
+          "按指定顺序输出知识点键；source_ref沿用original，路径有效性由程序另行验证。",
+          "已逐题复核30道知识点练习和6道单元检测，按指定顺序重组为五个知识点，每点恰好六题，检测题另列且不与练习重复。",
+          "补强独立呈现条件：涉及课文事实的题目均在题干中提供关键语句或必要背景；将解析中的空泛“材料”指代改为明确的词句或情节依据。",
+          "修正《慈母情深》反复称呼题：补入母亲在厂房劳动及眼神疲惫的背景，使“受到触动”的答案有完整依据；统一使用规范省略号。",
+          "修正《父爱之舟》“新滋味”题解析，明确心酸来自理解家人供学的艰难及父亲的付出，不把它解释为食物滋味。",
+          "调整《航天员写给孩子的信》儿童节题，明确询问信中交代的原因；梦想综合题改问与三项叮嘱均相符的理解，避免将开放感受作为唯一答案。",
+          "调整习作题的设问范围，明确考查具体材料、商量语气、内容组织及沟通方式，不将某一句示例规定为实际生活中唯一可用的表达。",
+          "修正语文园地动作题，将正确选项中的“调向我的本子”改为更明确的“把台灯的光照向我的本子”；结尾题区分含蓄表达与直接表达，不把所有结尾归为同一种方法。",
+          "完善讲解：将“key_formula”明确写为阅读或表达路径，而非固定公式；补充书信基本格式，强调细节应真实、贴切并服务于表达重点。",
+          "将笼统的source_ref“original”替换为所提供教材的具体页码；自拟表达例句和生活情境均标明为编辑自拟。",
+          "以可见图像校核课名及单元目标，《航天员写给孩子的信》为第19课，不采用OCR中的“10”；本稿未混入《金字塔》或其他单元内容。",
+          "全部选择题保持四个无字母前缀的选项，答案与对应选项逐字一致；判断题答案仅为“对”或“错”，options均为空数组。最终稿无须人工处理的真实疑点。"
+        ]
+      }
+    },
+    {
+      "bookId": "chinese-g5up-2026",
+      "unit": 7,
+      "sourcePrintedPages": [
+        91,
+        100
+      ],
+      "candidate_sha256": "534e0784ab4da4c8de6040294acfc8467e1a26cddd45a3e87aab672b2ab3cb72",
+      "editorialReview": {
+        "kind": "model_screen_not_teacher_signoff",
+        "approved": true,
+        "model": "gpt-6.1-sol",
+        "notes": [
+          "已逐题审校并修正。最终稿包含4个知识点，每个知识点6题，另有6道不同的综合题。",
+          "修正了原稿两道判断题答案与解析相反的问题：只检查错别字、只写静态雪景的说法均应判错。",
+          "为涉及课文内容的题目补充必要诗句、节选或内容摘要，使题面自足；替换综合题中与课内练习实质重复的题目。",
+          "修正白鹭树顶画面的时间错置：课文写晴天清晨站立树顶，黄昏画面为低飞；相应调整题目、答案和解析。",
+          "依据上下文纠正OCR误读，统一使用《山居秋暝》、寒山寺、亮晶晶、铁色的长喙等规范文字。",
+          "重新校准难度，避免把答案明显的直接辨认题标为高难度；所有选择题均有4个互异选项且仅1个正确答案。",
+          "source_ref沿用原稿标记original；审校仅依据用户提供的新版正文，不涉及旧版已删除课文。",
+          "已逐题复核并整理为四个知识点各六题、单元检测另六题的完整稿；检测题与分课练习不重复，仅使用choice和true_false。",
+          "所有依赖课文内容的题目均在本题内提供必要诗句、原句或内容摘要；摘要不冒充原文，source_ref改为具体课文、页码或自编情境。",
+          "古诗部分保留并规范《山居秋暝》的“暝”字，区分秋日山居、旅夜愁绪和早春生机；检测第二题补充“最”“绝胜”的含义，改考有明确文本依据的情感判断。",
+          "《第一场雪》第二题调整为更清楚的降雪过程排序；第五题把“银条”“雪球”明确为积雪的比喻，避免误作实物；第六题改考听觉细节衬托雪夜寂静，避免原题题干直接重复并否定答案的低效设问。",
+          "《白鹭》第二题改为按地点和主要活动匹配画面名称，明确这是理解题而非开放命名题；第五题明确扩写为自编表达，不把观察者放轻脚步等新增细节当作课文事实；保留对“望哨”未获证实的辨析。",
+          "习作与园地讲解补充识字加油站和《渔歌子》内容；第二题改为辨认园地原有词语，第五题结合《渔歌子》考查画面理解，在题量不变的前提下改善园地内容覆盖。",
+          "所有选择题均为四个无字母前缀的选项，正确答案与对应选项逐字一致；判断题选项均为空数组，答案仅为“对”或“错”；解析同步调整。",
+          "本稿未混入《金字塔夕照》《不可思议的金字塔》或其他单元内容；不将课文对丰收的期待扩大为任何降雪都必然带来丰收的结论。最终稿无待人工解决的真实疑点。"
+        ]
+      }
+    },
+    {
+      "bookId": "chinese-g5up-2026",
+      "unit": 8,
+      "sourcePrintedPages": [
+        101,
+        114
+      ],
+      "candidate_sha256": "e7a625d80a203500296446ee9e3f746d5e0a70ae3d6bc7fe7340de9bb79dce08",
+      "editorialReview": {
+        "kind": "model_screen_not_teacher_signoff",
+        "approved": true,
+        "model": "gpt-6.1-sol",
+        "notes": [
+          "已逐题审校并实际修正，最终稿含4个知识点，每个知识点6题，另有6道不同的单元检测题。",
+          "修正了原稿中“一本书”与选项“一本有趣的书”不逐字一致的问题；所有选择题现均有4个互异选项，且答案逐字对应唯一选项。",
+          "为涉及课文细节的题目补充必要材料，使题目不依赖未展示的课文；调整重复考查、提示过强及难度虚高的题目。",
+          "纠正“敏而好学”中“敏”的释义为“聪敏”，并与“敏以求之”中表示“勤勉”的“敏”区分；将“下问”的释义与“不耻下问”的整体释义区分。",
+          "依据所给正文识别“走遍天下书为信”“海人不倦”等OCR误读，采用“走遍天下书为侣”“诲人不倦”等正确表述。本次材料明确包含《走遍天下书为侣》，未因版本印象将其误删。",
+          "修正科普读物题中不贴合对象的举例方式，补充园地中的信息梳理、句序、顿号和诗意理解考查；推荐习作的组织方式作为可行建议，不作为唯一强制顺序。",
+          "审校仅依据用户完整提供的正文，保留source_ref供程序另行验证。最终稿无待人工解决的问题。",
+          "已逐题复核24道课时题和6道单元检测题，按四个指定知识点分别归入lessons，每个知识点恰好六题，exam另列六道不同题。",
+          "所有依赖课文内容的题目均在题干中保留或补足必要原句、背景、注释；题干中的材料均随题展示，不依赖学生另行查看课本。",
+          "将《忆读书》第1题的背景改为对四岁与七岁阅读经历的准确转述，避免把课文对自主阅读起点的说明简化为两个完全同类的读书阶段。",
+          "将《忆读书》第6题限定为兼顾持续阅读与纠正字音的做法辨析，不将对个人读书经历的开放评价设为唯一答案。",
+          "将《走遍天下书为侣》第1题答案统一为题干原句“一本书”，消除原答案增加“有趣”这一修饰语的不必要差异。",
+          "明确区分假设旅行与真实经历、阅读想象与已经证实的作者生平，保留反复阅读中思考、品味、发现和整理收获的完整方法。",
+          "将顿号题的要求明确为用顿号分隔三个并列人名，避免将其他标点在不同语境中的用法一概判错。",
+          "单元检测第4题补入明确的习作修改要求，使答案依据分段、举例等可核对标准确定，而不是判定唯一的个人表达方式。",
+          "完善四项知识讲解，补充“读书好，多读书，读好书”的含义，并说明方法梳理可以采用表格等多种形式；各题解析均与题干所给证据对应。",
+          "所有选择题均为四选一，选项无字母前缀，答案与正确选项逐字一致；判断题options均为空数组，答案仅为“对”或“错”。未混入《金字塔》及其他单元内容，无待人工处理的真实疑点。"
+        ]
+      }
+    },
+    {
+      "bookId": "chinese-g5up-2026",
+      "readingId": "chinese-g5up-2026-p1",
+      "sourcePages": [
+        {
+          "physicalPage": 7,
+          "sha256": "f268c7b3e4181dfca9c8db454b59742a5aa2b9a7b1b5e331990165bf86529070"
+        },
+        {
+          "physicalPage": 8,
+          "sha256": "5a74eda63a6fa06352d02fb5b6ab2136123137cc5869578d8536301418db06bd"
+        },
+        {
+          "physicalPage": 9,
+          "sha256": "b91de6083975d31d7fb000c434c97eac5b59fd19df13fbea559edeeefcc99ee7"
+        }
+      ],
+      "candidate_sha256": "35cd376660c0afd0a3ed563081dbf870ffc37f6545864a4769e86f484cea5cf4",
+      "editorialReview": {
+        "kind": "model_image_transcription_review_not_teacher_signoff",
+        "notes": []
+      },
+      "imageAudit": {
+        "model": "gpt-6.1-sol",
+        "status": "verified",
+        "priorTranscriptionSha256": "b8ff50e3a83d105654e6713f25f3c3956499e763ef825b2da651ea43159c56e7",
+        "corrections": [
+          "印刷页2：将“不开放时”校正为“不开花时”。",
+          "《桂花雨》正文位于印刷页2—3；印刷页4的练习及“阅读链接”不属于指定正文，未收入。"
+        ]
+      }
+    },
+    {
+      "bookId": "chinese-g5up-2026",
+      "readingId": "chinese-g5up-2026-p2",
+      "sourcePages": [
+        {
+          "physicalPage": 10,
+          "sha256": "75b4001b4d91ebc6df58644b3d38b2c40eac4504784fab4985f9d3cb25a63251"
+        },
+        {
+          "physicalPage": 11,
+          "sha256": "12c6fc0bf0bae8cd3ea76fd21bb92049b5ed32234581378dd782969448e00097"
+        }
+      ],
+      "candidate_sha256": "baac195f68b7c8b9c0b8c7b8052d9ebd9d1c982eb7b425d8f2d645b1f8e0acc3",
+      "editorialReview": {
+        "kind": "model_image_transcription_review_not_teacher_signoff",
+        "notes": []
+      },
+      "imageAudit": {
+        "model": "gpt-6.1-sol",
+        "status": "verified",
+        "priorTranscriptionSha256": "e12ad95d1dc8e5f04cf8c1915631698c07bbe3aaa1b969f054e511ee2792d8b3",
+        "corrections": [
+          "第5页首句“我们的家的后园有半亩空地。”校正为“我们家的后园有半亩空地。”",
+          "逐字核对第5—6页，其余正文与转录稿一致；已排除拼音、脚注、生字表及练习内容。"
+        ]
+      }
+    },
+    {
+      "bookId": "chinese-g5up-2026",
+      "readingId": "chinese-g5up-2026-p3",
+      "sourcePages": [
+        {
+          "physicalPage": 12,
+          "sha256": "0e2f87cbf62ed3dd88f8e4b19fe9430dce952a0577471d7cbeee971d89a37190"
+        },
+        {
+          "physicalPage": 13,
+          "sha256": "433029f0080f2d7eb561e951d77e506c9d7fe608fdf4b01d0b7904734d53bdf1"
+        }
+      ],
+      "candidate_sha256": "a050faefa3674ddb618b0ad7c9f2b50da9d45f7f32415159867678a7d7c69d6f",
+      "editorialReview": {
+        "kind": "model_image_transcription_review_not_teacher_signoff",
+        "notes": []
+      },
+      "imageAudit": {
+        "model": "gpt-6.1-sol",
+        "status": "verified",
+        "priorTranscriptionSha256": "823ab45ce6db7f8cf31c750f12d431dd15a3c9f319ea9a4533e802a95e72598f",
+        "corrections": []
+      }
+    },
+    {
+      "bookId": "chinese-g5up-2026",
+      "readingId": "chinese-g5up-2026-p4",
+      "sourcePages": [
+        {
+          "physicalPage": 19,
+          "sha256": "9f19fcb0c7dff5b463a9f747d707c92660eebd747cfbb96191e630a9e86baf93"
+        },
+        {
+          "physicalPage": 20,
+          "sha256": "9b48b9f801f0378329dfb434308fed9423c7a51e4721588341e8269cf40af24c"
+        },
+        {
+          "physicalPage": 21,
+          "sha256": "844438d616e02ff930f32d41cb211ffc90a1f2e07e3a5ad446cca253759eefbc"
+        }
+      ],
+      "candidate_sha256": "2856c9fab2d6152c47303337fa4aab2e217d91dae6fafee96f307fbb502402c0",
+      "editorialReview": {
+        "kind": "model_image_transcription_review_not_teacher_signoff",
+        "notes": []
+      },
+      "imageAudit": {
+        "model": "gpt-6.1-sol",
+        "status": "verified",
+        "priorTranscriptionSha256": "3090838d44b3c8af76d3a28660a684e8482f29577a372178319ff60839d2b197",
+        "corrections": [
+          "印刷页15：将“还吱吱扭扭地纺线呢”校正为“还嗡嗡嗡地纺线呢”。",
+          "其余正文与附图一致；作者依据印刷页14的作者说明保留为周而复，未收入脚注、拼音、插图署名、生字表及练习指令。"
+        ]
+      }
+    },
+    {
+      "bookId": "chinese-g5up-2026",
+      "readingId": "chinese-g5up-2026-p5",
+      "sourcePages": [
+        {
+          "physicalPage": 22,
+          "sha256": "5da0da79fedb60273dabbedf2fe9eff0228af491c4574c9b5d6c7bc9defee14d"
+        },
+        {
+          "physicalPage": 23,
+          "sha256": "0264c7c9a393b9fe0917e43a7d8fabaa3024cbc33b4c70df57591df4f3618471"
+        },
+        {
+          "physicalPage": 24,
+          "sha256": "223eda013c93c07477d6407f384b9dbad0b58ebb6cd30a80d4014edd109ae524"
+        },
+        {
+          "physicalPage": 25,
+          "sha256": "cad9074ff6388f6f6e0f6ce8f28aed4ece884570aec7def185cb8834769c502b"
+        },
+        {
+          "physicalPage": 26,
+          "sha256": "ab095b8462bb501557cdc922e8eecc951f1061a94f7f2dd86d583d228c6a2cfa"
+        }
+      ],
+      "candidate_sha256": "dc573407c18a70b6ebcb7f3cee2fc49d46a483c6d95e5c3e6f47f9992957deb4",
+      "editorialReview": {
+        "kind": "model_image_transcription_review_not_teacher_signoff",
+        "notes": []
+      },
+      "imageAudit": {
+        "model": "gpt-6.1-sol",
+        "status": "verified",
+        "priorTranscriptionSha256": "5fd12caed5ce9d9a4bfec9fa9d8516de71dd6c0d2bc627f0b6a42d650c685582",
+        "corrections": [
+          "第18页：将“我们怎么敢为了璧而得罪强大的秦国呢？”校正为“我们怎么敢为了一块璧而得罪强大的秦国呢？”，补回“一块”。",
+          "第19页：将“希望您能击击缶。”校正为“希望您能击缶助兴。”。",
+          "正文止于第20页“从此以后，他们俩成了好朋友，同心协力保卫赵国。”；未纳入生字表、练习、资料袋、脚注、拼音及页眉页脚。"
+        ]
+      }
+    },
+    {
+      "bookId": "chinese-g5up-2026",
+      "readingId": "chinese-g5up-2026-p6",
+      "sourcePages": [
+        {
+          "physicalPage": 27,
+          "sha256": "e999287d62293173469b915aab846bc4dd15d9be63765e977e4468062b9cc996"
+        },
+        {
+          "physicalPage": 28,
+          "sha256": "b80317a77a7c171357d82fcc785de323ce7a142376fe67204920fb05d63f3136"
+        },
+        {
+          "physicalPage": 29,
+          "sha256": "8593f73995b2ca972de4282454ce6662bc480ed069f2f460a12b2354d510931d"
+        }
+      ],
+      "candidate_sha256": "717145467eca47878b7a977a60b6e93077102360002127006149cfddd847b532",
+      "editorialReview": {
+        "kind": "model_image_transcription_review_not_teacher_signoff",
+        "notes": []
+      },
+      "imageAudit": {
+        "model": "gpt-6.1-sol",
+        "status": "verified",
+        "priorTranscriptionSha256": "be9e41ebf10cbc6e617f2e741c85bdb3247105fcb794777c7f3597efbfb316dc",
+        "corrections": [
+          "第23页末句原稿中的“我们一分钟就可以沿着地球赤道转7圈多”已校正为“我们一秒钟就可以沿着地球赤道转7圈多”。",
+          "已核对第22—24页：正文止于第23页“真是令人难以置信！”，第24页为生字表和练习，未纳入reading。"
+        ]
+      }
+    },
+    {
+      "bookId": "chinese-g5up-2026",
+      "readingId": "chinese-g5up-2026-p7",
+      "sourcePages": [
+        {
+          "physicalPage": 30,
+          "sha256": "c01f822a748edf9cf2e9b7c9481adb9e880ce9499ffab74b61a9eb483a6747f6"
+        },
+        {
+          "physicalPage": 31,
+          "sha256": "6d2bb4df9264ce437507b95bcb1ef9687753ba4efd808dbbd0acdbad85d917aa"
+        },
+        {
+          "physicalPage": 32,
+          "sha256": "47f739c7815d0332c9d73f4ed841781a5eb592cf6a81ccaf1792dee893dbdab8"
+        },
+        {
+          "physicalPage": 33,
+          "sha256": "6600cb63edbabc17a30138ba8f4d0641c7a9952e9751f2bf682cd1501ab5ad13"
+        },
+        {
+          "physicalPage": 34,
+          "sha256": "13b60a88875d344e166c47b1ba575942032147c1646359589068da5d050ea437"
+        }
+      ],
+      "candidate_sha256": "fc5ef398e1a21a40e3212c01c3a1def8f0fd9121edb9acc00d476b712dfb51ce",
+      "editorialReview": {
+        "kind": "model_image_transcription_review_not_teacher_signoff",
+        "notes": []
+      },
+      "imageAudit": {
+        "model": "gpt-6.1-sol",
+        "status": "verified",
+        "priorTranscriptionSha256": "be2f0cf4220e7e734128c129f4b30340a02a691a9972bf874fc6567d0bb3e3a8",
+        "corrections": [
+          "第26页：将“实际上，一共有六十一人”校正为“实际上一共有六十一人”，删除原稿多出的逗号。",
+          "第28页：按原文将“‘快干！’船长又叫道。”合为完整句，保留原有文字及标点。",
+          "正文范围为第25—28页；第29页为生字、练习及资料袋，不纳入reading。"
+        ]
+      }
+    },
+    {
+      "bookId": "chinese-g5up-2026",
+      "readingId": "chinese-g5up-2026-p8",
+      "sourcePages": [
+        {
+          "physicalPage": 39,
+          "sha256": "e00e06ad5f12563ea6e42ff89aeb163374ea0a8af8d9ab0a956a4d9b1c0f12d3"
+        },
+        {
+          "physicalPage": 40,
+          "sha256": "42d5bbdafabec44d22071f7a9c52d5553a43eac1e27856a2a441b146ad77f993"
+        },
+        {
+          "physicalPage": 41,
+          "sha256": "697c5137dc2e65b9c7e84fc64072ce51d72d26b1679a9bff2c52a8fcf7ef4500"
+        }
+      ],
+      "candidate_sha256": "5c41c7cdc53c2d26c1844c354c117404e65e5a62665a2c79a0511ada842af29b",
+      "editorialReview": {
+        "kind": "model_image_transcription_review_not_teacher_signoff",
+        "notes": []
+      },
+      "imageAudit": {
+        "model": "gpt-6.1-sol",
+        "status": "verified",
+        "priorTranscriptionSha256": "8b543ccfe89e4db9ccb1267a45f53f680e7c369aa29ae0ed5435bbee2c17b66a",
+        "corrections": []
+      }
+    },
+    {
+      "bookId": "chinese-g5up-2026",
+      "readingId": "chinese-g5up-2026-p9",
+      "sourcePages": [
+        {
+          "physicalPage": 42,
+          "sha256": "21f4ae409ffc6ab6879cb87b6548157c3a618a7f313a4f40059737f4c64ae8f1"
+        },
+        {
+          "physicalPage": 43,
+          "sha256": "b1c75c7e7db1aa567ad08961c6c57b0516a9fdd25cf12628a28dec83a13e5905"
+        },
+        {
+          "physicalPage": 44,
+          "sha256": "7348db7b8572ed04c018787682a1c035a503a55c3e468d745cb5bbde63d3b890"
+        },
+        {
+          "physicalPage": 45,
+          "sha256": "98239371366d8333904ec071c0367edadea6bfbcb095073fa60caf72c817c358"
+        },
+        {
+          "physicalPage": 46,
+          "sha256": "d7c44871f1378dab7ad1272356e99ae154d94516eac21369e6ce8941ab5fdeab"
+        }
+      ],
+      "candidate_sha256": "f13b231ea704dbb3067ea191fbb9a67af60774ad53f435cd0341ecc0f547fb57",
+      "editorialReview": {
+        "kind": "model_image_transcription_review_not_teacher_signoff",
+        "notes": []
+      },
+      "imageAudit": {
+        "model": "gpt-6.1-sol",
+        "status": "verified",
+        "priorTranscriptionSha256": "62f24530066de53c8d4921a9a829235edb7d62e3d5bf6639b841bf026c8a9696",
+        "corrections": [
+          "第39页：“也不多玩一会儿。哎呀！”校正为“也不多玩一会儿。——哎呀！”，补回原文破折号。",
+          "第37页脚注明确本文由叶圣陶整理，author据此标注为“叶圣陶（整理）”；脚注本身不纳入正文。",
+          "已核对第37—41页，正文结束于第40页“正是这个新娘子。”；第41页的生字表和练习指令不纳入reading。"
+        ]
+      }
+    },
+    {
+      "bookId": "chinese-g5up-2026",
+      "readingId": "chinese-g5up-2026-p10",
+      "sourcePages": [
+        {
+          "physicalPage": 47,
+          "sha256": "35f6ecdc3595078a0585bdefdbc80dd640a3dd548fba163b43da348e6f0448fa"
+        },
+        {
+          "physicalPage": 48,
+          "sha256": "194f317d01e34c0c2ef311e3a2dcbe8977ead1d3c584cd9abb83a8b3eeb0ec95"
+        },
+        {
+          "physicalPage": 49,
+          "sha256": "5c701a04bf9f2050401a060d9dfc2dbc5bd1ca311c312784755cdbf7c760a9d6"
+        }
+      ],
+      "candidate_sha256": "b16b6fc60aee47f4393756a8dc1b4fc1bab4c1b5ac3c616856cc7d67ebeb4bf8",
+      "editorialReview": {
+        "kind": "model_image_transcription_review_not_teacher_signoff",
+        "notes": []
+      },
+      "imageAudit": {
+        "model": "gpt-6.1-sol",
+        "status": "verified",
+        "priorTranscriptionSha256": "a0bd734579c3d2e46235ef6f69847be62cc1f0a945e21afd8c5ce48390540389",
+        "corrections": [
+          "第42页：“就很在她怀里”校正为“就偎在她怀里”。",
+          "第43页：“王母娘娘狠狠罚她们”校正为“王母娘娘罚她们”。",
+          "第43页：“筐子放在织了一半的布匹上”校正为“梭子放在织了半截的布匹上”。"
+        ]
+      }
+    },
+    {
+      "bookId": "chinese-g5up-2026",
+      "readingId": "chinese-g5up-2026-p11",
+      "sourcePages": [
+        {
+          "physicalPage": 57,
+          "sha256": "0bed524a5cd2f1a40e842e2be7a5567cc29ae21849799a7f54cdd68196532422"
+        }
+      ],
+      "candidate_sha256": "e2ece27460ef21f38b9b19f5bd89d6d59caebf5b8e26ddd5c7bf0acef630ac26",
+      "editorialReview": {
+        "kind": "model_image_transcription_review_not_teacher_signoff",
+        "notes": []
+      },
+      "imageAudit": {
+        "model": "gpt-6.1-sol",
+        "status": "verified",
+        "priorTranscriptionSha256": "693c84f1364671c0c6e080a1619365974305019181b56cc81772cb0c20c5a6af",
+        "corrections": []
+      }
+    },
+    {
+      "bookId": "chinese-g5up-2026",
+      "readingId": "chinese-g5up-2026-p12",
+      "sourcePages": [
+        {
+          "physicalPage": 57,
+          "sha256": "0bed524a5cd2f1a40e842e2be7a5567cc29ae21849799a7f54cdd68196532422"
+        }
+      ],
+      "candidate_sha256": "d08553ff8bcf6568d724ef9fec8112d3d7147ff335829918b7c99562c7765a18",
+      "editorialReview": {
+        "kind": "model_image_transcription_review_not_teacher_signoff",
+        "notes": []
+      },
+      "imageAudit": {
+        "model": "gpt-6.1-sol",
+        "status": "verified",
+        "priorTranscriptionSha256": "e72e967d7e26c8f83a31ec979adbbefe4c8b903994ad30b98d6813baed32a5bb",
+        "corrections": [
+          "据印刷页52补全作者署名中的朝代信息为“[宋]林升”；标题及四句正文与附图一致，无须修改。"
+        ]
+      }
+    },
+    {
+      "bookId": "chinese-g5up-2026",
+      "readingId": "chinese-g5up-2026-p13",
+      "sourcePages": [
+        {
+          "physicalPage": 58,
+          "sha256": "21c277edaed5d364e5a8fb68f39d579057c2c86b4205b6fc91dbe18c360f7e76"
+        }
+      ],
+      "candidate_sha256": "6c205286b20b9cea0342e971eb0c3d30c6391326afbcd2a77760e758613d6ccc",
+      "editorialReview": {
+        "kind": "model_image_transcription_review_not_teacher_signoff",
+        "notes": []
+      },
+      "imageAudit": {
+        "model": "gpt-6.1-sol",
+        "status": "verified",
+        "priorTranscriptionSha256": "7bd07fc43af108ee0cba18c4de60d6b49404e4edc3af582b3ec592bbbde08385",
+        "corrections": []
+      }
+    },
+    {
+      "bookId": "chinese-g5up-2026",
+      "readingId": "chinese-g5up-2026-p14",
+      "sourcePages": [
+        {
+          "physicalPage": 59,
+          "sha256": "1831f5a9498d7ad732fc0228bcc2d9a8d63328707befdd1a7f269e71357b17b1"
+        },
+        {
+          "physicalPage": 60,
+          "sha256": "6fdee129aa9216d14cddfbba6d34063d98cc074925e190f61e2301a8e1dd7f07"
+        }
+      ],
+      "candidate_sha256": "90ca95467c9eb727d4744493085885752f6a77dcc9959622b2882a047bb52005",
+      "editorialReview": {
+        "kind": "model_image_transcription_review_not_teacher_signoff",
+        "notes": []
+      },
+      "imageAudit": {
+        "model": "gpt-6.1-sol",
+        "status": "verified",
+        "priorTranscriptionSha256": "c007a6654c02c72bdb2949603a4382711557ce39659f2ab66cc2996ce816127e",
+        "corrections": []
+      }
+    },
+    {
+      "bookId": "chinese-g5up-2026",
+      "readingId": "chinese-g5up-2026-p15",
+      "sourcePages": [
+        {
+          "physicalPage": 61,
+          "sha256": "3653fe9313e08a48220ee3ea008adfd8b66ede1d830fc6f649bc945671c509a1"
+        },
+        {
+          "physicalPage": 62,
+          "sha256": "63715a7d1af2c9412aef5879b03721b7e60a173be5dd3c04fd1e000167762759"
+        },
+        {
+          "physicalPage": 63,
+          "sha256": "785b25815da9912e44d183b5e51f457349151ae52160acf9764bbf33b042e295"
+        }
+      ],
+      "candidate_sha256": "58bfa7082626dbee1b6e89937bd11755d408f4a22cb0582d5c032ee64c486f42",
+      "editorialReview": {
+        "kind": "model_image_transcription_review_not_teacher_signoff",
+        "notes": []
+      },
+      "imageAudit": {
+        "model": "gpt-6.1-sol",
+        "status": "verified",
+        "priorTranscriptionSha256": "a8edd5d0106c33a3d953cc53073ef396c1d6f8d8cd58496d5a6de1451c6e854b",
+        "corrections": []
+      }
+    },
+    {
+      "bookId": "chinese-g5up-2026",
+      "readingId": "chinese-g5up-2026-p16",
+      "sourcePages": [
+        {
+          "physicalPage": 64,
+          "sha256": "21312bedb7e9cf0b83d55599969610beaa8e0554861902028824698e515d7359"
+        },
+        {
+          "physicalPage": 65,
+          "sha256": "6dbcc04de848d7e7792256915185709d45e3ed5f4284b4e53db7b74eca4e88f9"
+        },
+        {
+          "physicalPage": 66,
+          "sha256": "5e30609f14aa4c42e68e404328898fdcb71163c1393dd5ce3b7f4311f975fd4b"
+        }
+      ],
+      "candidate_sha256": "e394633c10a60718fe52044381c4f3402f7274be1116336e2c20c8176aae9789",
+      "editorialReview": {
+        "kind": "model_image_transcription_review_not_teacher_signoff",
+        "notes": []
+      },
+      "imageAudit": {
+        "model": "gpt-6.1-sol",
+        "status": "verified",
+        "priorTranscriptionSha256": "0e53dc23fdfae3d861fb6654b305c39dc9e076ccb56e60b3cd93623442277b6c",
+        "corrections": []
+      }
+    },
+    {
+      "bookId": "chinese-g5up-2026",
+      "readingId": "chinese-g5up-2026-p17",
+      "sourcePages": [
+        {
+          "physicalPage": 71,
+          "sha256": "ddb6812c4e7b17cfd15cf867b67d64ba00968bb4d3befbdff3ab83571b58b6db"
+        },
+        {
+          "physicalPage": 72,
+          "sha256": "f9cdd95aeb404da482559a0fcc5ba710e64aa737fecd06de8ccea441aed71bde"
+        }
+      ],
+      "candidate_sha256": "5e8e2b087bfedf672c301b0918a07fb205759d0558b8f7f6f4c4188ef9b95c63",
+      "editorialReview": {
+        "kind": "model_image_transcription_review_not_teacher_signoff",
+        "notes": [
+          "印刷页66注明确注明：“本文作者张培（jié）民，选作课文时有改动。”作者据此填写为张培民。",
+          "已对照印刷页66—67校正转录，并按完整句子分句；不含页眉、页脚、注释及练习题。"
+        ]
+      },
+      "imageAudit": {
+        "model": "gpt-6.1-sol",
+        "status": "verified",
+        "priorTranscriptionSha256": "6c1fd5df9db56435b920db08c19f25ae8ab919f03c3874e2e946a39af1a9d1f4",
+        "corrections": [
+          "第66页脚注明确作者为“张姞民”，原稿“张培民”已校正；脚注内容不收入正文。",
+          "第67页“那里空气就比较热”应为“那里的空气就比较热”，已补回“的”。"
+        ]
+      }
+    },
+    {
+      "bookId": "chinese-g5up-2026",
+      "readingId": "chinese-g5up-2026-p18",
+      "sourcePages": [
+        {
+          "physicalPage": 73,
+          "sha256": "312d7d88fc9b9cdfba952edf8f53c285cc6c30bc7dd8c8e17744fa2e3ce7ea4a"
+        },
+        {
+          "physicalPage": 74,
+          "sha256": "f9ef6722550559999be7aef8ad69baeede93054657497b47a817e74458dd3229"
+        }
+      ],
+      "candidate_sha256": "9309b23179453089e26b572c202be962793858da581d2d3c39c1fda00abd8894",
+      "editorialReview": {
+        "kind": "model_image_transcription_review_not_teacher_signoff",
+        "notes": []
+      },
+      "imageAudit": {
+        "model": "gpt-6.1-sol",
+        "status": "verified",
+        "priorTranscriptionSha256": "91a97cf315556b0c6cfac49425421db4f5820005b19cf62f52b985690adb2642",
+        "corrections": [
+          "补回第68页正文小标题“最大的金字塔”。",
+          "补回第69页正文小标题“建造技术”。",
+          "所附图片为印刷页68、69，《金字塔》正文已在第69页结束；未附第70页，不据此补写任何内容。",
+          "已排除拼音、页眉页脚、脚注、生字表及课后练习指令，保留图示数据和说明文字。"
+        ]
+      }
+    },
+    {
+      "bookId": "chinese-g5up-2026",
+      "readingId": "chinese-g5up-2026-p19",
+      "sourcePages": [
+        {
+          "physicalPage": 81,
+          "sha256": "af991beb1befc20c1a4610259d003cf92ad30ed7052a2cea2f2d04fb312dda97"
+        },
+        {
+          "physicalPage": 82,
+          "sha256": "f02bd648e765902453439233795765c9472d3a25018f3dd643a86ae12c83a4e0"
+        },
+        {
+          "physicalPage": 83,
+          "sha256": "d8404de834fd167252d3ae94c77a3632b62262e5a8d4141878187c1cf623bdc9"
+        },
+        {
+          "physicalPage": 84,
+          "sha256": "a79354d3b6d16c29605862829783d1ff13ccfe6c38699e0a05ee36426c2d63e3"
+        }
+      ],
+      "candidate_sha256": "77703d623d47f41f6013499a87e18df1e37fadae5b2835606be809bafa9e7564",
+      "editorialReview": {
+        "kind": "model_image_transcription_review_not_teacher_signoff",
+        "notes": []
+      },
+      "imageAudit": {
+        "model": "gpt-6.1-sol",
+        "status": "verified",
+        "priorTranscriptionSha256": "108fb522ae972335ce6173b2f356ef618739b4c6a2b44fd0df674a1eb2dec002",
+        "corrections": [
+          "第77页：“那儿！”原稿误作“那儿！以外的句末标点”；已按附图将该句校正为“那儿！”"
+        ]
+      }
+    },
+    {
+      "bookId": "chinese-g5up-2026",
+      "readingId": "chinese-g5up-2026-p20",
+      "sourcePages": [
+        {
+          "physicalPage": 85,
+          "sha256": "57217c7a4a6217f7068b576a3f1789cd95c894311b259d606fbe94c83a6fe1c7"
+        },
+        {
+          "physicalPage": 86,
+          "sha256": "87e6d77d6b3a90a4c971ade8b1ab9e30711f4ede4706517225fad3a6b9b9632c"
+        },
+        {
+          "physicalPage": 87,
+          "sha256": "6491c4183384695c1ef190bf8f451b6ed7ed2feb97e03ccaad18ba9a3e4d5648"
+        },
+        {
+          "physicalPage": 88,
+          "sha256": "bce8e50eee8cf21d853c673e920e8132142b6c36af6a24b71e945e39f659be68"
+        }
+      ],
+      "candidate_sha256": "c4dd319de949a39a2abfc1f3f51b0c15b369d50376ee94421ed87d2df8d017ae",
+      "editorialReview": {
+        "kind": "model_image_transcription_review_not_teacher_signoff",
+        "notes": []
+      },
+      "imageAudit": {
+        "model": "gpt-6.1-sol",
+        "status": "verified",
+        "priorTranscriptionSha256": "56014236d252ee4dd943cb503b7af8f926b5f8ef158e64084dc1c6d00f8f8e2b",
+        "corrections": [
+          "第80页：“每年卖蚕子的时候”“卖了蚕子”分别校正为“每年卖茧子的时候”“卖了茧子”。",
+          "第81页：“能去看看这盛大的节目确是无比的快乐”校正为“能去看看这盛大的节目的确是无比的快乐”。",
+          "第81页：“找个偏僻的地方”校正为“找个偏僻的地方”（原稿此处与附图一致，予以保留）。",
+          "第82—83页：“我从船里往外看”校正为“我从舱里往外看”。",
+          "第83页：“把那只载着父爱的乌篷船画出来就好了”校正为“把那只载着父爱的小船画出来就好了”。"
+        ]
+      }
+    },
+    {
+      "bookId": "chinese-g5up-2026",
+      "readingId": "chinese-g5up-2026-p21",
+      "sourcePages": [
+        {
+          "physicalPage": 89,
+          "sha256": "ce105db3c592debb59fdaa44fb23fd5fdb34cddc98e753a4ba5839f98acaaece"
+        },
+        {
+          "physicalPage": 90,
+          "sha256": "94eb382bc6d15ba356b8ef67e1db058301fe5fa57f8d313c4e2dacafdb88ef18"
+        },
+        {
+          "physicalPage": 91,
+          "sha256": "f77fabc53410bf79defab673987befba2a7542731c7a7a8e8534c60ff151e2bc"
+        }
+      ],
+      "candidate_sha256": "bd8789acc554a24c68a4bebfbcd6e968ea152e823f2d9468297f3a721c9381be",
+      "editorialReview": {
+        "kind": "model_image_transcription_review_not_teacher_signoff",
+        "notes": []
+      },
+      "imageAudit": {
+        "model": "gpt-6.1-sol",
+        "status": "verified",
+        "priorTranscriptionSha256": "d6b30c21b37722435aa7512820987b9be23061844bc1eee878e8ba926571fde5",
+        "corrections": [
+          "第84页：删除正文前的背景导读及“读一读这封信，说说哪些地方打动了你。”操作指令，正文从“亲爱的孩子们：”开始。",
+          "第85页：将“亲爱的孩子，妈妈有妈妈的梦想和使命”校正为“孩子，妈妈有妈妈的梦想和使命”。",
+          "第86页：将“见证你背上小书包那一瞬间的成长”后的句号校正为原文逗号，与“你们要知道”衔接。",
+          "第86页：删除“我爱你们！”右引号后原稿多出的句号。",
+          "已核对并保留正文省略号、署名和日期；不收录拼音、脚注、生字表及页眉页脚。"
+        ]
+      }
+    },
+    {
+      "bookId": "chinese-g5up-2026",
+      "readingId": "chinese-g5up-2026-p22",
+      "sourcePages": [
+        {
+          "physicalPage": 97,
+          "sha256": "386ea9eead973fba77c84fa462f6d5ba62cb90be2e5aa96ffce0e1b0112fdfc8"
+        }
+      ],
+      "candidate_sha256": "53023f38beb20bf80b0bf4417556e522334b7bdd9cb87a34a0bcadb39bb40402",
+      "editorialReview": {
+        "kind": "model_image_transcription_review_not_teacher_signoff",
+        "notes": []
+      },
+      "imageAudit": {
+        "model": "gpt-6.1-sol",
+        "status": "verified",
+        "priorTranscriptionSha256": "4069b4ebd1fe6f8c30a379414d6d998fbdf52458788bab49bc123efc845983d4",
+        "corrections": []
+      }
+    },
+    {
+      "bookId": "chinese-g5up-2026",
+      "readingId": "chinese-g5up-2026-p23",
+      "sourcePages": [
+        {
+          "physicalPage": 97,
+          "sha256": "386ea9eead973fba77c84fa462f6d5ba62cb90be2e5aa96ffce0e1b0112fdfc8"
+        }
+      ],
+      "candidate_sha256": "414095ee1dbd2b4f9fdc6a3b9994c5ec2b8e8ab783968c0e9fb26a48c3af1afd",
+      "editorialReview": {
+        "kind": "model_image_transcription_review_not_teacher_signoff",
+        "notes": []
+      },
+      "imageAudit": {
+        "model": "gpt-6.1-sol",
+        "status": "verified",
+        "priorTranscriptionSha256": "c987a445b625970d7f769246070502069c8048a1a46beb7e6ebb01b562bd13c6",
+        "corrections": []
+      }
+    },
+    {
+      "bookId": "chinese-g5up-2026",
+      "readingId": "chinese-g5up-2026-p24",
+      "sourcePages": [
+        {
+          "physicalPage": 98,
+          "sha256": "7fedc1bd3bca9e53524980eaad5e1e6250cf6258df7f889001e9e3db7f137e10"
+        }
+      ],
+      "candidate_sha256": "887fe51859cb6967501cbc80b3aeb738f4f1d6c3b55095f45be6b3e742e73f20",
+      "editorialReview": {
+        "kind": "model_image_transcription_review_not_teacher_signoff",
+        "notes": []
+      },
+      "imageAudit": {
+        "model": "gpt-6.1-sol",
+        "status": "verified",
+        "priorTranscriptionSha256": "088bd0ec165b3f98c5f5d30fbe2f28566bb1a8758fa372e85e860b976d27d0fc",
+        "corrections": [
+          "第93页作者署名含朝代“［唐］”，已补入；标题及正文与附图一致。"
+        ]
+      }
+    },
+    {
+      "bookId": "chinese-g5up-2026",
+      "readingId": "chinese-g5up-2026-p25",
+      "sourcePages": [
+        {
+          "physicalPage": 99,
+          "sha256": "8c83be3b3b6b9a0d5f970534db7139af2c21268895590ff9f22b129d58ee5a11"
+        },
+        {
+          "physicalPage": 100,
+          "sha256": "732de616f7bcb4a1432fde61deb3323330520fedd1590d046d36e0459f3085b6"
+        }
+      ],
+      "candidate_sha256": "5e78520df46377dcf047b75d3171b53ed5f3255c4921dbd4feb7f1db9fd57c24",
+      "editorialReview": {
+        "kind": "model_image_transcription_review_not_teacher_signoff",
+        "notes": []
+      },
+      "imageAudit": {
+        "model": "gpt-6.1-sol",
+        "status": "verified",
+        "priorTranscriptionSha256": "99e9414bf80178b3a36bc7baf1a33a8207cf1dd630ad1287f64407212902bee2",
+        "corrections": []
+      }
+    },
+    {
+      "bookId": "chinese-g5up-2026",
+      "readingId": "chinese-g5up-2026-p26",
+      "sourcePages": [
+        {
+          "physicalPage": 101,
+          "sha256": "1148235cf09d0bf521aa64579de6bc50ae00388a4f3e7ec7103ea9356c1545f1"
+        },
+        {
+          "physicalPage": 102,
+          "sha256": "1cc4caedd7178b74a47ada52b6115eacc01340ebc92ea530ca8255c3b2726d91"
+        }
+      ],
+      "candidate_sha256": "32f2bb6696056f5a3d38af1a85cd6d4a74c24489469708e2227bbde4d164c915",
+      "editorialReview": {
+        "kind": "model_image_transcription_review_not_teacher_signoff",
+        "notes": []
+      },
+      "imageAudit": {
+        "model": "gpt-6.1-sol",
+        "status": "verified",
+        "priorTranscriptionSha256": "225aaa463c8ab7b188258750aab244bbf2e4c061ca0fd757451c7b2f5b39d3e0",
+        "corrections": []
+      }
+    },
+    {
+      "bookId": "chinese-g5up-2026",
+      "readingId": "chinese-g5up-2026-p27",
+      "sourcePages": [
+        {
+          "physicalPage": 107,
+          "sha256": "b5e9e941543117f4a37b4e5441a12f23b83750476aa9cf117d8e6ce8382f5ca6"
+        },
+        {
+          "physicalPage": 108,
+          "sha256": "39284bfd00b8817180758c8660a7a5b1af830bc4dfdbe7f5b0c45e3daa7b6fb7"
+        }
+      ],
+      "candidate_sha256": "eb669d4bf12bde1326b1476983d67b13f0564fdd224708096e87979a5ae0f313",
+      "editorialReview": {
+        "kind": "model_image_transcription_review_not_teacher_signoff",
+        "notes": []
+      },
+      "imageAudit": {
+        "model": "gpt-6.1-sol",
+        "status": "verified",
+        "priorTranscriptionSha256": "ef572b788ea19f9355f994f2376cc48b4987a207cd1da6a53fc8799de30c1479",
+        "corrections": [
+          "第103页“记亦不能久也”原稿漏“能”字，已补正。",
+          "原稿将全文作者标为“朱熹”不准确：第102页第一部分署“——《论语》”，第103页第二部分署“——［宋］朱熹”。全文author设为null，并保留各部分原有署名。",
+          "补入原页正文的分节标记“一”“二”。"
+        ]
+      }
+    },
+    {
+      "bookId": "chinese-g5up-2026",
+      "readingId": "chinese-g5up-2026-p28",
+      "sourcePages": [
+        {
+          "physicalPage": 109,
+          "sha256": "1f92aa80ba983e113b1b3b600c98035f11dd67bb6fc6978793d93b6591f5c9fa"
+        },
+        {
+          "physicalPage": 110,
+          "sha256": "c29ee037fc015ea58b6280b7b01e9a0d220c0c9fb258c5090b63c40c71e8d2f8"
+        },
+        {
+          "physicalPage": 111,
+          "sha256": "90dc29557a4f4ea30b96379457a97f7d9758c17247a3db5337ce115aaae4e6e3"
+        },
+        {
+          "physicalPage": 112,
+          "sha256": "81822c967fdda5dbd472f159408715ef276f243a8ac62b93e056852fd5c19e78"
+        },
+        {
+          "physicalPage": 113,
+          "sha256": "d87dfa550a7da3d8dbb28253590c037606831a65974017f4367fe12b53ae457f"
+        }
+      ],
+      "candidate_sha256": "e052e0f838f4d9263f674fcf3b308ed2e725c96bb9addc9cafcbf78664dd01ea",
+      "editorialReview": {
+        "kind": "model_image_transcription_review_not_teacher_signoff",
+        "notes": []
+      },
+      "imageAudit": {
+        "model": "gpt-6.1-sol",
+        "status": "verified",
+        "priorTranscriptionSha256": "9ade0895e05c90f2c9c465044f315fe71eb108bcad4ffa5acb734e7db20d20a3",
+        "corrections": []
+      }
+    },
+    {
+      "bookId": "chinese-g5up-2026",
+      "readingId": "chinese-g5up-2026-p29",
+      "sourcePages": [
+        {
+          "physicalPage": 114,
+          "sha256": "70b6ee4dded07ff45d778bb3ffa6f802161fcc3069f28659efadb73e02481269"
+        },
+        {
+          "physicalPage": 115,
+          "sha256": "2329b60286c61c34357dc81a3200f97bd7f9f141931cc905a7f43e104d3747db"
+        }
+      ],
+      "candidate_sha256": "d61c923bdbb014357d1708b0232aa26522be3647da6b14b968acbd993a0be139",
+      "editorialReview": {
+        "kind": "model_image_transcription_review_not_teacher_signoff",
+        "notes": []
+      },
+      "imageAudit": {
+        "model": "gpt-6.1-sol",
+        "status": "verified",
+        "priorTranscriptionSha256": "35b329a4d5a044b76f3d0809f310e61ed7afc3e3bb1592175b2760566371e184",
+        "corrections": []
+      }
+    },
+    {
+      "bookId": "chinese-g5up-2026",
+      "readingId": "chinese-g5up-2026-p30",
+      "sourcePages": [
+        {
+          "physicalPage": 77,
+          "sha256": "9bd845751fcd78388bd9857ca5baa666db093aed151d853e10d0f60ea39bfaa1"
+        },
+        {
+          "physicalPage": 78,
+          "sha256": "4133bb5ab37cba4046d8249398e60b23a0027bfd3e5180a1df88542441ef8334"
+        }
+      ],
+      "candidate_sha256": "f8dcbb1a3bc14999ab89d58b15f240b485cbe41cf770f6349e93a14ee3fb48fa",
+      "editorialReview": {
+        "kind": "model_image_transcription_review_not_teacher_signoff",
+        "notes": []
+      },
+      "imageAudit": {
+        "model": "gpt-6.1-sol",
+        "status": "verified",
+        "priorTranscriptionSha256": "5f212137dd8dda0238ad7f70c298eb7351abae9d8fac2206f9c5acadd43711d5",
+        "corrections": [
+          "第72页脚注明确标示“本文作者于功”，据此将author由null校正为“于功”；脚注文字不收入正文。",
+          "已逐字核对第72—73页，所给转录稿正文与附图一致，无须改动正文文字；已排除旁批、拼音、页眉页脚、脚注及练习指令。"
+        ]
+      }
+    },
+    {
+      "bookId": "chinese-g5up-2026",
+      "readingId": "chinese-g5up-2026-p31",
+      "sourcePages": [
+        {
+          "physicalPage": 79,
+          "sha256": "639350d4a3df51524faa7ae8856fa9d494d38567f608219fd0fde75da2c58124"
+        }
+      ],
+      "candidate_sha256": "a3b1b26ce209196915b084459393f59b2285537b511e49a7d7480243e9010f50",
+      "editorialReview": {
+        "kind": "model_image_transcription_review_not_teacher_signoff",
+        "notes": []
+      },
+      "imageAudit": {
+        "model": "gpt-6.1-sol",
+        "status": "verified",
+        "priorTranscriptionSha256": "72417dd4e51e3cf0c6ea16ad104c3bf5964ec6b5e8f79d38f12200e39f0dc6a5",
+        "corrections": [
+          "已删除第74页正文后的练习指令“说说例文是如何把制作风向袋的过程介绍清楚的。”，正文保留至“风向袋飘动的反方向就是风向。”。",
+          "经逐字核对，第74页其余正文转录与附图一致；未纳入旁批、页眉页脚及其他非正文内容。"
+        ]
+      }
+    },
+    {
+      "bookId": "chinese-g5up-2026",
+      "readingId": "chinese-g5up-2026-p32",
+      "sourcePages": [
+        {
+          "physicalPage": 17,
+          "sha256": "7a919a32c1b876504bc88362392aaa4923a55f4b6977d6ac62c87ae0687165a9"
+        }
+      ],
+      "candidate_sha256": "0736085b298ad0f9757c3614c38c596418ec26a65c5462bae2542fd54494e799",
+      "editorialReview": {
+        "kind": "model_image_transcription_review_not_teacher_signoff",
+        "notes": []
+      },
+      "imageAudit": {
+        "model": "gpt-6.1-sol",
+        "status": "verified",
+        "priorTranscriptionSha256": "c2d9496971910f19f94da71f703aa7b5bcb05b9fdeb12045f6f8b9eb06f39f27",
+        "corrections": []
+      }
+    },
+    {
+      "bookId": "chinese-g5up-2026",
+      "readingId": "chinese-g5up-2026-p33",
+      "sourcePages": [
+        {
+          "physicalPage": 37,
+          "sha256": "32a10d322faddd380142972f114855eb777d0ae13455adb209383e42070a0b2e"
+        }
+      ],
+      "candidate_sha256": "621c92bfc57a0a1fdd2f3f7eb5ddd8c465901c8040fcde476f2130e5d13c3cfa",
+      "editorialReview": {
+        "kind": "model_image_transcription_review_not_teacher_signoff",
+        "notes": []
+      },
+      "imageAudit": {
+        "model": "gpt-6.1-sol",
+        "status": "verified",
+        "priorTranscriptionSha256": "83a0914298b2545cf9375d94ee7048d3baa8262e874ac1c9f7f5bc51dc16d214",
+        "corrections": []
+      }
+    },
+    {
+      "bookId": "chinese-g5up-2026",
+      "readingId": "chinese-g5up-2026-p34",
+      "sourcePages": [
+        {
+          "physicalPage": 53,
+          "sha256": "42a67d18328a6e3eb17e3c247ebacd636a55f43234c15b85ff0e9390a0efc351"
+        }
+      ],
+      "candidate_sha256": "5be0804cb8e18cb5d689f01d972c784eb57cb37213dc9c938f076191c4c249b7",
+      "editorialReview": {
+        "kind": "model_image_transcription_review_not_teacher_signoff",
+        "notes": []
+      },
+      "imageAudit": {
+        "model": "gpt-6.1-sol",
+        "status": "verified",
+        "priorTranscriptionSha256": "90f62d10556488dd76732345e8feaf32d96a7355497b2b3484eb406845608af4",
+        "corrections": []
+      }
+    },
+    {
+      "bookId": "chinese-g5up-2026",
+      "readingId": "chinese-g5up-2026-p35",
+      "sourcePages": [
+        {
+          "physicalPage": 69,
+          "sha256": "90f33f14aa6e51e119823984d5233c0af902023670ca78d7c2790c79945290a6"
+        }
+      ],
+      "candidate_sha256": "d2e91cacf3ea5a6f14c8c7c475b5ea4e0891ad420f3d81816b2ff2ee137a22b5",
+      "editorialReview": {
+        "kind": "model_image_transcription_review_not_teacher_signoff",
+        "notes": []
+      },
+      "imageAudit": {
+        "model": "gpt-6.1-sol",
+        "status": "verified",
+        "priorTranscriptionSha256": "359035e08acb3c4c1dbd95c90b35b513175f465ebcc9d57ae614399190ef176b",
+        "corrections": []
+      }
+    },
+    {
+      "bookId": "chinese-g5up-2026",
+      "readingId": "chinese-g5up-2026-p36",
+      "sourcePages": [
+        {
+          "physicalPage": 95,
+          "sha256": "2e41ae550151d52216f0e5324344d30d701deb31149097507f7d03087a65fd20"
+        }
+      ],
+      "candidate_sha256": "9b6eec3bebc556fef4f31a1fced5e73a0f3f8b77906eca69fc04aba70f71d5e6",
+      "editorialReview": {
+        "kind": "model_image_transcription_review_not_teacher_signoff",
+        "notes": []
+      },
+      "imageAudit": {
+        "model": "gpt-6.1-sol",
+        "status": "verified",
+        "priorTranscriptionSha256": "9edbacf12c66110a962b2abcd5c80399aeb8c58e0b80b328a9006c176c8c04c2",
+        "corrections": [
+          "第90页作者署名为“[唐] 孟郊”，补全原稿遗漏的朝代信息；正文逐字核对无误。"
+        ]
+      }
+    },
+    {
+      "bookId": "chinese-g5up-2026",
+      "readingId": "chinese-g5up-2026-p37",
+      "sourcePages": [
+        {
+          "physicalPage": 105,
+          "sha256": "d35d96325bed70d1b44b6eb0cc4bdf93bf7bd36bef1a47f47239de5c9137c055"
+        }
+      ],
+      "candidate_sha256": "8caa130040bce022a6ad9d2924847394f1824885666984bab5b1815a82cacace",
+      "editorialReview": {
+        "kind": "model_image_transcription_review_not_teacher_signoff",
+        "notes": []
+      },
+      "imageAudit": {
+        "model": "gpt-6.1-sol",
+        "status": "verified",
+        "priorTranscriptionSha256": "db00c11a1fc4bec3017a299368d1a7377b888511223ab30b675550c7acdb266a",
+        "corrections": []
+      }
+    },
+    {
+      "bookId": "chinese-g5up-2026",
+      "readingId": "chinese-g5up-2026-p38",
+      "sourcePages": [
+        {
+          "physicalPage": 119,
+          "sha256": "80a5dcf88614b51cdf665cc2a5f824d86665c023e917d8fbd20231970d6cd557"
+        }
+      ],
+      "candidate_sha256": "f44ee0bba537330025d8d6f36d5bfe486e7b28d7bcd17813546a3289c3cd1441",
+      "editorialReview": {
+        "kind": "model_image_transcription_review_not_teacher_signoff",
+        "notes": []
+      },
+      "imageAudit": {
+        "model": "gpt-6.1-sol",
+        "status": "verified",
+        "priorTranscriptionSha256": "824d0c7974368f31d7ceb902e474af063c456eae014298f17de440718663c640",
+        "corrections": [
+          "第114页作者署名为“[宋]朱熹”，补全原转录稿遗漏的朝代信息；正文逐字核对无误。"
+        ]
+      }
+    },
+    {
+      "bookId": "chinese-g5up-2026",
+      "readingId": "chinese-g5up-2026-p39",
+      "sourcePages": [
+        {
+          "physicalPage": 54,
+          "sha256": "0dff0c6a31329715b6df4b2c7972db04f15e181a51ce96bc7d4f4fa8e82fe1ed"
+        },
+        {
+          "physicalPage": 55,
+          "sha256": "8727d644debe03afdec8b36297fbeb676bbe236741181a21074a3bfdbd276ce5"
+        }
+      ],
+      "candidate_sha256": "dfe98e7737714a6d99c45d836a16dd78cfa97e6f0535804c77e73136cf3c88ee",
+      "editorialReview": {
+        "kind": "model_image_transcription_review_not_teacher_signoff",
+        "notes": []
+      },
+      "imageAudit": {
+        "model": "gpt-6.1-sol",
+        "status": "verified",
+        "priorTranscriptionSha256": "92894040cd4e7c528a1a2a61f3109d0f7a04ffba9a6b7970b9617f98eb5804ef",
+        "corrections": []
+      }
     }
   ],
   "resourceFiles": [
@@ -3708,6 +5053,16 @@
     {
       "path": "apps/web/public/textbook-pages/english-g3up-2026/pages.json",
       "sha256": "88ddc1d24f4e0089fbb62f7ff100c070c0d1decfd3b08868420f1e21bcf31e87"
+    },
+    {
+      "path": "data/passages/chinese/chinese-g5up-2026.json",
+      "sha256": "f2c568884745cf6240b301d7ffe223ad6c81a085287ac1312b969f0c6e054841"
+    },
+    {
+      "path": "apps/web/public/textbook-pages/chinese-g5up-2026/pages.json",
+      "sha256": "4f3c29c200d6db1d853eb4813caafea543b378b541d1218358b349e7c86b7ef0"
     }
-  ]
+  ],
+  "audioVersionMap": "release/audio-version-map.json",
+  "audioProvider": "Microsoft EdgeTTS (six current editions; legacy audio retained)"
 }

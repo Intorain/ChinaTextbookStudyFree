@@ -1588,6 +1588,477 @@
         }
       ],
       "readings": []
+    },
+    {
+      "key": "chinese5",
+      "subject": "chinese",
+      "grade": 5,
+      "legacyId": "chinese-g5up",
+      "id": "chinese-g5up-2026",
+      "stem": "义务教育教科书·语文五年级上册（2026秋版）",
+      "edition": "2026",
+      "editionLabel": "2026秋版",
+      "sourceId": "aabf2e4a-3ceb-4e86-8804-22c10223cc57",
+      "sourceTitle": "（根据2022年版课程标准修订）义务教育教科书·语文五年级上册",
+      "imageBase": "https://r1-ndr.ykt.cbern.com.cn/edu_product/esp/assets/aabf2e4a-3ceb-4e86-8804-22c10223cc57.t/zh-CN/1787022984543/transcode/image",
+      "pageCount": 130,
+      "pageOffset": 5,
+      "sourceReview": "docs/issue-22-textbook-review-2026-10-24.json",
+      "units": [
+        {
+          "unit_number": 1,
+          "title": "第一单元·万物有情",
+          "start": 1,
+          "end": 12,
+          "points": [
+            "桂花雨：借事物体会思乡之情",
+            "落花生：借物喻人与做人道理",
+            "珍珠鸟：描写与信赖",
+            "语文园地一：对比描写与词语多义",
+            "习作与交际：心爱之物和班级公约"
+          ]
+        },
+        {
+          "unit_number": 2,
+          "title": "第二单元·提高阅读速度",
+          "start": 13,
+          "end": 32,
+          "points": [
+            "冀中的地道战：带着问题阅读",
+            "将相和：连词成句与概括情节",
+            "什么比猎豹的速度更快：借助关键词句阅读",
+            "“诺曼底号”遇难记：默读与人物描写",
+            "习作与园地二：具体事例表现人物"
+          ]
+        },
+        {
+          "unit_number": 3,
+          "title": "第三单元·民间故事",
+          "start": 33,
+          "end": 50,
+          "points": [
+            "猎人海力布：情节与创造性复述",
+            "牛郎织女：人物与故事细节",
+            "民间故事：丰富情节与故事新编",
+            "语文园地三：俗语成语与讲故事"
+          ]
+        },
+        {
+          "unit_number": 4,
+          "title": "第四单元·家国情怀",
+          "start": 51,
+          "end": 64,
+          "points": [
+            "古诗三首：示儿、题临安邸、己亥杂诗",
+            "少年中国说：借助资料理解文章",
+            "圆明园的毁灭：场景与表达",
+            "梅兰芳蓄须明志：事件与人物品质",
+            "习作与园地四：二十年后的家乡"
+          ]
+        },
+        {
+          "unit_number": 5,
+          "title": "第五单元·介绍一种事物",
+          "start": 65,
+          "end": 74,
+          "points": [
+            "太阳：说明方法与事物特点",
+            "金字塔：整合不同形式的信息",
+            "习作例文：鲸与风向袋的制作",
+            "习作：有条理地介绍一种事物"
+          ]
+        },
+        {
+          "unit_number": 6,
+          "title": "第六单元·父母之爱",
+          "start": 75,
+          "end": 90,
+          "points": [
+            "慈母情深：场景与细节",
+            "父爱之舟：难忘的场景",
+            "航天员写给孩子的信：关爱与梦想",
+            "习作与交际：我想对您说",
+            "语文园地六：场景和细节表达感情"
+          ]
+        },
+        {
+          "unit_number": 7,
+          "title": "第七单元·四时景物皆成趣",
+          "start": 91,
+          "end": 100,
+          "points": [
+            "古诗三首：山居秋暝、枫桥夜泊、早春呈水部张十八员外",
+            "第一场雪：描写景物的变化",
+            "白鹭：景物画面与独特感受",
+            "习作与园地七：我最喜爱的季节"
+          ]
+        },
+        {
+          "unit_number": 8,
+          "title": "第八单元·读书明智",
+          "start": 101,
+          "end": 114,
+          "points": [
+            "古人谈读书：读书方法与态度",
+            "忆读书：梳理读书经历",
+            "走遍天下书为侣：理解选择与读书方法",
+            "习作与园地八：推荐一本书"
+          ]
+        }
+      ],
+      "readings": [
+        {
+          "unit": 1,
+          "title": "桂花雨",
+          "start": 2,
+          "end": 4,
+          "kind": "prose",
+          "role": "main",
+          "lesson": 1
+        },
+        {
+          "unit": 1,
+          "title": "落花生",
+          "start": 5,
+          "end": 6,
+          "kind": "prose",
+          "role": "main",
+          "lesson": 2
+        },
+        {
+          "unit": 1,
+          "title": "珍珠鸟",
+          "start": 7,
+          "end": 8,
+          "kind": "prose",
+          "role": "main",
+          "lesson": 3
+        },
+        {
+          "unit": 2,
+          "title": "冀中的地道战",
+          "start": 14,
+          "end": 16,
+          "kind": "prose",
+          "role": "main",
+          "lesson": 4
+        },
+        {
+          "unit": 2,
+          "title": "将相和",
+          "start": 17,
+          "end": 21,
+          "kind": "story",
+          "role": "main",
+          "lesson": 5
+        },
+        {
+          "unit": 2,
+          "title": "什么比猎豹的速度更快",
+          "start": 22,
+          "end": 24,
+          "kind": "prose",
+          "role": "main",
+          "lesson": 6
+        },
+        {
+          "unit": 2,
+          "title": "“诺曼底号”遇难记",
+          "start": 25,
+          "end": 29,
+          "kind": "story",
+          "role": "main",
+          "lesson": 7
+        },
+        {
+          "unit": 3,
+          "title": "猎人海力布",
+          "start": 34,
+          "end": 36,
+          "kind": "story",
+          "role": "main",
+          "lesson": 8
+        },
+        {
+          "unit": 3,
+          "title": "牛郎织女（一）",
+          "start": 37,
+          "end": 41,
+          "kind": "story",
+          "role": "main",
+          "lesson": 9
+        },
+        {
+          "unit": 3,
+          "title": "牛郎织女（二）",
+          "start": 42,
+          "end": 44,
+          "kind": "story",
+          "role": "main",
+          "lesson": 10
+        },
+        {
+          "unit": 4,
+          "title": "示儿",
+          "start": 52,
+          "end": 52,
+          "kind": "ancient_poem",
+          "role": "main",
+          "lesson": 11
+        },
+        {
+          "unit": 4,
+          "title": "题临安邸",
+          "start": 52,
+          "end": 52,
+          "kind": "ancient_poem",
+          "role": "main",
+          "lesson": 11
+        },
+        {
+          "unit": 4,
+          "title": "己亥杂诗",
+          "start": 53,
+          "end": 53,
+          "kind": "ancient_poem",
+          "role": "main",
+          "lesson": 11
+        },
+        {
+          "unit": 4,
+          "title": "少年中国说（节选）",
+          "start": 54,
+          "end": 55,
+          "kind": "prose",
+          "role": "main",
+          "lesson": 12
+        },
+        {
+          "unit": 4,
+          "title": "圆明园的毁灭",
+          "start": 56,
+          "end": 58,
+          "kind": "prose",
+          "role": "main",
+          "lesson": 13
+        },
+        {
+          "unit": 4,
+          "title": "梅兰芳蓄须明志",
+          "start": 59,
+          "end": 61,
+          "kind": "story",
+          "role": "main",
+          "lesson": 14
+        },
+        {
+          "unit": 5,
+          "title": "太阳",
+          "start": 66,
+          "end": 67,
+          "kind": "prose",
+          "role": "main",
+          "lesson": 15
+        },
+        {
+          "unit": 5,
+          "title": "金字塔",
+          "start": 68,
+          "end": 69,
+          "kind": "prose",
+          "role": "main",
+          "lesson": 16
+        },
+        {
+          "unit": 6,
+          "title": "慈母情深",
+          "start": 76,
+          "end": 79,
+          "kind": "prose",
+          "role": "main",
+          "lesson": 17
+        },
+        {
+          "unit": 6,
+          "title": "父爱之舟",
+          "start": 80,
+          "end": 83,
+          "kind": "prose",
+          "role": "main",
+          "lesson": 18
+        },
+        {
+          "unit": 6,
+          "title": "航天员写给孩子的信",
+          "start": 84,
+          "end": 86,
+          "kind": "prose",
+          "role": "main",
+          "lesson": 19
+        },
+        {
+          "unit": 7,
+          "title": "山居秋暝",
+          "start": 92,
+          "end": 92,
+          "kind": "ancient_poem",
+          "role": "main",
+          "lesson": 20
+        },
+        {
+          "unit": 7,
+          "title": "枫桥夜泊",
+          "start": 92,
+          "end": 92,
+          "kind": "ancient_poem",
+          "role": "main",
+          "lesson": 20
+        },
+        {
+          "unit": 7,
+          "title": "早春呈水部张十八员外",
+          "start": 93,
+          "end": 93,
+          "kind": "ancient_poem",
+          "role": "main",
+          "lesson": 20
+        },
+        {
+          "unit": 7,
+          "title": "第一场雪",
+          "start": 94,
+          "end": 95,
+          "kind": "prose",
+          "role": "main",
+          "lesson": 21
+        },
+        {
+          "unit": 7,
+          "title": "白鹭",
+          "start": 96,
+          "end": 97,
+          "kind": "prose",
+          "role": "main",
+          "lesson": 22
+        },
+        {
+          "unit": 8,
+          "title": "古人谈读书",
+          "start": 102,
+          "end": 103,
+          "kind": "prose",
+          "role": "main",
+          "lesson": 23
+        },
+        {
+          "unit": 8,
+          "title": "忆读书",
+          "start": 104,
+          "end": 108,
+          "kind": "prose",
+          "role": "main",
+          "lesson": 24
+        },
+        {
+          "unit": 8,
+          "title": "走遍天下书为侣",
+          "start": 109,
+          "end": 110,
+          "kind": "prose",
+          "role": "main",
+          "lesson": 25
+        },
+        {
+          "unit": 5,
+          "title": "鲸",
+          "start": 72,
+          "end": 73,
+          "kind": "prose",
+          "role": "writing_example",
+          "lesson": null
+        },
+        {
+          "unit": 5,
+          "title": "风向袋的制作",
+          "start": 74,
+          "end": 74,
+          "kind": "prose",
+          "role": "writing_example",
+          "lesson": null
+        },
+        {
+          "unit": 1,
+          "title": "语文园地一·日积月累",
+          "start": 12,
+          "end": 12,
+          "kind": "prose",
+          "role": "garden",
+          "lesson": null
+        },
+        {
+          "unit": 2,
+          "title": "语文园地二·日积月累",
+          "start": 32,
+          "end": 32,
+          "kind": "prose",
+          "role": "garden",
+          "lesson": null
+        },
+        {
+          "unit": 3,
+          "title": "乞巧",
+          "start": 48,
+          "end": 48,
+          "kind": "ancient_poem",
+          "role": "garden",
+          "lesson": null
+        },
+        {
+          "unit": 4,
+          "title": "语文园地四·日积月累",
+          "start": 64,
+          "end": 64,
+          "kind": "prose",
+          "role": "garden",
+          "lesson": null
+        },
+        {
+          "unit": 6,
+          "title": "游子吟",
+          "start": 90,
+          "end": 90,
+          "kind": "ancient_poem",
+          "role": "garden",
+          "lesson": null
+        },
+        {
+          "unit": 7,
+          "title": "渔歌子",
+          "start": 100,
+          "end": 100,
+          "kind": "ancient_poem",
+          "role": "garden",
+          "lesson": null
+        },
+        {
+          "unit": 8,
+          "title": "观书有感（其一）",
+          "start": 114,
+          "end": 114,
+          "kind": "ancient_poem",
+          "role": "garden",
+          "lesson": null
+        },
+        {
+          "unit": 3,
+          "title": "快乐读书吧·田螺姑娘（节选）",
+          "start": 49,
+          "end": 50,
+          "kind": "story",
+          "role": "optional",
+          "lesson": null
+        }
+      ]
     }
   ]
 }

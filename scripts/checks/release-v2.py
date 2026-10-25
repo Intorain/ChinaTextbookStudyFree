@@ -117,4 +117,38 @@ with tempfile.TemporaryDirectory() as temporary:
     except ValueError:pass
     else:raise AssertionError('Mismatched alias accepted')
     assert data.read_bytes() == before_data
+    # Edition-only voice replacements must not change another book sharing text.
+    b.write_bytes(b'audio')
+    newer = public / 'audio/aa/a.edge-new.mp3';newer.write_bytes(b'new Edge voice')
+    for book in ['chinese-g5up', 'chinese-g5up-2026']:
+        folder = public / 'data/books' / book;folder.mkdir(parents=True)
+        (folder / 'lesson.json').write_text('{"id":"keep-id","audio":"/audio/aa/a.mp3"}')
+    scoped = {'/audio/aa/a.edge-test.mp3': {'url': '/audio/aa/a.edge-new.mp3',
+              'source_sha256': hashlib.sha256(b'audio').hexdigest(),
+              'sha256': hashlib.sha256(b'new Edge voice').hexdigest()}}
+    config = json.loads(mapping.read_text());config['book_mapping'] = {'chinese-g5up-2026': scoped}
+    mapping.write_text(json.dumps(config));assert alias.apply(public, mapping) == 2
+    old = public / 'data/books/chinese-g5up/lesson.json';new = public / 'data/books/chinese-g5up-2026/lesson.json'
+    assert json.loads(old.read_text()) == {'id': 'keep-id', 'audio': '/audio/aa/a.edge-test.mp3'}
+    assert json.loads(new.read_text()) == {'id': 'keep-id', 'audio': '/audio/aa/a.edge-new.mp3'}
+    assert alias.apply(public, mapping) == 0
+    prior = new.read_bytes();newer.write_bytes(b'corrupt replacement')
+    try:alias.apply(public, mapping)
+    except ValueError:pass
+    else:raise AssertionError('Corrupt scoped voice replacement accepted')
+    assert new.read_bytes() == prior
+    newer.write_bytes(b'new Edge voice')
+    config['mapping'] = {};mapping.write_text(json.dumps(config))
+    b.write_bytes(b'changed source')
+    try:alias.apply(public, mapping)
+    except ValueError:pass
+    else:raise AssertionError('Changed source for scoped audio replacement accepted')
+    assert new.read_bytes() == prior
+    b.write_bytes(b'audio')
+    for book in ['../escape', 'missing-edition']:
+        config['book_mapping'] = {book: scoped};mapping.write_text(json.dumps(config))
+        try:alias.apply(public, mapping)
+        except ValueError:pass
+        else:raise AssertionError('Invalid or absent edition for scoped audio accepted')
+        assert new.read_bytes() == prior
 print('PASS: split-package fresh/source installs, upgrades, preservation, corruption, missing parts, traversal and audio alias validation')

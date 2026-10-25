@@ -4,10 +4,10 @@
 
 ## 最快使用：安装现成网站
 
-只需 Python 3.9+，无需 Node.js 或 FFmpeg。在 [Release](https://github.com/wuwangzhang1216/ChinaTextbookStudyFree/releases/tag/v1.5.0-five-textbooks) 下载 `install-release.py`，执行：
+只需 Python 3.9+，无需 Node.js 或 FFmpeg。在 [Release](https://github.com/wuwangzhang1216/ChinaTextbookStudyFree/releases/tag/v1.6.0-chinese-g5up) 下载 `install-release.py`，执行：
 
 ```sh
-python3 install-release.py --tag v1.5.0-five-textbooks --mode static --root ChinaStudyFree-site
+python3 install-release.py --tag v1.6.0-chinese-g5up --mode static --root ChinaStudyFree-site
 python3 -m http.server 8080 --directory ChinaStudyFree-site
 ```
 
@@ -20,7 +20,7 @@ python3 -m http.server 8080 --directory ChinaStudyFree-site
 先备份自定义文件或数据，并从新版 Release 下载新版安装器。不要用旧安装器安装新版分包。
 
 ```sh
-python3 install-release.py --tag v1.5.0-five-textbooks --mode static --root /path/to/existing-site
+python3 install-release.py --tag v1.6.0-chinese-g5up --mode static --root /path/to/existing-site
 ```
 
 此命令覆盖已有页面、配套数据、音频和缓存文件，包括旧 GPT 音频的同名兼容文件；不会因音频目录已存在而跳过更新。未包含在材料包中的自定义文件会保留，旧版遗留文件也不会自动删除。浏览器学习记录保存在原来的浏览器存储中；继续使用相同域名、协议和端口可以保留该存储。
@@ -28,7 +28,7 @@ python3 install-release.py --tag v1.5.0-five-textbooks --mode static --root /pat
 如果是源码部署，先备份本地代码修改；希望安装本版匹配源码与所有资源时执行：
 
 ```sh
-python3 install-release.py --tag v1.5.0-five-textbooks --with-source --root /path/to/ChinaTextbookStudyFree
+python3 install-release.py --tag v1.6.0-chinese-g5up --with-source --root /path/to/ChinaTextbookStudyFree
 cd /path/to/ChinaTextbookStudyFree
 npm ci
 npm run build
@@ -41,7 +41,7 @@ npm run build
 需要 Node.js 20+、Python 3.9+、带 libmp3lame 的 FFmpeg（均加入 PATH）：
 
 ```sh
-python3 install-release.py --tag v1.5.0-five-textbooks --with-source --root ChinaTextbookStudyFree
+python3 install-release.py --tag v1.6.0-chinese-g5up --with-source --root ChinaTextbookStudyFree
 cd ChinaTextbookStudyFree
 npm ci
 npm run build
@@ -55,8 +55,8 @@ python3 -m http.server 8080 --directory apps/web/out
 在 Release 页面下载全部附件至同一目录。安装器按模式选择所需包；`manifest.json` 和 `files.jsonl` 必不可少。
 
 ```sh
-python3 install-release.py --tag v1.5.0-five-textbooks --mode static --root ChinaStudyFree-site --archives-dir /path/to/downloads
-python3 install-release.py --tag v1.5.0-five-textbooks --mode static --root ChinaStudyFree-site --archives-dir /path/to/downloads --verify-only
+python3 install-release.py --tag v1.6.0-chinese-g5up --mode static --root ChinaStudyFree-site --archives-dir /path/to/downloads
+python3 install-release.py --tag v1.6.0-chinese-g5up --mode static --root ChinaStudyFree-site --archives-dir /path/to/downloads --verify-only
 ```
 
 源码目录校验使用 `--root /path/to/source`，省略 `--mode static`；如果安装过完整源码，同时加上 `--with-source`。
