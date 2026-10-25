@@ -48,8 +48,8 @@ for (const plan of catalog.books) {
   const old = index.books.find(b => b.id === plan.legacyId)!;
   assert.ok(book && old, plan.id);
   assert.equal(book.supersedes, old.id); assert.equal(old.supersededBy, book.id);
-  assert.equal(book.editionLabel, '2026秋版');
-  assert.equal(current.filter(b => b.grade === plan.grade && b.semester === 'up' && b.subject === plan.subject).length, 1);
+  assert.equal(book.editionLabel, plan.editionLabel);
+  assert.equal(current.filter(b => b.grade === plan.grade && b.semester === (plan.semester ?? 'up') && b.subject === plan.subject).length, 1);
   const outline: Outline & {lessons: PathLessonMeta[]} = read(`${root}/data/books/${book.id}/outline.json`);
   const legacy: Outline & {lessons: PathLessonMeta[]} = read(`${root}/data/books/${old.id}/outline.json`);
   assert.deepEqual(outline.units.map(u => [u.unit_number, u.title]), plan.units.map((u: any) => [u.unit_number, u.title]));

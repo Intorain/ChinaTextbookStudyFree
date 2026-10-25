@@ -1,15 +1,15 @@
-# v1.6.0 五上语文与六册 Edge 音频：安装与升级
+# v1.7.0 新版数学：安装与升级
 
-本版新增五年级上册语文修订版，含 36 个课时、264 道题、39 篇/组听读；本册与上一轮五册的音频共 10,055 个文本/音色任务全部采用 Edge。新版使用独立 ID，保留全部旧版和原有成绩。包含全部 51 册教材版本的完整网站及资源，无需先安装旧版本，也不需要 AI API Key。
+本版新增官方标注“根据2022年版课程标准修订”的七册人教版数学：一上、一下、二下、三下、四上、五上、六上，共 290 个课时、57 个单元挑战、2,082 道配套题，新音频采用 Edge。新版使用独立 ID，保留旧版和原有成绩；连同已更新的二上、三上，覆盖当前官方目录中全部九册修订版数学。包含全部 58 册教材版本的完整网站及资源，无需先安装旧版本，也不需要 AI API Key。
 
-**不用下载 Assets 中的全部附件。** 在线学习直接[打开课堂](https://d3nmsqi4n72idj.cloudfront.net/)；Web 用户使用安装器自动选择资源；iOS 用户在 App 内按册下载。手动离线下载的分类清单及逐册链接见[下载导航](https://github.com/wuwangzhang1216/ChinaTextbookStudyFree/blob/main/docs/releases/v1.6.0-downloads.md)。Web 音频分为独立 ZIP，每个不超过 1.4 GB（十进制），按安装模式下载对应分包后直接解压，无需拼接。
+**不用下载 Assets 中的全部附件。** 在线学习直接[打开课堂](https://d3nmsqi4n72idj.cloudfront.net/)；Web 用户使用安装器自动选择资源；iOS 用户在 App 内按册下载。手动离线下载的分类清单及逐册链接见[下载导航](https://github.com/wuwangzhang1216/ChinaTextbookStudyFree/blob/main/docs/releases/v1.7.0-downloads.md)。主发布页仅保留入口和校验文件；大型 Web 包位于 `v1.7.0-web-resources`，iOS 逐册包位于 `v1.7.0-ios-resources`，安装器自动选择对应发布页。Web 音频分为独立 ZIP，每个不超过 1.4 GB（十进制），按安装模式下载对应分包后直接解压，无需拼接。
 
 ## 最快使用：安装现成网站
 
-只需 Python 3.9+，无需 Node.js 或 FFmpeg。在 [Release](https://github.com/wuwangzhang1216/ChinaTextbookStudyFree/releases/tag/v1.6.0-chinese-g5up) 下载 `install-release.py`，执行：
+只需 Python 3.9+，无需 Node.js 或 FFmpeg。在 [Release](https://github.com/wuwangzhang1216/ChinaTextbookStudyFree/releases/tag/v1.7.0) 下载 `install-release.py`，执行：
 
 ```sh
-python3 install-release.py --tag v1.6.0-chinese-g5up --mode static --root ChinaStudyFree-site
+python3 install-release.py --tag v1.7.0 --mode static --root ChinaStudyFree-site
 python3 -m http.server 8080 --directory ChinaStudyFree-site
 ```
 
@@ -22,7 +22,7 @@ python3 -m http.server 8080 --directory ChinaStudyFree-site
 先备份自定义文件或数据，并从新版 Release 下载新版安装器。不要用旧安装器安装新版分包。
 
 ```sh
-python3 install-release.py --tag v1.6.0-chinese-g5up --mode static --root /path/to/existing-site
+python3 install-release.py --tag v1.7.0 --mode static --root /path/to/existing-site
 ```
 
 此命令覆盖已有页面、配套数据、音频和缓存文件，包括旧 GPT 音频的同名兼容文件；不会因音频目录已存在而跳过更新。未包含在材料包中的自定义文件会保留，旧版遗留文件也不会自动删除。浏览器学习记录保存在原来的浏览器存储中；继续使用相同域名、协议和端口可以保留该存储。
@@ -30,7 +30,7 @@ python3 install-release.py --tag v1.6.0-chinese-g5up --mode static --root /path/
 如果是源码部署，先备份本地代码修改；希望安装本版匹配源码与所有资源时执行：
 
 ```sh
-python3 install-release.py --tag v1.6.0-chinese-g5up --with-source --root /path/to/ChinaTextbookStudyFree
+python3 install-release.py --tag v1.7.0 --with-source --root /path/to/ChinaTextbookStudyFree
 cd /path/to/ChinaTextbookStudyFree
 npm ci
 npm run build
@@ -43,7 +43,7 @@ npm run build
 需要 Node.js 20+、Python 3.9+、带 libmp3lame 的 FFmpeg（均加入 PATH）：
 
 ```sh
-python3 install-release.py --tag v1.6.0-chinese-g5up --with-source --root ChinaTextbookStudyFree
+python3 install-release.py --tag v1.7.0 --with-source --root ChinaTextbookStudyFree
 cd ChinaTextbookStudyFree
 npm ci
 npm run build
@@ -54,11 +54,11 @@ python3 -m http.server 8080 --directory apps/web/out
 
 ## 离线安装与完整校验
 
-在[下载导航](https://github.com/wuwangzhang1216/ChinaTextbookStudyFree/blob/main/docs/releases/v1.6.0-downloads.md)选择“现成静态网站”或“源码与完整资源”，只下载该模式列出的包至同一目录，另下载安装器、`manifest.json` 与 `files.jsonl`。Web 安装不需要 102 个 iOS 逐册包。
+在[下载导航](https://github.com/wuwangzhang1216/ChinaTextbookStudyFree/blob/main/docs/releases/v1.7.0-downloads.md)选择“现成静态网站”或“源码与完整资源”，只下载该模式列出的包至同一目录，另下载安装器、`manifest.json` 与 `files.jsonl`。Web 安装不需要 116 个 iOS 逐册包。
 
 ```sh
-python3 install-release.py --tag v1.6.0-chinese-g5up --mode static --root ChinaStudyFree-site --archives-dir /path/to/downloads
-python3 install-release.py --tag v1.6.0-chinese-g5up --mode static --root ChinaStudyFree-site --archives-dir /path/to/downloads --verify-only
+python3 install-release.py --tag v1.7.0 --mode static --root ChinaStudyFree-site --archives-dir /path/to/downloads
+python3 install-release.py --tag v1.7.0 --mode static --root ChinaStudyFree-site --archives-dir /path/to/downloads --verify-only
 ```
 
 源码目录校验使用 `--root /path/to/source`，省略 `--mode static`；如果安装过完整源码，同时加上 `--with-source`。
@@ -90,11 +90,11 @@ shasum -a 256 -c SHA256SUMS --ignore-missing
 
 手动安装静态站点时，将全部音频 ZIP 解压到站点根目录，再按表中位置解压数据、页面和图片。安装器可以自动完成这些步骤及全部校验。
 
-本包保留 7 册旧版教材路由以兼容既有进度：总计 51 册版本，当前展示 44 册。包含 2,573 个常规课时、328 个单元挑战，常规题 16,419 道、挑战题 4,533 道。另提供全部 51 册的 iOS AAC/M4A 数据及音频包，配套 `ios-manifest.json`；每本只需下载对应两包。旧版下载地址和学习记录继续保留。
+本包保留 14 册旧版教材路由以兼容既有进度：总计 58 册版本，当前展示 44 册。包含 2,863 个常规课时、385 个单元挑战，常规题 18,159 道、挑战题 4,875 道。另提供全部 58 册的 iOS AAC/M4A 数据及音频包，配套 `ios-manifest.json`；每本只需下载对应两包。旧版下载地址和学习记录继续保留。
 
 ## 题库保留与升级验收
 
-本版恢复原补齐版 2,356 课、15,117 题，保留新增 2026 秋版数学、视觉数感示范和多孩子档案。原数感题移至三节巩固练习，旧错题仍能复习。当前合计 2,573 节常规课、16,419 题；每课有讲解且至少六题。
+本版恢复原补齐版 2,356 课、15,117 题，保留新增 2026 秋版数学、视觉数感示范和多孩子档案。原数感题移至三节巩固练习，旧错题仍能复习。当前合计 2,863 节常规课、18,159 题；每课有讲解且至少六题。本轮另明确修正六下鸽巢问题的两条损坏讲解公式，题目、答案与 ID 不变；基线保存精确的前后指纹及原因。另修正两道旧数学题的“积/商”术语与验算文字，题号和标准答案不变。
 
 安装完整源码并构建后可运行以下只读检查；静态网站把 `--public` 改成站点根目录，同时提供材料包中的基线文件路径：
 
@@ -108,4 +108,6 @@ python3 scripts/checks/content-retention.py --public apps/web/out
 
 旧版仍可从教材切换菜单进入，已选旧版时重新打开首页也保留该选择。新版课时、宝箱和朗读使用独立 ID，原成绩不会算入新版，也不会被清除。Web 更新只轮换页面及教材缓存，不访问或清空 localStorage/IndexedDB。
 
-材料与验证范围见[五上语文核对](https://github.com/wuwangzhang1216/ChinaTextbookStudyFree/blob/main/docs/issue-22-textbook-review-2026-10-24.md)及[发布验收报告](https://github.com/wuwangzhang1216/ChinaTextbookStudyFree/blob/main/docs/issue-22-release-2026-10-25.md)。
+本轮另明确修正四节旧课中的题干、解析或损坏公式。如果恰好留有这些课的未完成会话，内容核对会提示一次性重开当前课；已入账奖励和已完成成绩保留。修订清单见 `docs/restored-content-fixes.json`，不会以音频地址变化为由重开课程。
+
+材料与验证范围见[新版数学核对](https://github.com/wuwangzhang1216/ChinaTextbookStudyFree/blob/main/docs/issue-14-textbook-review-2026-10-25.md)及[发布验收报告](https://github.com/wuwangzhang1216/ChinaTextbookStudyFree/blob/main/docs/issue-14-release-2026-10-25.md)。
