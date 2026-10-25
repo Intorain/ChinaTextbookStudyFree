@@ -38,7 +38,7 @@ python3 scripts/editions/materialize_2026.py \
   --page-cache deploy-output/issue22/pages
 ```
 
-正式资源包使用 `v1.6.0-chinese-g5up`，提供可全新安装的完整 Web 站点及匹配源码，配套全部 51 册的 iOS 资源。历史 v1.5.0 和旧教材继续保留。上线验证结果将在本报告完成后补齐。
+正式资源包使用 `v1.6.0-chinese-g5up`，提供可全新安装的完整 Web 站点及匹配源码，配套全部 51 册的 iOS 资源。历史 v1.5.0 和旧教材继续保留。已于 2026-10-25 上线，见[发布与线上验收报告](issue-22-release-2026-10-25.md)。
 
 ## Edge 音频重做
 
