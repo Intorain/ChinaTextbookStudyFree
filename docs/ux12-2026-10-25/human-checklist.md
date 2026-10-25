@@ -12,12 +12,27 @@
 
 ## 2. 儿童15分钟试用（UX-06 / 07 / 11 / 12）
 
-一年级学生使用测试档案打开 [数数示范课](https://d3nmsqi4n72idj.cloudfront.net/lesson/g1up/g1up-u1-kp1/)。家长观察，不指点答案。
+一年级学生使用测试档案，先按真实默认路径“一年级 → 数学一年级上册（2022课标修订版）→ 在校园和教室里发现数学”进入 [当前首课](https://d3nmsqi4n72idj.cloudfront.net/lesson/g1up-2026/g1up-2026-u101-kp1/)。另用 [点苹果示范课](https://d3nmsqi4n72idj.cloudfront.net/lesson/g1up/g1up-u1-kp1/) 做对照，两条路径分开记录；不能用旧版示范课的结果替代当前默认首课。家长观察，不指点答案。
 
-1. 从“开始”计时，到孩子自主点第一个苹果；记录秒数，目标30秒内。记录是否需要提示、第一次犹豫在哪里。
-2. 让孩子自然作答并完成纠错。结算后询问：“第一次答对几题？后来改对几题？下次想再练什么？”记录孩子原话，不把成人解释后重复当作理解。
+1. 两条路径各从“开始”计时，到孩子第一次自主数物体、判断位置或作答；仅点“下一步/跳过讲解”不计学习动作。记录秒数，目标30秒内；同时记录是否使用跳过讲解、是否需要提示、第一次犹豫在哪里。
+2. 让孩子自然作答并完成纠错；不要求故意答错或强行在15分钟内通关。全对时将纠错理解记为待测，不能推定已理解。结算后询问：“第一次答对几题？后来改对几题？下次想再练什么？”记录孩子原话，不把成人解释后重复当作理解。
 3. 分别试退出、保存、朗读、设置和下一课，记录是否点到相邻控件、是否需成人帮助。辅助按钮软件尺寸已检查，仍需实际拇指操作。
 4. 展示学习、手册、课文、故事、错题、商店等页面，问“聪聪会怎样帮你学习？”记录孩子能否说出具体帮助。成人按10页检查记录核对语气和角色一致性，儿童理解另记。
+
+10页品牌抽查入口（每页记录“语气/聪聪作用/视觉是否像同一个应用”，不一致时写具体元素）：
+
+|页面|入口|
+|---|---|
+|年级学习|[一年级](https://d3nmsqi4n72idj.cloudfront.net/grade/1/)|
+|教材路径|[当前数学上册](https://d3nmsqi4n72idj.cloudfront.net/book/g1up-2026/)|
+|首课|[校园里的数学](https://d3nmsqi4n72idj.cloudfront.net/lesson/g1up-2026/g1up-2026-u101-kp1/)|
+|知识手册|[起始活动手册](https://d3nmsqi4n72idj.cloudfront.net/book/g1up-2026/guide/101/)|
+|课文列表|[一年级语文](https://d3nmsqi4n72idj.cloudfront.net/reading/chinese-g1up/)|
+|课文听读|[上学歌](https://d3nmsqi4n72idj.cloudfront.net/reading/chinese-g1up/chinese-g1up-p1/)|
+|故事列表|[一年级故事](https://d3nmsqi4n72idj.cloudfront.net/stories/chinese-g1up/)|
+|故事阅读|[门口的小伞](https://d3nmsqi4n72idj.cloudfront.net/stories/chinese-g1up/chinese-g1up-s1-v2/)|
+|错题|[错题本](https://d3nmsqi4n72idj.cloudfront.net/review/)|
+|装扮|[聪聪衣橱](https://d3nmsqi4n72idj.cloudfront.net/shop/)|
 
 ## 3. 真机与真实弱网（兼顾 #3）
 
