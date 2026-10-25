@@ -12,7 +12,7 @@ import urllib.request
 import zipfile
 from pathlib import Path, PurePosixPath
 
-DEFAULT_TAG = 'v1.5.0-five-textbooks'
+DEFAULT_TAG = 'v1.6.0-chinese-g5up'
 DESTINATIONS = {
     'audio.tar.gz': 'apps/web/public',
     'data.zip': 'apps/web/public/data',

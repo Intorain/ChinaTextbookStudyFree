@@ -2,7 +2,7 @@
 """Validate reviewed 2026 content before adding isolated textbook resources.
 
 The stage contains editorial candidates, not production data. This command
-requires the complete catalog, checks official page fingerprints and never writes
+validates the selected catalog entries, checks official page fingerprints and never writes
 legacy source paths. Reviewed passage sources and page images stay in the normal
 ignored resource directories and ship in the resource package.
 """
@@ -57,15 +57,26 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--stage", type=Path, default=ROOT/"deploy-output/five-textbooks")
     parser.add_argument("--page-cache", type=Path, required=True)
+    parser.add_argument("--book-id", action="append", help="Materialize only these reviewed editions; preserve other manifest entries")
     args = parser.parse_args()
     catalog = read(ROOT/"content/editions/2026/catalog.json")
-    evidence = read(ROOT/catalog["sourceReview"])
-    pages = {(p["book"], p["physical_page"]): p for p in evidence["page_evidence"]}
+    selected = [b for b in catalog["books"] if not args.book_id or b["id"] in args.book_id]
+    if args.book_id and set(args.book_id) != {b["id"] for b in selected}:
+        parser.error("Unknown edition ID")
+    manifest_path = ROOT/"content/editions/2026/resource-manifest.json"
+    prior = read(manifest_path) if args.book_id and manifest_path.exists() else {}
+    retained_ids = {b["id"] for b in catalog["books"]} - {b["id"] for b in selected}
+    if args.book_id and not retained_ids.issubset({s["bookId"] for s in prior.get("sources", [])}):
+        parser.error("Partial import requires the existing source manifest for all retained editions")
+    pages = {}
+    for source in {b.get("sourceReview", catalog["sourceReview"]) for b in selected}:
+        evidence = read(ROOT/source)
+        pages.update({(p["book"], p["physical_page"]): p for p in evidence["page_evidence"]})
     pending = []
     sources = []
     resources = []
     stats = Counter()
-    for book in catalog["books"]:
+    for book in selected:
         book_id = book["id"]
         if book_id != book["legacyId"] + "-2026" or "2026秋版" not in book["stem"]:
             raise ValueError("Refusing a legacy book or source path")
@@ -142,8 +153,17 @@ def main():
         shutil.copy2(cached, target)
     for target, data in pending:
         write(target, data)
-    source_manifest = {"schemaVersion": 1, "sourceReview": catalog["sourceReview"], "stats": dict(stats), "editorialSignoff": "model_screen_only_not_teacher_signoff", "sources": sources,
-                       "resourceFiles": [{"path": str(p.relative_to(ROOT)), "sha256": digest(p)} for p, _ in pending if str(p.relative_to(ROOT)).startswith(("data/", "apps/web/public/"))]}
+    selected_ids = {b["id"] for b in selected}
+    retained_sources = [s for s in prior.get("sources", []) if s["bookId"] not in selected_ids]
+    retained_files = [f for f in prior.get("resourceFiles", []) if not any(book_id in f["path"] for book_id in selected_ids)]
+    totals = Counter()
+    for b in catalog["books"]:
+        totals["lessons"] += sum(len(u["points"]) for u in b["units"])
+        totals["regular_questions"] += sum(len(u["points"])*6 for u in b["units"])
+        totals["exam_questions"] += len(b["units"])*6
+        totals["readings"] += len(b["readings"])
+    source_manifest = {"schemaVersion": 1, "sourceReview": catalog["sourceReview"], "sourceReviews": sorted({b.get("sourceReview", catalog["sourceReview"]) for b in catalog["books"]}), "stats": dict(totals), "editorialSignoff": "model_screen_only_not_teacher_signoff", "sources": retained_sources + sources,
+                       "resourceFiles": retained_files + [{"path": str(p.relative_to(ROOT)), "sha256": digest(p)} for p, _ in pending if str(p.relative_to(ROOT)).startswith(("data/", "apps/web/public/"))]}
     write(ROOT/"content/editions/2026/resource-manifest.json", source_manifest)
     print(json.dumps(dict(stats), ensure_ascii=False))
 

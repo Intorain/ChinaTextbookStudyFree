@@ -11,7 +11,7 @@ final class CoreTypesTests: XCTestCase {
         XCTAssertFalse(first.id.isEmpty)
         XCTAssertFalse(first.fullName.isEmpty)
         XCTAssertGreaterThan(first.unitsCount, 0)
-        for legacyId in ["g3up", "chinese-g2up", "chinese-g3up", "english-g3up", "science-g3up"] {
+        for legacyId in ["g3up", "chinese-g2up", "chinese-g3up", "english-g3up", "science-g3up", "chinese-g5up"] {
             let revised = try XCTUnwrap(index.books.first { $0.id == legacyId + "-2026" })
             let legacy = try XCTUnwrap(index.books.first { $0.id == legacyId })
             XCTAssertEqual(revised.supersedes, legacyId)
