@@ -1,6 +1,6 @@
 # #14：一年级语文拼音朗读修复
 
-跟进 [2026-10-25 的反馈](https://github.com/wuwangzhang1216/congcong-school/issues/14#issuecomment-6407725012)。原数学教材更新已于 v1.7.0 完成；本次处理新反馈中的一年级拼音朗读问题。发布目标 v1.7.2，发布及线上复验结果另见本目录验收记录。
+跟进 [2026-10-25 的反馈](https://github.com/wuwangzhang1216/congcong-school/issues/14#issuecomment-6407725012)。原数学教材更新已于 v1.7.0 完成；本次处理新反馈中的一年级拼音朗读问题。已随 [v1.7.2](https://github.com/wuwangzhang1216/congcong-school/releases/tag/v1.7.2) 上线；[完整验收记录](final-acceptance.json)。应用及资源源提交固定为 `950854a5eb8bc89f360ccc8ec096fa0859c8d9cb`，后续仅补充验收文档及发布元数据。
 
 ## 原因和修复
 
@@ -41,3 +41,13 @@
 - [人教社语文教材说明](https://www.pep.com.cn/products/jc/jks/201608/t20160823_1369629.shtml)：拼音教学涉及声母、韵母、声调和整体认读音节。
 - [汉语拼音方案（高校公开版）](https://jwc.qzc.edu.cn/_upload/article/files/ff/32/cc69a400496186407e64fa4338cc/232fc89a-19af-4b9c-a829-a936d8a8919b.pdf)：声母呼读音和韵母体系的核对依据。
 - [人教社配套录音产品说明](https://www.pep.com.cn/products/dzyxn/xx/yw/202006/t20200617_1951990.shtml)：可作人工听辨参考；本项目未下载或重新分发该录音。
+
+## 发布后复验
+
+全部 3,350 份线上教材 JSON 与最终快照 SHA-256 相符；880 个新增 MP3/Opus 对象的 HTTPS 正文、MIME 和校验值相符。329,216 个旧媒体对象的 S3 大小、ETag、LastModified 在部署前后不变，继承此前通过的媒体字节和 MIME 核验，另抽查了实际 HTTPS 交付。全部 343,533 个当前站点文件在线存在、大小相符，额外对象仅为保留的历史资源。
+
+五个原档案经页面分别导出，部署前后完整数据一致，原成绩、错题、奖励和未提交进度均保留。原始存档只保存在本地，不进入仓库、网站或资源包。实际课堂播放、四声选项、修正题目的判分和刷新恢复另有页面验证记录。
+
+主发布页 7 个入口/校验附件，Web 18 个、iOS 118 个附件。143 个新附件的服务端 SHA-256 与本地相符，静态/源码完整安装和公开下载均通过；608 个历史附件的文件 ID、摘要和 URL 以及旧标签指向保持不变。
+
+[修正题“怕”判对](pinyin-correction-online.png) · [连线题正确配对](pinyin-matching-online.png) · [完整课程 9/9 三星](pinyin-grade-online.png)。`validation.json` 为发布前记录，`final-acceptance.json` 为发布后结果。
