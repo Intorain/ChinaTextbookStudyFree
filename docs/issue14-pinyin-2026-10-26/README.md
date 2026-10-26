@@ -1,6 +1,6 @@
 # #14：一年级语文拼音朗读修复
 
-跟进 [2026-10-25 的反馈](https://github.com/wuwangzhang1216/congcong-school/issues/14#issuecomment-6407725012)。原数学教材更新已于 v1.7.0 完成；本次处理新反馈中的一年级拼音朗读问题。已随 [v1.7.2](https://github.com/wuwangzhang1216/congcong-school/releases/tag/v1.7.2) 上线；[完整验收记录](final-acceptance.json)。应用及资源源提交固定为 `950854a5eb8bc89f360ccc8ec096fa0859c8d9cb`，后续仅补充验收文档及发布元数据。
+跟进 [2026-10-25 的反馈](https://github.com/wuwangzhang1216/congcong-school/issues/14#issuecomment-6407725012)。原数学教材更新已于 v1.7.0 完成；本次处理新反馈中的一年级拼音朗读问题。已随 [v1.7.2](https://github.com/wuwangzhang1216/congcong-school/releases/tag/v1.7.2) 上线；[完整验收记录](final-acceptance.json)。Web 及资源源提交固定为 `950854a5eb8bc89f360ccc8ec096fa0859c8d9cb`，后续仅补充验收文档及发布元数据。
 
 ## 原因和修复
 
@@ -51,3 +51,9 @@
 主发布页 7 个入口/校验附件，Web 18 个、iOS 118 个附件。143 个新附件的服务端 SHA-256 与本地相符，静态/源码完整安装和公开下载均通过；608 个历史附件的文件 ID、摘要和 URL 以及旧标签指向保持不变。
 
 [修正题“怕”判对](pinyin-correction-online.png) · [连线题正确配对](pinyin-matching-online.png) · [完整课程 9/9 三星](pinyin-grade-online.png)。`validation.json` 为发布前记录，`final-acceptance.json` 为发布后结果。
+
+## iOS 客户端旧错题补充兼容（最新源码）
+
+复查发现原 iOS 错题库保留题目快照。最新客户端源码在复习时按原课时/题目 ID 取得当前题面、答案和音频，保留 SRS 日期、箱位、计数和原成绩；旧版字母音频不再通过错题快照回流。尚未更新一年级语文资源时提供按册下载入口；已更新的资源支持离线复习，缺失内容不退回旧拼音快照。
+
+本补丁通过 223 项 iOS 单测，其中新增旧答案/音频刷新、复习进度保留、资源缺失及离线资源识别测试。**iOS 客户端请从仓库最新 `main` 构建**；资源仍使用 `v1.7.2-ios-resources`。已发布的 Web 源码快照、音频及数据归档保持原样。App Store 和真机验收仍在 #12 的人工项范围内。
